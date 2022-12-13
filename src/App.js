@@ -9,7 +9,7 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatLog chatMessages={chatMessages} />
+        <ChatLog entries={chatMessages} />
       </main>
     </div>
   );
