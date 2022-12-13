@@ -1,14 +1,20 @@
-import React from 'react';
 import './ChatEntry.css';
+import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
-const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
+const ChatEntry = (props) => {
+  const converTimeStamp = (time) => {
+    return <TimeStamp time={time}></TimeStamp>;
+  };
+
+  const timeToDisplay = converTimeStamp(props.timeStamp);
+
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">{sender}</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>{body}</p>
-        <p className="entry-time">{timeStamp}</p>
+        <p>{props.body}</p>
+        <p className="entry-time">{timeToDisplay}</p>
         <button className="like">🤍</button>
       </section>
     </div>
