@@ -12,7 +12,7 @@ const App = () => {
       </header>
       <main>
         {/* <ChatEntry sender='Me' body='Hello' timeStamp='2018-05-29T22:49:06+00:00'/> */}
-        <ChatLog log={chatMessages} />
+        <ChatLog entries={chatMessages} />
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
