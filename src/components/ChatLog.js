@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
+import './ChatLog.css';
 // import chatMessages from './data/messages.json';
 
 const ChatLog = (props) => {
@@ -15,7 +16,7 @@ const ChatLog = (props) => {
       }
     </li>
   ));
-  return <div>{msgComponents}</div>;
+  return <div className="chat-log">{msgComponents}</div>;
 };
 
 ChatLog.propTypes = {
