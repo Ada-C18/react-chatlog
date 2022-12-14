@@ -11,7 +11,7 @@ const ChatEntry = (props) => {
 
   const [like, setLike] = useState(false);
 
-  const likeButton = like ? '💖' : '🤍';
+  const likeButton = like ? '❤️' : '🤍';
 
   return (
     <div className={localOrRemoteClass}>
@@ -28,7 +28,7 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
