@@ -7,12 +7,14 @@ const ChatLog = (props) => {
 
   const chatLogComponents = chatData.map((chat) => {
     return (
-      <ChatEntry
-        id={chat.id}
-        sender={chat.sender}
-        body={chat.body}
-        timeStamp={chat.timeStamp}
-      ></ChatEntry>
+      <li key={chat.id}>
+        <ChatEntry
+          id={chat.id}
+          sender={chat.sender}
+          body={chat.body}
+          timeStamp={chat.timeStamp}
+        ></ChatEntry>
+      </li>
     );
   });
 
@@ -20,7 +22,7 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  chatData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  entries: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ChatLog;
