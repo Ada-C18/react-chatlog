@@ -18,11 +18,15 @@ const ChatLog = (props) => {
       </li>
     );
   });
-  return <section>{chatEntryComponents}</section>;
+  return (
+    <section>
+      <ul>{chatEntryComponents}</ul>
+    </section>
+  );
 };
 
 ChatLog.propTypes = {
-  entrys: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
