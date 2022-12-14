@@ -1,5 +1,6 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
+import './ChatLog.css';
 
 const ChatLog = (props) => {
   const chatData = props.entries;
