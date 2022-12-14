@@ -4,15 +4,15 @@ import './ChatLog.css';
 
 const ChatLog = (props) => {
   const chatData = props.entries;
+
   const chatLogComponents = chatData.map((chat) => {
     return (
-      <li>
-        <ChatEntry
-          sender={chat.sender}
-          body={chat.body}
-          timeStamp={chat.timeStamp}
-        ></ChatEntry>
-      </li>
+      <ChatEntry
+        id={chat.id}
+        sender={chat.sender}
+        body={chat.body}
+        timeStamp={chat.timeStamp}
+      ></ChatEntry>
     );
   });
 
