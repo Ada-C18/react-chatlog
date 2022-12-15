@@ -4,8 +4,26 @@ import chatMessages from './data/messages.json';
 import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 
+const messageData = [
+  {
+    id: 1,
+    sender:'Vladimir',
+    body:'why are you arguing with me',
+    timeStamp:'2018-05-29T22:49:06+00:00',
+    liked: false
+  },
+  {
+  id: 2,
+    sender:'Estragon',
+    body:'Because you are wrong.',
+    timeStamp:'2018-05-29T22:49:33+00:00',
+    liked: false
+  },
+
+]
+
 const App = () => {
-  const messageData = chatMessages
+  
   // const messageData = chatMessages[0]
   return (
     <div id="App">
@@ -15,7 +33,7 @@ const App = () => {
       <main>
       {/* <ChatEntry sender={messageData.sender} body={messageData.body} timeStamp={messageData.timeStamp} liked={messageData.liked}/> */}
       <ChatLog 
-        messageData = {messageData}
+        chatMessages = {chatMessages}
       />
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
