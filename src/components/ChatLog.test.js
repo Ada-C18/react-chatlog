@@ -1,3 +1,5 @@
+"avoidEscape": true;
+
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import ChatLog from "./ChatLog";
