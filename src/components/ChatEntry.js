@@ -3,8 +3,9 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 import { DateTime } from 'luxon';
+import { useState } from 'react';
 
-const ChatEntry = ({id,sender,body,timeStamp,liked}) => {
+const ChatEntry = ({id,sender,body,timeStamp}) => {
 
   // //solution 1 based on sender
   // let changePos = 'chat-entry local';
@@ -14,6 +15,18 @@ const ChatEntry = ({id,sender,body,timeStamp,liked}) => {
 
   //solution 2 using ternary function to toogle left and right
   // const changePos = (sender==='Vladimir') ? 'local':'remote'}
+  const [ liked, setToogle ] = useState(false);
+
+  if (liked){
+    console.log('click');
+  } else {console.log('click click')};
+
+  const clickHeart = () => {
+    console.log('inside clickHeart function')
+    setToogle(!liked);    
+  }
+
+  const emojiChange = liked ? '❤️':'🤍' ;
 
   return (
     <div className={`chat-entry ${sender==='Vladimir' ? 'local':'remote'}`}>     
@@ -23,7 +36,8 @@ const ChatEntry = ({id,sender,body,timeStamp,liked}) => {
         <p className="entry-time">
         <TimeStamp time={timeStamp} />
         </p>
-        <button className="like">🤍</button>
+         <button onClick={ clickHeart } >🤍</button> 
+         {/* <button onClick={ setHeart }>🤍</button>  */}
       </section>
     </div>
   );
