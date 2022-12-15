@@ -1,7 +1,6 @@
 import React from 'react';
 import './ChatLog.css';
 import ChatEntry from './ChatEntry';
-import './data/messages.json';
 
 const ChatLog = (props) => {
   const chatComponents = props.entries.map((entry) => (
