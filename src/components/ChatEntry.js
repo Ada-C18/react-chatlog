@@ -2,6 +2,7 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
+import { DateTime } from 'luxon';
 
 const ChatEntry = ({sender,body,timeStamp,liked}) => {
   return (
@@ -20,6 +21,10 @@ const ChatEntry = ({sender,body,timeStamp,liked}) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
+  sender: PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
+  timeStamp:PropTypes.string.isRequired,
+  liked:PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;
