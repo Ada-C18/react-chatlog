@@ -4,9 +4,19 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 import { DateTime } from 'luxon';
 
-const ChatEntry = ({sender,body,timeStamp,liked}) => {
+const ChatEntry = ({id,sender,body,timeStamp,liked}) => {
+
+  // //solution 1 based on sender
+  // let changePos = 'chat-entry local';
+  // if (sender==='Vladimir') {
+  //   changePos = 'chat-entry remote';
+  // }
+
+  //solution 2 using ternary function to toogle left and right
+  // const changePos = (sender==='Vladimir') ? 'local':'remote'}
+
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${sender==='Vladimir' ? 'local':'remote'}`}>     
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p >{body}</p>

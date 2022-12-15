@@ -33,7 +33,7 @@ const App = () => {
       <main>
       {/* <ChatEntry sender={messageData.sender} body={messageData.body} timeStamp={messageData.timeStamp} liked={messageData.liked}/> */}
       <ChatLog 
-        chatMessages = {chatMessages}
+        entries={chatMessages}
       />
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}

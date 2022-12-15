@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 
 
-const ChatLog = ({chatMessages}) => {
+const ChatLog = ({entries}) => {
 
   
-    const messageComponents = chatMessages.map((message) => {
+    const messageComponents = entries.map((message) => {
         return (
           <div key={message.id}>
           <ChatEntry 
