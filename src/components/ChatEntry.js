@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
-  // console.log(messages);
-  // const time = messages[0].timeStamp;
+  let classLocation = 'chat-entry local';
+  if (id % 2 === 0) {
+    classLocation = 'chat-entry remote';
+  }
+
   return (
-    <div className="chat-entry local">
+    <div className={classLocation}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>

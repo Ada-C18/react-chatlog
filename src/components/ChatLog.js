@@ -34,7 +34,7 @@ const ChatLog = ({ entries }) => {
   );
 };
 
-ChatEntry.propTypes = {
+ChatLog.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
