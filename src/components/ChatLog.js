@@ -1,6 +1,7 @@
 import React from 'react';
 import './ChatLog.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
 const ChatLog = ({ entries }) => {
   const chatComponents = entries.map((message) => {
@@ -9,7 +10,9 @@ const ChatLog = ({ entries }) => {
         <h2 className="entry-name">{message.sender}</h2>
         <section className="entry-bubble">
           <p>{message.body}</p>
-          <p className="entry-time">{message.timeStamp}</p>
+          <p className="entry-time">
+            <TimeStamp time={message.timeStamp} />
+          </p>
           <button className="like">🤍</button>
         </section>
       </div>
