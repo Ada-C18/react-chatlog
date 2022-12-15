@@ -12,6 +12,7 @@ const ChatLog = (props) => {
         body={chat.body}
         timeStamp={chat.timeStamp}
         liked={chat.liked}
+        updateLiked={props.updateLiked}
       ></ChatEntry>
     );
   });
@@ -21,6 +22,7 @@ const ChatLog = (props) => {
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateLiked: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
