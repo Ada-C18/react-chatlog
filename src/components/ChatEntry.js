@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
+  const heartColor = props.liked ? '❤️' : '🤍';
+
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
@@ -13,7 +15,9 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => props.toggleLiked(props.id)}>
+          {heartColor}
+        </button>
       </section>
     </div>
   );

@@ -11,6 +11,7 @@ const ChatLog = (props) => {
       body={entry.body}
       timeStamp={entry.timeStamp}
       liked={entry.liked}
+      toggleLiked={props.onToggleLiked}
     />
   ));
 
