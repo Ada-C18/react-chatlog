@@ -2,7 +2,7 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-import { DateTime } from 'luxon';
+// import { DateTime } from 'luxon';
 import { useState } from 'react';
 
 const ChatEntry = ({id,sender,body,timeStamp}) => {
@@ -17,15 +17,16 @@ const ChatEntry = ({id,sender,body,timeStamp}) => {
   // const changePos = (sender==='Vladimir') ? 'local':'remote'}
   const [ liked, setToogle ] = useState(false);
 
-  if (liked){
-    console.log('click');
-  } else {console.log('click click')};
+  // if (liked){
+  //   console.log('click');
+  // } else {console.log('click click')};
 
   const clickHeart = () => {
     console.log('inside clickHeart function')
     setToogle(!liked);    
   }
 
+  //if liked is true then red heart, else grey heart
   const emojiChange = liked ? '❤️':'🤍' ;
 
   return (
@@ -36,7 +37,7 @@ const ChatEntry = ({id,sender,body,timeStamp}) => {
         <p className="entry-time">
         <TimeStamp time={timeStamp} />
         </p>
-         <button onClick={ clickHeart } >🤍</button> 
+         <button onClick={ clickHeart } >{emojiChange}</button> 
          {/* <button onClick={ setHeart }>🤍</button>  */}
       </section>
     </div>
