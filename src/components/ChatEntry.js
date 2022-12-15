@@ -1,14 +1,18 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({sender, body, timeStamp }) => {
+const ChatEntry = ({ id, sender, body, timeStamp }) => {
+  const comparePosition = id % 2 ? 'local' : 'remote';
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${comparePosition}`}>
       <h2 className="entry-name"> {sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
-        <p className="entry-time">{timeStamp}</p>
+        <p className="entry-time">
+          <TimeStamp time={timeStamp} />
+        </p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -17,10 +21,10 @@ const ChatEntry = ({sender, body, timeStamp }) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
-  id :PropTypes.number.isRequired,
-  sender:PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired
+  timeStamp: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;
