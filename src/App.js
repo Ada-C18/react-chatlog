@@ -12,26 +12,22 @@ const App = () => {
   const [numOfLiked, setNumOfLiked] = useState(0);
 
   const updateLiked = (updatedChatEntry) => {
+    let count = 0;
     const updatedChatData = chatData.map((chat) => {
       if (chat.id === updatedChatEntry.id) {
+        if (updatedChatEntry.liked) {
+          count += 1;
+        }
         return updatedChatEntry;
       } else {
+        if (chat.liked) {
+          count += 1;
+        }
         return chat;
       }
     });
     setChatData(updatedChatData);
-    setNumOfLiked(countLiked(updatedChatData));
-  };
-
-  const countLiked = (chatDataArray) => {
-    let count = 0;
-    for (const chat of chatDataArray) {
-      if (chat.liked) {
-        count += 1;
-      }
-    }
-
-    return count;
+    setNumOfLiked(count);
   };
 
   return (
