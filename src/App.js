@@ -33,6 +33,10 @@ const App = () => {
   return (
     <div id="App">
       <header>
+        <h1>
+          Chat between {chatData[0].sender} and {chatData[1].sender}
+        </h1>
+        <br></br>
         <h1>{numOfLiked} ❤️s</h1>
       </header>
       <main>
