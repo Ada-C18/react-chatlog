@@ -41,7 +41,7 @@ const App = () => {
         <main>
           {
             <ChatLog
-              chatMessages={chatMessagesData}
+              entries={chatMessagesData}
               updateChatsLikes={updateLiked}
               userNames={names}
               timeStampComponent={TimeStamp}

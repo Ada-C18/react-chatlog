@@ -17,8 +17,10 @@ const ChatEntry = (props) => {
     props.updateChatLike(newChatData);
   };
   const heartSelector = props.liked ? '❤️' : '🤍';
-  const localOrRemote =
-    props.sender === props.chatUserNames[0] ? 'local' : 'remote';
+  // const localOrRemote =
+  //   props.sender === props.chatUserNames[0] ? 'local' : 'remote';
+  const localOrRemote = props.id % 2 === 1 ? 'local' : 'remote';
+
   return (
     <div className={`chat-entry ${localOrRemote}`}>
       <h2 className="entry-name">{props.sender}</h2>

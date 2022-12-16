@@ -2,9 +2,9 @@ import React from 'react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = (entries) => {
-  const getChatLogJSX = (entries) => {
-    return entries.chatMessages.map((chat) => {
+const ChatLog = (props) => {
+  const getChatLogJSX = (props) => {
+    return props.entries.map((chat) => {
       return (
         <ChatEntry
           key={chat.id}
@@ -13,18 +13,18 @@ const ChatLog = (entries) => {
           body={chat.body}
           timeStamp={chat.timeStamp}
           liked={chat.liked}
-          updateChatLike={entries.updateChatsLikes}
-          chatUserNames={entries.userNames}
-          timeStampComp={entries.timeStampComponent}
+          updateChatLike={props.updateChatsLikes}
+          chatUserNames={props.userNames}
+          timeStampComp={props.timeStampComponent}
         />
       );
     });
   };
-  return <ul className="chat-log">{getChatLogJSX(entries)}</ul>;
+  return <ul className="chat-log">{getChatLogJSX(props)}</ul>;
 };
 
 ChatLog.propTypes = {
-  chatMessages: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       sender: PropTypes.string,
