@@ -3,7 +3,7 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 // import { DateTime } from 'luxon';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
 
@@ -15,22 +15,18 @@ const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
 
   //solution 2 using ternary function to toogle left and right
   // const changePos = (sender==='Vladimir') ? 'local':'remote'}
-  // const [ liked, setToogle ] = useState(false);
+  const [ like, setToogle ] = useState(liked);
 
 
-  const clickHeart = () => {
-    console.log('inside function clickHeart from ChatEntry.js ')
-    // setToogle(!liked);
-    updateLikes({
-      id:id,
-      sender:sender,
-      body:body,
-      liked:!liked
-    });    
+  const clickHeart = (id) => {
+    console.log('inside function clickHeart from ChatEntry.js ',id)
+    
+    updateLikes(id);  
+    setToogle(!like);  
   }
 
   //if liked is true then red heart, else grey heart
-  const emojiChange = liked ? '❤️':'🤍' ;
+  const emojiChange = like ? '❤️':'🤍' ;
 
   return (
     <div className={`chat-entry ${sender==='Vladimir' ? 'local':'remote'}`}>     
@@ -40,7 +36,7 @@ const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
         <p className="entry-time">
         <TimeStamp time={timeStamp} />
         </p>
-         <button onClick={ clickHeart } >{emojiChange}</button> 
+         <button onClick={() =>clickHeart(id) } >{emojiChange}</button> 
          {/* <button onClick={ setHeart }>🤍</button>  */}
       </section>
     </div>
@@ -49,7 +45,7 @@ const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
-  id:PropTypes.number.isRequired,
+  // id:PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body:PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,

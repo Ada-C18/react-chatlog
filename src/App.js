@@ -31,7 +31,7 @@ const App = () => {
   const [ messageList, setMessagesList ] = useState(initialCopy);
 
   //2 set callback function to update the messageList to true/false for likes
-  const updateLikes = (id,liked) => {
+  const updateLikes = (id) => {
     console.log('updateLikes function from App.js is called')
     const newMessageList = [];
     for (const message of messageList) {
@@ -40,8 +40,9 @@ const App = () => {
       } else {
         const newMessage = {
           ...message,
-          like: true
+          liked: !message.liked
         };
+        console.log('newMessage.liked',newMessage.liked)
         newMessageList.push(newMessage)
       }
     }
@@ -50,7 +51,7 @@ const App = () => {
 
   ///to calculate the total likes
   let likeCount = 0
-  for (let key of initialCopy) {
+  for (let key of messageList) {
     if (key.liked === true) {
       likeCount+=1
     }
