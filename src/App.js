@@ -21,14 +21,16 @@ const chatMessagesData = chatMessages.map((message, i) => {
 
 
 const App = () => {
+  const chatEntry = <ChatEntry></ChatEntry>
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
       </header>
       <main>
-      {chatMessagesData}
-      </main> 
+        {/* Wave 01: Render one ChatEntry component
+        Wave 02: Render ChatLog component */}
+      </main>
     </div>
   );
 };
