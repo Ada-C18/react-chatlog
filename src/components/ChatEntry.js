@@ -25,7 +25,6 @@ const ChatEntry = ({id,sender,body,timeStamp,liked, toggleLike}) => {
         <p className="entry-time"><TimeStamp time={timeStamp}/></p>
         <button className="like" onClick={toggleHeart}>{likeDict[liked]}</button>
       </section>
-      <span>{liked}</span>
     </div>
   );
 };

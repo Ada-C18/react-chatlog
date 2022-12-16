@@ -4,14 +4,20 @@ import PropTypes from 'prop-types'
 
 const ChatLog = ({entries, toggleLike}) => {
     if (!entries) {
-        return <div>Nothing here</div>
+        return <section>Nothing here</section>
     }
     // let count
     const Logs = entries.map(entry => {
         
-        return (<ChatEntry key={entry.id }id={entry.id} sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp} liked={entry.liked} toggleLike = {toggleLike}/>)
+        return (<ChatEntry key={entry.id} 
+                            id={entry.id} 
+                            sender={entry.sender} 
+                            body={entry.body} 
+                            timeStamp={entry.timeStamp} 
+                            liked={entry.liked} 
+                            toggleLike = {toggleLike}/>)
     })
-    return (<div>{Logs}</div>)
+    return <section>{Logs}</section>
 }
 
 ChatLog.propTypes = {
