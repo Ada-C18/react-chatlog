@@ -1,37 +1,54 @@
 import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
 import TimeStamp from './components/TimeStamp';
 import ChatLog from './components/ChatLog';
 
-// {
-//   'id': 1,
-//   'sender':'Vladimir',
-//   'body':'why are you arguing with me',
-//   'timeStamp':'2018-05-29T22:49:06+00:00',
-//   'liked': false
-// },
 const App = () => {
-  //const [chatMessagesData, setChatMessagesData] = useState(chatMessages);
-  const testChat = {
-    id: 1,
-    sender: 'Vladimir',
-    body: 'why are you arguing with me',
-    timeStamp: '2018-05-29T22:49:06+00:00',
-    liked: false,
+  const [chatMessagesData, setChatMessagesData] = useState(chatMessages);
+  const [likesNumber, setLikesNumber] = useState(0);
+
+  const updateLiked = (updatedChatData) => {
+    const chats = chatMessagesData.map((chat) => {
+      if (chat.id === updatedChatData.id) {
+        return updatedChatData;
+      } else {
+        return chat;
+      }
+    });
+    const countLikes = chats.filter((chatComp) => chatComp.liked).length;
+    setLikesNumber(countLikes);
+    setChatMessagesData(chats);
   };
+
+  const names = Array.from(
+    new Set(
+      chatMessagesData.map((chat) => {
+        return chat.sender;
+      })
+    )
+  );
+
   return (
     <div id="App">
-      <header>
-        <h1>Application title</h1>
-      </header>
-      <main>
-        {
-          <ChatEntry chatMessages={testChat}></ChatEntry>
-          /*Wave 02: Render ChatLog component */
-        }
-      </main>
+      <React.StrictMode>
+        <header>
+          <h1>
+            Chat between {names[0]} and {names[1]}
+          </h1>
+          <h2>{likesNumber} ❤️s</h2>
+        </header>
+        <main>
+          {
+            <ChatLog
+              chatMessages={chatMessagesData}
+              updateChatsLikes={updateLiked}
+              userNames={names}
+              timeStampComponent={TimeStamp}
+            ></ChatLog>
+          }
+        </main>
+      </React.StrictMode>
     </div>
   );
 };
