@@ -3,9 +3,9 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 // import { DateTime } from 'luxon';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-const ChatEntry = ({id,sender,body,timeStamp}) => {
+const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
 
   // //solution 1 based on sender
   // let changePos = 'chat-entry local';
@@ -15,15 +15,18 @@ const ChatEntry = ({id,sender,body,timeStamp}) => {
 
   //solution 2 using ternary function to toogle left and right
   // const changePos = (sender==='Vladimir') ? 'local':'remote'}
-  const [ liked, setToogle ] = useState(false);
+  // const [ liked, setToogle ] = useState(false);
 
-  // if (liked){
-  //   console.log('click');
-  // } else {console.log('click click')};
 
   const clickHeart = () => {
-    console.log('inside clickHeart function')
-    setToogle(!liked);    
+    console.log('inside function clickHeart from ChatEntry.js ')
+    // setToogle(!liked);
+    updateLikes({
+      id:id,
+      sender:sender,
+      body:body,
+      liked:!liked
+    });    
   }
 
   //if liked is true then red heart, else grey heart
@@ -46,10 +49,12 @@ const ChatEntry = ({id,sender,body,timeStamp}) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
+  id:PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body:PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,
   liked:PropTypes.bool.isRequired,
+  updateLikes:PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
