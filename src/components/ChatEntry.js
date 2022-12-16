@@ -3,12 +3,16 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
+  const sender = props.sender;
+  const body = props.body;
+  const timeStamp = props.timeStamp;
+
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Vladimir</h2>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>why are you arguing with me</p>
-        <p className="entry-time">2018-05-29T22:49:06+00:00</p>
+        <p>{body}</p>
+        <p className="entry-time">{timeStamp}</p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -16,7 +20,13 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  ChatEntry: PropTypes.arrayOf(
+    PropTypes.shape({
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default ChatEntry;
