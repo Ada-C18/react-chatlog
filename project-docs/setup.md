@@ -1,3 +1,5 @@
+https://github.com/justinakliu/react-chatlog
+
 ## Baseline
 
 Examine the JSON file located at `src/data/messages.json` to familiarize yourself with the data you will be using.
