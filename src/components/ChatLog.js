@@ -1,16 +1,15 @@
 import React from 'react';
-import ChatEntry from './components/ChatEntry';
+import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
-  // const testMessageSender = chatMessages;
-  // const testMessageBody = chatMessages;
-  // const testMessageTimeStamp = chatMessages;
   return (
     <div>
       <section>
         {props.entries.map((entrie) => (
           <ChatEntry
+            key={entrie.id}
+            id={entrie.id}
             sender={entrie.sender}
             body={entrie.body}
             timeStamp={entrie.timeStamp}
