@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
+import ChatEntry from './components/ChatEntry';
+import TimeStamp from './components/TimeStamp';
 import chatMessages from './data/messages.json';
 
+const specialMessage = chatMessages[0];
 const App = () => {
   return (
     <div id="App">
@@ -9,8 +12,12 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatEntry
+          sender={specialMessage.sender}
+          body={specialMessage.body}
+          timeStamp={specialMessage.timeStamp}
+        />
+        <TimeStamp />
       </main>
     </div>
   );
