@@ -13,7 +13,6 @@ const ChatEntry = (props) => {
       timeStamp: props.timeStamp,
       liked: !props.liked,
     };
-    console.log('button clicked!');
     props.updateChatLike(newChatData);
   };
   const heartSelector = props.liked ? '❤️' : '🤍';
