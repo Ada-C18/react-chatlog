@@ -1,26 +1,35 @@
 import React from 'react';
+import {useState} from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 
-const ChatEntry = (props) => {
-  const chatId = props.id
-  const chatSender = props.sender
-  const chatBody = props.body
-  const chatTimeStamp = props.timeStamp
+const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
   const newDate = new Date()
   
-  let diff = (newDate.getTime() - new Date(chatTimeStamp).getTime()) / 1000;
+  let diff = (newDate.getTime() - new Date(timeStamp).getTime()) / 1000;
   diff /= (60*60*24);
   let currentYears = Math.abs(Math.round(diff/365.25))
   
+  const [buttonText, setButtonText] = useState('🤍')
+
+  const toggleLiked = (id, likedStatus) => {
+    console.log(`${likedStatus}`);
+    if (likedStatus === true){
+      setButtonText('❤️')
+    } else {
+      setButtonText('🤍')
+    }
+    updateLiked(id, likedStatus);
+  };
+
   return (
     <div className="chat-entry local">
-      <li key={chatId}>
-      <h2 className="entry-name">{chatSender}</h2>
+      <li key={id}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{chatBody}</p>
+        <p>{body}</p>
         <p className="entry-time">{currentYears} years ago</p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={()=> toggleLiked(id, !liked)}>{buttonText}</button>
       </section>
     </li>
     </div>
@@ -31,7 +40,8 @@ ChatEntry.propTypes = {
   id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired
+  timeStamp: PropTypes.string.isRequired,
+  updateLiked: PropTypes.func.isRequired
 };
 
 export default ChatEntry;
