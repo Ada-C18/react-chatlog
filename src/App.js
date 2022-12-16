@@ -2,12 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 
-const MESSAGES = chatMessages
+const chatDataList = chatMessages
 
 const App = () => {
-  // const [messageData, setMessageData] = useState(testMessage);
+  const [chatData, setChatData] = useState(chatDataList);
 
   return (
     <div id="App">
@@ -15,12 +15,11 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatEntry sender={MESSAGES[0]['sender']} body={MESSAGES[0]['body']} timeStamp={MESSAGES[0]['timeStamp']} />
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatLog entries={chatData} />
       </main>
     </div>
   );
 };
 
 export default App;
+

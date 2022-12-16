@@ -6,17 +6,20 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = (props) => {
   return (
     <div className="chat-entry local">
+      <li>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
         <button className="like">🤍</button>
       </section>
+      </li>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
