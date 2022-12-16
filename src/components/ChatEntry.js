@@ -8,6 +8,7 @@ const ChatEntry = (props) => {
   const sender = props.sender;
   const timeStamp = props.timeStamp;
   const localOrRemote = props.id % 2 === 1 ? 'local' : 'remote';
+
   return (
     <div className={`chat-entry ${localOrRemote}`}>
       <h2 className="entry-name">{sender}</h2>
