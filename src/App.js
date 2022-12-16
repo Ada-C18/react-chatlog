@@ -10,7 +10,8 @@ const App = () => {
   });
   const [chatList, setChatList] = useState(copy);
   const [likesCount, setLikesCount] = useState(0)
-
+  const userOne = chatList[0].sender;
+  const userTwo = chatList[1].sender;
   const updateLiked = (chatId, updatedLike) => {
     const newChatList = [];
     if (updatedLike === true){
@@ -35,7 +36,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Conversation Between {userOne} and {userTwo}</h1>
         <span>{likesCount} ❤️s</span>
       </header>
       <main>

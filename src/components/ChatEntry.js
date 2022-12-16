@@ -21,9 +21,9 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
     }
     updateLiked(id, likedStatus);
   };
-
-  return (
-    <div className="chat-entry local">
+  if (Number(id)%2){
+    return (
+      <div className="chat-entry local">
       <li key={id}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
@@ -33,7 +33,33 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
       </section>
     </li>
     </div>
-  );
+    )
+  } else {
+    return(
+      <div className="chat-entry remote">
+        <li key={id}>
+        <h2 className="entry-name">{sender}</h2>
+        <section className="entry-bubble">
+          <p>{body}</p>
+          <p className="entry-time">{currentYears} years ago</p>
+          <button className="like" onClick={()=> toggleLiked(id, !liked)}>{buttonText}</button>
+        </section>
+      </li>
+      </div>
+    )
+  }
+  // return (
+  //   <div className="chat-entry local">
+  //     <li key={id}>
+  //     <h2 className="entry-name">{sender}</h2>
+  //     <section className="entry-bubble">
+  //       <p>{body}</p>
+  //       <p className="entry-time">{currentYears} years ago</p>
+  //       <button className="like" onClick={()=> toggleLiked(id, !liked)}>{buttonText}</button>
+  //     </section>
+  //   </li>
+  //   </div>
+  // );
 };
 
 ChatEntry.propTypes = {
