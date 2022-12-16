@@ -11,10 +11,6 @@ const App = () => {
         <h1>Chat Log</h1>
       </header>
       <main>
-        {/* <ChatEntry sender={chatMessages[0].sender}
-        body={chatMessages[0].body}
-        timeStamp={chatMessages[0].timeStamp}
-        /> */}
         <ChatLog entries ={chatMessages}/>
       </main>
     </div>
