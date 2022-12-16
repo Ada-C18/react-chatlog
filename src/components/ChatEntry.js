@@ -2,6 +2,7 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
+import LikeButton from './LikeButton';
 
 const ChatEntry = (props) => {
   return (
@@ -12,7 +13,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp absolute={props.timeStamp}></TimeStamp>
         </p>
-        <button className="like">🤍</button>
+        <LikeButton liked={props.liked}></LikeButton>
       </section>
     </div>
   );
