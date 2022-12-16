@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "plugins": ["jest", "jsx-a11y"],
+  "ignorePatterns": ["src/**/*.js"],
   "rules": {
     "no-unused-vars": "warn",
     "no-var": "warn",
