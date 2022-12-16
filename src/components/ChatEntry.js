@@ -2,7 +2,6 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-// import {useState} from 'react'
 
 const ChatEntry = ({id,sender,body,timeStamp,liked, toggleLike}) => {
   let local = 'chat-entry remote'
@@ -11,12 +10,6 @@ const ChatEntry = ({id,sender,body,timeStamp,liked, toggleLike}) => {
   }
 
   // (❤️) to an empty heart (🤍
-
-  // const [likeStatus, setLike] = useState(liked);
-  // const toggleLike = () => {
-  //   setLike(!likeStatus)
-  //   console.log(likeStatus)
-  // }
   const toggleHeart = () => {
     return toggleLike(id)
   }
@@ -24,15 +17,8 @@ const ChatEntry = ({id,sender,body,timeStamp,liked, toggleLike}) => {
     false:'🤍',
     true:'❤️'
   }
-  // function likeDisplay() {
-  //   if (liked===true){
-  //   return '❤️'
-  // } else {
-  //   return '🤍'
-  // }}
-  console.log(liked)
   return (
-    <div className={local}>
+    <div className={local} key={id}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>

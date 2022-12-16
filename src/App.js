@@ -24,7 +24,6 @@ const App = () => {
   const toggleLike = (id) => {
     const newLog = []
     
-    console.log('toggledlike!')
     for (const msg of messages) {
       if (msg.id !== id) {
         newLog.push(msg)
