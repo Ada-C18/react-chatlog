@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
+// import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
+import ChatLog from './components/ChatLog';
 
 const App = () => {
   return (
@@ -10,12 +11,13 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatEntry
-          sender="Vladimir"
-          body="why are you arguing with me"
-          timeStamp="2018-05-29T22:49:06+00:00"
-        />
+        {/* <ChatEntry
+          // sender="Vladimir"
+          // body="why are you arguing with me"
+          // timeStamp="2018-05-29T22:49:06+00:00"
+        /> */}
         {/* Wave 02: Render ChatLog component */}
+        <ChatLog messages={chatMessages} />
       </main>
     </div>
   );

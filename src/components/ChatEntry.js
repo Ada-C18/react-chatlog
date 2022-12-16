@@ -6,8 +6,7 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = (props) => {
   const sender = props.sender;
   const body = props.body;
-  const timeStamp = { time: props.timeStamp };
-  const time = TimeStamp(timeStamp);
+  const time = TimeStamp({ time: props.timeStamp });
 
   return (
     <div className="chat-entry local">
