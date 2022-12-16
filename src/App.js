@@ -10,7 +10,7 @@ const chatMessagesData = chatMessages.map((message, i) => {
   return ( 
     <ChatEntry
       key={i}
-      id={message.id}
+      // id={message.id}
       sender={message.sender}
       body={message.body}
       timeStamp={message.timeStamp}
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Log Vladmir and Estragon</h1>
       </header>
       <main>
         {chatMessagesData}
