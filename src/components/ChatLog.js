@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
-import TimeStamp from './TimeStamp'
 
 const ChatLog = (props) => {
   return(
   <ul>
-    {props.chatData.map((chat) => (
+    {props.entries.map((chat) => (
       <ChatEntry
         id = {chat.id}
         sender = {chat.sender}
