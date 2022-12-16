@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
-import ChatLog from ChatLog.js;
+import ChatLog from './components/ChatLog.js';
 
 //const chats = chatMessages;
 
@@ -13,11 +12,10 @@ function App() {
         <h1>🤍 Chat Log 🤍</h1>
       </header>
       <main>
-        <ChatEntry chatMessages={chatMessages} />
-        <ChatLog />
+        <ChatLog entries={chatMessages} />
       </main>
     </div>
   );
-};
+}
 
 export default App;
