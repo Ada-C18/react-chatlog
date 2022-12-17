@@ -5,7 +5,6 @@ const ChatLog = (props) => {
    
     return (
         <>
-        <ul>
             {props.entries.map((entry) => (
           <ChatEntry
             id={entry.id}
@@ -13,9 +12,10 @@ const ChatLog = (props) => {
             body={entry.body}
             timeStamp={entry.timeStamp}
             key={entry.id}
+            liked={entry.liked}
+            onToggleHeart={props.onToggleHeart}
           />
         ))}
-        </ul>
         </>
     )
  
@@ -27,7 +27,9 @@ ChatLog.propTypes = {
         sender: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         timeStamp: PropTypes.string.isRequired,
+        liked: PropTypes.bool.isRequired,
       })),
+      onToggleHeart: PropTypes.func.isRequired,
 }
 
 export default ChatLog;
