@@ -11,16 +11,17 @@ const ChatEntry = ({ onUpdate, ...message }) => {
     });
   let [likedClass, likedIcon] = message.liked
     ? ['liked', '❤️']
-    : ['like', '🤍'];
+    : ['unliked', '🤍'];
+  let localRemoteClass = message.localRemote ? 'local' : 'remote';
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${localRemoteClass}`}>
       <h2 className="entry-name">{message.sender}</h2>
       <section className="entry-bubble">
         <p>{message.body}</p>
         <p className="entry-time">
           <TimeStamp time={message.timeStamp}></TimeStamp>
         </p>
-        <button className={likedClass} onClick={onLikeButtonClick}>
+        <button className={`like ${likedClass}`} onClick={onLikeButtonClick}>
           {likedIcon}
         </button>
       </section>
@@ -34,6 +35,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  localRemote: PropTypes.bool,
   onUpdate: PropTypes.func,
 };
 

@@ -14,15 +14,29 @@ const App = () => {
     setChatLogEntries(entries);
   };
 
+  const userNames = [...new Set(chatLogEntries.map((entry) => entry.sender))];
+  const totalLikes = chatLogEntries.reduce(
+    (count, message) => count + (message.liked ? 1 : 0),
+    0
+  );
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>
+          Chat between {userNames[0]} and {[...userNames.slice(1)]}
+        </h1>
+        <section>
+          <div className="widget" id="heartWidget">
+            {totalLikes ? `${totalLikes} ❤️s` : ``}
+          </div>
+        </section>
       </header>
       <main>
         <ChatLog
           entries={chatLogEntries}
           onUpdateChatEntry={updateChatEntry}
+          localUser={userNames[0]}
         ></ChatLog>
       </main>
     </div>

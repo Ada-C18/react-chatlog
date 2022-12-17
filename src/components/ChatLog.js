@@ -3,28 +3,19 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, onUpdateChatEntry }) => {
-  const chatLog = entries.map((message) => {
+const ChatLog = ({ entries, localUser, onUpdateChatEntry }) => {
+  return entries.map((message) => {
     return (
       <ChatEntry
         {...{
           key: message.id,
           onUpdate: onUpdateChatEntry,
+          localRemote: message.sender === localUser,
           ...message,
         }}
       ></ChatEntry>
     );
   });
-  const totalLikes = entries.reduce(
-    (count, message) => count + (message.liked ? 1 : 0),
-    0
-  );
-  return (
-    <div className="chat-log">
-      <div className="total-likes">{totalLikes ? `${totalLikes} ❤️s` : ``}</div>
-      {chatLog}
-    </div>
-  );
 };
 
 ChatLog.propTypes = {
@@ -36,6 +27,7 @@ ChatLog.propTypes = {
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool.isRequired,
       onUpdate: PropTypes.func,
+      localUser: PropTypes.string,
     })
   ),
   onUpdateChatEntry: PropTypes.func,
