@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog'
 import chatMessages from './data/messages.json';
 
 const App = () => {
+
   return (
     <div id="App">
       <header>
@@ -17,6 +19,9 @@ const App = () => {
           timeStamp="2018-05-18T22:12:03Z"
           />
         {/*Wave 02: Render ChatLog component */}
+        <ChatLog
+          entries={chatMessages}
+        />
       </main>
     </div>
   );

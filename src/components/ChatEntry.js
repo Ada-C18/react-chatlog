@@ -22,7 +22,7 @@ ChatEntry.propTypes = {
   id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timestamp: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
   like: PropTypes.string,
 };
 
