@@ -24,3 +24,5 @@ ChatLog.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.number.isRequired,
 };
+
+export default ChatLog;
