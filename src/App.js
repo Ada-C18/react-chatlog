@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
-  // const [messages, setMessages] = React.useState(chatMessages);
+  const [messages, setMessages] = useState(chatMessages);
+
+  const updateHeartColor = (id) => {
+    setMessages((oldHeart) => {
+      return oldHeart.map((message) => {
+        if (message.id === id) {
+          return { ...message, liked: !message.liked };
+        } else {
+          return message;
+        }
+      });
+    });
+  };
 
   return (
     <div id="App">
@@ -12,7 +24,7 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatLog entries={chatMessages} />
+        <ChatLog entries={messages} onToggleHeart={updateHeartColor} />
       </main>
     </div>
   );
