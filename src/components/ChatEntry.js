@@ -3,10 +3,13 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({sender, body, timeStamp}) => {
+const ChatEntry = ({ id, sender, body, timeStamp }) => {
+
+
+  const chatEntryClassName = id % 2 === 1 ? 'chat-entry local' : 'chat-entry remote';
   
   return (
-    <div className="chat-entry local">
+    <div className={chatEntryClassName}>
       <h2 className="entry-name">{ sender }</h2>
       <section className="entry-bubble">
         <p>{ body }</p>
