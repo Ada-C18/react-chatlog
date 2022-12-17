@@ -5,13 +5,15 @@ import PropTypes from 'prop-types';
 
 // #heartWidget
 const ChatEntry = ({ id, sender, body, timeStamp, liked, onToggleHeart }) => {
-  const whiteHeart = '🤍';
-  const redHeart = '❤️';
+  // const whiteHeart = '🤍';
+  // const redHeart = '❤️';
 
-  const handleToggleHeart = () => {
-    onToggleHeart(id);
-  };
+  // const handleToggleHeart = () => {
+  //   onToggleHeart(id);
+  // };
 
+  // jaime version
+  const heartButton = liked ? '❤️' : '🤍';
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>
@@ -20,9 +22,18 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onToggleHeart }) => {
         <p className="entry-time">
           <TimeStamp time={timeStamp} />
         </p>
-        <button onClick={handleToggleHeart} className="like">
-          {liked ? redHeart : whiteHeart}
+        <button
+          onClick={() => {
+            onToggleHeart(id);
+          }}
+          className="like"
+        >
+          {heartButton}
         </button>
+        {/* jaime version  above*/}
+        {/* <button onClick={handleToggleHeart} className="like">
+          {liked ? redHeart : whiteHeart}
+        </button> */}
       </section>
     </div>
   );
