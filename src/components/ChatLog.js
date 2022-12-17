@@ -8,9 +8,12 @@ const ChatLog = (props) => {
     return (
       <section key={messageData.id}>
         <ChatEntry
+          id={messageData.id}
           sender={messageData.sender}
           body={messageData.body}
           timeStamp={messageData.timeStamp}
+          liked={messageData.liked}
+          onUpdate={props.onUpdateLiked}
         ></ChatEntry>
       </section>
     );
@@ -22,6 +25,7 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   //Fill with correct proptypes
   entries: PropTypes.array.isRequired,
+  onUpdateLiked: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

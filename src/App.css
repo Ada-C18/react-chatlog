@@ -40,7 +40,7 @@
   padding-right: 1em;
 }
 
-#App #heartWidget {
+#App .heartWidget {
   font-size: 1.5em;
   margin: 1em
 }
