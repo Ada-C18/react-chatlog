@@ -5,15 +5,13 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className={`chat-entry ${props.chatPosition}`}>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>
-          {props.sender}
-          {props.body}
+        <p>{props.body}</p>
+        <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
-        <p className="entry-time">Replace with TimeStamp component</p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -23,7 +21,7 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;
