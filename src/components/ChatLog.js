@@ -6,7 +6,6 @@ import ChatEntry from './ChatEntry';
 const ChatLog = (props) => {
   return (
     <>
-      <h2>Something</h2>
       <ul>
         {props.entries.map((entry) => (
           <ChatEntry
@@ -16,6 +15,7 @@ const ChatLog = (props) => {
             liked={entry.liked}
             body={entry.body}
             timeStamp={entry.timeStamp}
+            onSetLiked={props.onSetLiked}
           />
         ))}
       </ul>
@@ -33,6 +33,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  onSetLiked: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
