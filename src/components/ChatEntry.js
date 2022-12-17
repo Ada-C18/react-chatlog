@@ -1,14 +1,19 @@
 import React from 'react';
 import {useState} from 'react';
+import TimeStamp from './TimeStamp'
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 
 const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
-  const newDate = new Date()
+  //The original way I implemented getting the date, before realizing TimeStamp existed
+  // const newDate = new Date()
   
-  let diff = (newDate.getTime() - new Date(timeStamp).getTime()) / 1000;
-  diff /= (60*60*24);
-  let currentYears = Math.abs(Math.round(diff/365.25))
+  // let diff = (newDate.getTime() - new Date(timeStamp).getTime()) / 1000;
+  // diff /= (60*60*24);
+  let timePassed = {
+    time: timeStamp
+  };
+  let currentYears = TimeStamp(timePassed)
   
   const [buttonText, setButtonText] = useState('🤍')
 
@@ -28,7 +33,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
-        <p className="entry-time">{currentYears} years ago</p>
+        <p className="entry-time">{currentYears}</p>
         <button className="like" onClick={()=> toggleLiked(id, !liked)}>{buttonText}</button>
       </section>
     </li>
@@ -41,7 +46,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
         <h2 className="entry-name">{sender}</h2>
         <section className="entry-bubble">
           <p>{body}</p>
-          <p className="entry-time">{currentYears} years ago</p>
+          <p className="entry-time">{currentYears}</p>
           <button className="like" onClick={()=> toggleLiked(id, !liked)}>{buttonText}</button>
         </section>
       </li>
