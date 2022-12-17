@@ -7,7 +7,7 @@ const ChatLog = (props) => {
 
   return (
     <ul className="chat-log">
-      {entries.map((entry) => (
+      {entries.map((entry, id) => (
         <ChatEntry
           id={entry.id}
           sender={entry.sender}
@@ -15,6 +15,7 @@ const ChatLog = (props) => {
           timeStamp={entry.timeStamp}
           liked={entry.liked}
           updateLikes={props.updateLikes}
+          key={id}
         ></ChatEntry>
       ))}
     </ul>
