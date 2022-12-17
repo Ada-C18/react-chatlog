@@ -15,18 +15,20 @@ const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
 
   //solution 2 using ternary function to toogle left and right
   // const changePos = (sender==='Vladimir') ? 'local':'remote'}
-  const [ like, setToogle ] = useState(liked);
+  
+  //changing state of heart emoji using useState
+  const [ heart, setToogle ] = useState(liked);
 
 
   const clickHeart = (id) => {
     console.log('inside function clickHeart from ChatEntry.js ',id)
     
     updateLikes(id);  
-    setToogle(!like);  
+    setToogle(!heart);  
   }
 
   //if liked is true then red heart, else grey heart
-  const emojiChange = like ? '❤️':'🤍' ;
+  const emojiChange = heart ? '❤️':'🤍' ;
 
   return (
     <div className={`chat-entry ${sender==='Vladimir' ? 'local':'remote'}`}>     
@@ -36,7 +38,7 @@ const ChatEntry = ({id,sender,body,timeStamp, liked,updateLikes}) => {
         <p className="entry-time">
         <TimeStamp time={timeStamp} />
         </p>
-         <button onClick={() =>clickHeart(id) } >{emojiChange}</button> 
+         <button onClick={() =>clickHeart(id) } className="like">{emojiChange}</button> 
          {/* <button onClick={ setHeart }>🤍</button>  */}
       </section>
     </div>
