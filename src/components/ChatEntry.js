@@ -2,27 +2,39 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-import LikeButton from './LikeButton';
 
-const ChatEntry = (props) => {
+const ChatEntry = ({ onUpdate, ...message }) => {
+  const onLikeButtonClick = () =>
+    onUpdate({
+      ...message,
+      liked: !message.liked,
+    });
+  let [likedClass, likedIcon] = message.liked
+    ? ['liked', '❤️']
+    : ['like', '🤍'];
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className="entry-name">{message.sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p>{message.body}</p>
         <p className="entry-time">
-          <TimeStamp absolute={props.timeStamp}></TimeStamp>
+          <TimeStamp time={message.timeStamp}></TimeStamp>
         </p>
-        <LikeButton liked={props.liked}></LikeButton>
+        <button className={likedClass} onClick={onLikeButtonClick}>
+          {likedIcon}
+        </button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
