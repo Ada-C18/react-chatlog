@@ -6,7 +6,8 @@ import ChatLog from './components/ChatLog';
 
 const App = () => {
   const [messageData, setMessageData] = useState(chatMessages);
-  
+  const [likesCount, setLikesCount] = useState(0);
+
 
   const toggleLiked = (id) => {
     const messages = messageData.map((message) => {
@@ -15,14 +16,17 @@ const App = () => {
       }
       return message
     });
+    const likes = messages.filter((message) => message.liked).length
     setMessageData(messages);
+    setLikesCount(likes)
   }
-
+    
 
   return (
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
+        <section><h2 className="widget">{likesCount} ❤️s</h2></section>
       </header>
       <main>
         <ChatLog 
