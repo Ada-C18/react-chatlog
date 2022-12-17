@@ -1,22 +1,39 @@
 import React from 'react';
 import './ChatLog.css';
 import ChatEntry from './ChatEntry';
-import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
+// const ChatLog = (props) => {
+//   return props.entries.map((entry) => {
+//     return(
+//       <ChatEntry
+//         key={entry.id}
+//         id={entry.id}
+//         sender={entry.sender}
+//         body={entry.body}
+//         timeStamp={entry.timeStamp}
+//       />
+//     )
+// });
+// }
+
 const ChatLog = (props) => {
-  return props.entries.map((entry) => {
-    return(
-      <ChatEntry
-        key={entry.id}
-        id={entry.id}
-        sender={entry.sender}
-        body={entry.body}
-        timeStamp={entry.timeStamp}
-      />
-    )
-});
-}
+  const getChatLogJSX =(props) => {
+    return props.entries.map((entry) => {
+      return (
+        <ChatEntry
+          key={entry.id}
+          id={entry.id}
+          sender={entry.sender}
+          body={entry.body}
+          timeStamp={entry.timeStamp}
+        />
+      );
+  });
+  };
+    // using css class to style chatLog
+    return <div className="chat-log">{getChatLogJSX(props)}</div>
+  };
 
 
 ChatLog.propTypes = {
