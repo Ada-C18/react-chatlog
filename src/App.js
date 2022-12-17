@@ -25,3 +25,19 @@ const App = () => {
 };
 
 export default App;
+
+// const Book = (props) => {
+//   return (
+//     <section>
+//       <h2>{props.title}</h2>
+//       <ul>
+//         <li>by {props.author}</li>
+//         <li>ISBN: {props.isbn}</li>
+//       </ul>
+//     </section>
+//   );
+// };
+
+// <h2>{props.sender}</h2>
+// <p>{props.body}</p>
+// <h4>{props.timeStampe</h4>
