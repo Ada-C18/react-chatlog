@@ -38,7 +38,7 @@ ChatLog.propTypes = {
       onUpdate: PropTypes.func,
     })
   ),
-  onUpdateChatEntry: PropTypes.func.isRequired,
+  onUpdateChatEntry: PropTypes.func,
 };
 
 export default ChatLog;
