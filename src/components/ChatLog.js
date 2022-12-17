@@ -6,7 +6,16 @@ import PropTypes from 'prop-types';
 const ChatLog = (props) => {
     const entryComponants = props.entries.map(message => {
         return(
-            <li key={message.id}><ChatEntry sender={message.sender} body={message.body} timeStamp={message.timeStamp}></ChatEntry></li>
+            <li key={message.id}>
+                <ChatEntry 
+                    id = {message.id}
+                    sender={message.sender} 
+                    body={message.body} 
+                    liked = {message.liked}
+                    timeStamp={message.timeStamp}
+                    onToggleLike = {props.onToggleLike}
+                ></ChatEntry>
+            </li>
         );
     });
 
@@ -22,6 +31,7 @@ const ChatLog = (props) => {
 
 ChatLog.propTypes = {
     entries: PropTypes.array.isRequired,
+    onToggleLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
