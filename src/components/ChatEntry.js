@@ -53,6 +53,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
       </div>
     )
   }
+  // Before optional enhancements!
   // return (
   //   <div className="chat-entry local">
   //     <li key={id}>
