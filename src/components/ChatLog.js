@@ -23,7 +23,7 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.number.isRequired,
+      key: PropTypes.number,
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
@@ -31,7 +31,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
-  onToggleHeart: PropTypes.func.isRequired,
+  onToggleHeart: PropTypes.func,
 };
 
 export default ChatLog;
