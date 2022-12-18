@@ -9,16 +9,28 @@ const App = () => {
   const [entries, setEntries] = useState(chatMessages);
 
   const likeEntry = (id) => {
-    setEntries((entries) =>
-      entries.map((entry) => {
+    setEntries((entries) => {
+      return entries.map((entry) => {
         if (entry.id === id) {
-          return { ...entry, liked: !entry.liked };
+          return {
+            ...entry,
+            liked: !entry.liked,
+          };
         } else {
           return entry;
         }
-      })
-    );
+      });
+    });
   };
+
+  const calcTotalLikes = (entries) => {
+    return entries.reduce((total, entry) => {
+      return total + entry.liked;
+    }, 0);
+  };
+
+  const totalLikes = calcTotalLikes(entries);
+
   return (
     <div id="App">
       <header>
@@ -27,12 +39,8 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
+        <div>{totalLikes} ❤️s</div>
         <ChatLog entries={entries} onLikeEntry={likeEntry} />
-        {/* <ChatEntry
-          sender="Joe Biden"
-          body="Get out by 8am.  I'll count the silverware"
-          timeStamp="2018-05-18T22:12:03Z"
-        /> */}
       </main>
     </div>
   );
