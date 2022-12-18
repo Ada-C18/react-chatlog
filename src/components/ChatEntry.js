@@ -3,7 +3,7 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({ entry }) => {
+const ChatEntry = ({ entry, onLike }) => {
   const onLikeButtonClick = () => {
     const updatedChatEntry = {
       id: entry.id,
@@ -12,6 +12,7 @@ const ChatEntry = ({ entry }) => {
       timeStamp: entry.timeStamp,
       liked: !entry.liked,
     };
+    onLike(updatedChatEntry);
   };
 
   return (

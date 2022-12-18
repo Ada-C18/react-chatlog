@@ -3,11 +3,11 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, onLike }) => {
   return (
     <div>
       {entries.map((entry) => (
-        <ChatEntry key={entry.id} entry={entry} />
+        <ChatEntry key={entry.id} entry={entry} onLike={onLike} />
       ))}
     </div>
   );
