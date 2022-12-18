@@ -17,7 +17,6 @@ const App = () => {
     setMessages((oldmessages) => {
       return oldmessages.map((message) => {
         if (message.id === id) {
-          console.log({ ...message, liked: !message.liked });
           return { ...message, liked: !message.liked };
         } else {
           return message;
