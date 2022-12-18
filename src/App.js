@@ -32,7 +32,18 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat between {entries[0].sender} and {entries[1].sender}</h1>
+        <section>
+          <span>
+            <div className="header-text" id="vlad-div">Vladimir's colors</div>
+            <div id="vlad-colors">hello</div>
+          </span>
+          <h1 className='header-text'>{totalHeartsTally} ❤️s</h1>
+          <span>
+              <div className='header-text' id="e-div">Estragon's colors</div>
+              <div id='e-colors'>hello</div>
+          </span>
+        </section>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component
@@ -42,7 +53,6 @@ const App = () => {
           timeStamp="2018-05-18T22:12:03Z"
           /> */}
         {/*Wave 02: Render ChatLog component */}
-        <h1>{totalHeartsTally} ❤️s</h1>
         <ChatLog entries={entries} onLikeEntry={likeEntry} />
       </main>
     </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './ColorChoice.css';
 
 const ColorChoice = (props) => {
-  // const colorChoices = ['red'...'green'];
-  const buttons = props.colorChoices.map((color) => {
-    return <button className={color}></button>
+  const colorChoices = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+  const inputButtons = colorChoices.map((color) => {
+    return <input type="radio" className={color}></input>
   })
-  return <div>{buttons}</div>
+  return <div>{inputButtons}</div>
 }
 
 
@@ -14,6 +15,6 @@ ColorChoice.propTypes = {
   colorChoices: PropTypes.arrayOf(
     PropTypes.string.isRequired
   )
-  
+
 }
 export default ColorChoice;

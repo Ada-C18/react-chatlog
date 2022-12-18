@@ -13,6 +13,27 @@
   align-items: center;
 }
 
+#App .header-text {
+  color: #222
+}
+
+#App #vlad-div {
+  margin-right: 40px;
+}
+
+#App #e-div {
+  margin-left: 40px;
+}
+
+#App #vlad-colors {
+  margin: 10px;
+
+}
+
+#App #e-colors {
+  margin: 10px;
+}
+
 #App main {
   padding-left: 2em;
   padding-right: 2em;
