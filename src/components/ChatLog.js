@@ -1,35 +1,41 @@
 import React from 'react';
 import './ChatLog.css';
 import PropTypes from 'prop-types';
-import TimeStamp from './TimeStamp';
+// import TimeStamp from './TimeStamp';
+import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, updateLike }) => {
   const chatComponents = entries.map((message) => {
     return (
-      <div className="chat-entry local">
-        <h2 className="entry-name">{message.sender}</h2>
-        <section className="entry-bubble">
-          <p>{message.body}</p>
-          <p className="entry-time">
-            <TimeStamp time={message.timeStamp} />
-          </p>
-          <button className="like">🤍</button>
-        </section>
+      <div key={message.id} className="chat-entry local">
+        <ChatEntry
+          sender={message.sender}
+          body={message.body}
+          timeStamp={message.timeStamp}
+          like={message.liked}
+          updateLike={updateLike}
+        />
       </div>
     );
   });
 
   return (
     <section>
-      <p>{chatComponents}</p>
+      <div>{chatComponents}</div>
     </section>
   );
 };
 
 ChatLog.propTypes = {
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired,
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+    })
+  ),
+  updateLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

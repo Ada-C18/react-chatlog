@@ -1,33 +1,42 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
+import { useState } from 'react';
+
+const CHATLOG = chatMessages;
 
 const App = () => {
-  const message = {
-    id: 1,
-    sender: 'Vladimir',
-    body: 'why are you arguing with me',
-    timeStamp: '2018-05-29T22:49:06+00:00',
-    liked: false,
+  // wave 3
+  const chatLogCopy = CHATLOG.map((message) => {
+    return {
+      id: message.id,
+      sender: message.sender,
+      body: message.body,
+      timeStamp: message.timeStamp,
+      liked: message.liked,
+    };
+  });
+  const [chatLogState, setChatLogState] = useState(chatLogCopy);
+
+  const toggleLike = (id) => {
+    console.log('toggleLike called');
+    const msgs = chatLogState.map((msg) => {
+      if (msg.id === id) {
+        msg.liked = true;
+      }
+      return msg;
+    });
+    setChatLogState(msgs);
   };
 
-  const chatLogMessages = chatMessages;
   return (
     <div id="App">
       <header>
         <h1>Chat Log</h1>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        <ChatEntry
-          sender={message.sender}
-          body={message.body}
-          timeStamp={message.timeStamp}
-        />
-        <ChatLog entries={chatLogMessages} />
+        <ChatLog entries={chatLogState} updateLike={toggleLike} />
       </main>
     </div>
   );
