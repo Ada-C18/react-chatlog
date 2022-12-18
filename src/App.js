@@ -24,6 +24,8 @@ const App = () => {
   setChatMessagesData(messages);
   if (messageToUpdate.liked){
     setCountLikes(countLikes+1);
+  } else {
+    setCountLikes(countLikes-1);
   }
 }
 
