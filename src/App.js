@@ -3,6 +3,7 @@ import './App.css';
 import chatMessages from './data/messages.json';
 import ChatEntry from './components/ChatEntry';
 
+
 const App = () => {
   const messageData = {
     id: 1,
@@ -12,6 +13,9 @@ const App = () => {
     liked: false
   };
 
+  // const timeStamp = messageData.timeStamp;
+  
+
   return (
     <div id="App">
       <header>
@@ -19,7 +23,12 @@ const App = () => {
       </header>
       <main>
         
-        <div><ChatEntry message = {messageData}></ChatEntry></div>
+        <div><ChatEntry 
+        sender = {messageData.sender}
+        body = {messageData.body}
+        timeStamp = {messageData.timeStamp}
+        ></ChatEntry></div>
+        
         
       </main>
     </div>

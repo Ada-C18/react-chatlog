@@ -1,30 +1,42 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
 
-  const message = {
-    id: props.message.id,
-    sender: props.message.sender,
-    body: props.message.body,
-    timeStamp: props.message.timeStamp,
+  const chat = {
+    // id: message.id,
+    sender: props.sender,
+    body: props.body,
+    timeStamp: props.timeStamp,
     // liked: false
   };
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">{message.sender}</h2>
+      <h2 className="entry-name">{chat.sender}</h2>
       <section className="entry-bubble">
-        <p>{message.body}</p>
-        <p className="entry-time">{message.timeStamp}</p>
+        <p>{chat.body}</p>
+        <p className="entry-time"><TimeStamp time = {chat.timeStamp}></TimeStamp></p>
         <button className="like">🤍</button>
       </section>
     </div>
   );
 };
 
-// ChatEntry.propTypes = {
-//   //Fill with correct proptypes
-// };
+ChatEntry.propTypes = {
+  //Fill with correct proptypes
+  sender: PropTypes.string,
+  body: PropTypes.string,
+  timeStamp: PropTypes.string
+  // message: PropTypes.shape(
+  //   {
+  //   // {id: PropTypes.number.isRequired, 
+  //   sender: PropTypes.string.isRequired,
+  //   body: PropTypes.string.isRequired,
+  //   timeStamp: PropTypes.string.isRequired
+  //   }
+  // )
+};
 
 export default ChatEntry;
