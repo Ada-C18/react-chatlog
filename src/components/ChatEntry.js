@@ -3,12 +3,22 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
+  const chatId = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
+  const liked = props.liked;
+  const changeLike = props.changeLike;
 
+  // change date to years ago
   const yearsAgo = yearconvert(timeStamp);
   const timeStampStr = `${yearsAgo} years ago`;
+
+  //const flipliked = changeLike(liked);
+  function flipLike(arg) {
+    changeLike(chatId, arg);
+  }
+  const heart = like(liked);
 
   return (
     <div className="chat-entry local">
@@ -16,7 +26,14 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">{timeStampStr}</p>
-        <button className="like">🤍</button>
+        <button
+          className="like"
+          onClick={() => {
+            flipLike(liked);
+          }}
+        >
+          {heart}
+        </button>
       </section>
     </div>
   );
@@ -44,11 +61,20 @@ const yearconvert = (timeStamp) => {
   return yearsAgo;
 };
 
+const like = (liked) => {
+  let heart = '🤍';
+  if (liked === true) {
+    heart = '❤️';
+  }
+  return heart;
+};
+
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  //Fill with correct proptypes
+  liked: PropTypes.bool.isRequired,
+  changeLike: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;

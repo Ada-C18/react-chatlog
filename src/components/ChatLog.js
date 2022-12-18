@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 const ChatLog = (props) => {
   const chatlist = [];
   const chatData = props.entries;
+  const changeLike = props.changeLike;
 
   for (const chat of chatData) {
     chatlist.push(
@@ -16,7 +17,8 @@ const ChatLog = (props) => {
         sender={chat.sender}
         body={chat.body}
         timeStamp={chat.timeStamp}
-        liked={chat.timeStamp}
+        liked={chat.liked}
+        changeLike={changeLike}
       />
     );
   }
@@ -40,6 +42,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  changeLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
