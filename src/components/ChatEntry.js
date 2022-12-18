@@ -13,7 +13,7 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
         <button
-          className="button"
+          className="like"
           onClick={() => props.onLikeEntry(props.id)}
           >{likeClass}</button>
       </section>

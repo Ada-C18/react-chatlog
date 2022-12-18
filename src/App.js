@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './App.css';
-import ChatLog from './components/ChatLog'
+import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
@@ -11,17 +11,23 @@ const App = () => {
     setEntry((entries) => {
       return entries.map((entry) => {
         if (entry.id === id) {
-          console.log('id:', id, entry.liked)
-          return {...entry, liked: !entry.liked};
+          console.log('id:', id, entry.liked);
+          return { ...entry, liked: !entry.liked };
         } else {
           return entry;
         }
       });
-    }
-    );
+    });
   };
 
-  // number of red hearts
+  // count number of red hearts
+  const calcTotalLikes = (entries) => {
+    return entries.reduce((total, entry) => {
+      return total + entry.liked;
+    }, 0);
+  };
+
+  const totalHeartsTally = calcTotalLikes(entries);
 
   return (
     <div id="App">
@@ -36,10 +42,8 @@ const App = () => {
           timeStamp="2018-05-18T22:12:03Z"
           /> */}
         {/*Wave 02: Render ChatLog component */}
-        <ChatLog
-          entries={entries}
-          onLikeEntry={likeEntry}
-        />
+        <h1>{totalHeartsTally} ❤️s</h1>
+        <ChatLog entries={entries} onLikeEntry={likeEntry} />
       </main>
     </div>
   );
