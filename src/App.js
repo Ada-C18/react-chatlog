@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import ChatLog from './components/ChatLog';
+import ColorChoice from './components/ColorChoice';
 import chatMessages from './data/messages.json';
 
 const App = () => {
@@ -29,19 +30,21 @@ const App = () => {
 
   const totalHeartsTally = calcTotalLikes(entries);
 
+  const [colors, setColor] = useState(ColorChoice);
+
   return (
     <div id="App">
       <header>
         <h1>Chat between {entries[0].sender} and {entries[1].sender}</h1>
         <section>
           <span>
-            <div className="header-text" id="vlad-div">Vladimir's colors</div>
-            <div id="vlad-colors">hello</div>
+            <div className="header-text" id="vlad-div">Vladimir's color:</div>
+            <div id="vlad-colors"><ColorChoice/></div>
           </span>
           <h1 className='header-text'>{totalHeartsTally} ❤️s</h1>
           <span>
-              <div className='header-text' id="e-div">Estragon's colors</div>
-              <div id='e-colors'>hello</div>
+              <div className='header-text' id="e-div">Estragon's color:</div>
+              <div id='e-colors'><ColorChoice/></div>
           </span>
         </section>
       </header>

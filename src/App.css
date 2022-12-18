@@ -26,12 +26,13 @@
 }
 
 #App #vlad-colors {
-  margin: 10px;
-
+  margin-top: 10px;
+  margin-right: 40px;
 }
 
 #App #e-colors {
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 40px;
 }
 
 #App main {
