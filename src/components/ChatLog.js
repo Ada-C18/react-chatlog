@@ -8,6 +8,7 @@ const ChatLog = ({ entries }) => {
     return entries.map((entry) => {
       return (
         <ChatEntry
+          key={entry.id}
           id={entry.id}
           sender={entry.sender}
           body={entry.body}
