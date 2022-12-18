@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import "@testing-library/jest-dom/extend-expect";
 import ChatEntry from "./ChatEntry";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
