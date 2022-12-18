@@ -28,17 +28,13 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  entries: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.number.isRequired,
-      id: PropTypes.number.isRequired,
-      sender: PropTypes.string.isRequired,
-      body: PropTypes.string.isRequired,
-      timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool.isRequired,
-      onToggleHeart: PropTypes.func.isRequired,
-    })
-  ),
+  key: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  onToggleHeart: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
