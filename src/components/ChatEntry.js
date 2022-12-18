@@ -3,20 +3,28 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
+
+  const message = {
+    id: props.message.id,
+    sender: props.message.sender,
+    body: props.message.body,
+    timeStamp: props.message.timeStamp,
+    // liked: false
+  };
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+      <h2 className="entry-name">{message.sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
+        <p>{message.body}</p>
+        <p className="entry-time">{message.timeStamp}</p>
         <button className="like">🤍</button>
       </section>
     </div>
   );
 };
 
-ChatEntry.propTypes = {
-  //Fill with correct proptypes
-};
+// ChatEntry.propTypes = {
+//   //Fill with correct proptypes
+// };
 
 export default ChatEntry;
