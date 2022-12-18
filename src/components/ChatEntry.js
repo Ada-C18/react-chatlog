@@ -28,7 +28,7 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  key: PropTypes.number,
+  key: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
