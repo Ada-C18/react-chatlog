@@ -14,9 +14,10 @@ const App = () => {
   };
 
   const updateHeartColor = (id) => {
-    setMessages((oldHeart) => {
-      return oldHeart.map((message) => {
+    setMessages((oldmessages) => {
+      return oldmessages.map((message) => {
         if (message.id === id) {
+          console.log({ ...message, liked: !message.liked });
           return { ...message, liked: !message.liked };
         } else {
           return message;
