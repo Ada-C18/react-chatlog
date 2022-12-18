@@ -20,7 +20,8 @@ ChatEntry.propTypes = {
   //Fill with correct proptypes
   sender : PropTypes.string.isRequired,
   body : PropTypes.string.isRequired,
-  timeStamp : PropTypes.string.isRequired
+  timeStamp : PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default ChatEntry;
