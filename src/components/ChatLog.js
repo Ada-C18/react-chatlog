@@ -5,7 +5,9 @@ const ChatLog = (props) => {
   return (
     <div id="chatLog">
       {props.entries.map((entry) => {
-        return <ChatEntry key={entry.id} {...entry} />;
+        return (
+          <ChatEntry key={entry.id} {...entry} likeFunc={props.likeFunc}/>
+        );
       })}
     </div>
   );
@@ -18,8 +20,9 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.instanceOf(Date).isRequired,
-      //liked:PropTypes.bool,
+      liked: PropTypes.bool,
     })
   ).isRequired,
+  likeFunc: PropTypes.func.isRequired,
 };
 export default ChatLog;
