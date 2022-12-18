@@ -49,7 +49,7 @@ describe("Wave 02: ChatLog", () => {
     ].forEach((person) => {
       const elementList = screen.getAllByText(new RegExp(person.name));
       expect(elementList.length).toEqual(person.numChats);
-
+      
       elementList.forEach((element) => {
         expect(element).toBeInTheDocument();
       });
