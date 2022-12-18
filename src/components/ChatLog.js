@@ -31,6 +31,7 @@ ChatLog.propTypes = {
     })
   ),
   onUpdateLikedEntry: PropTypes.func.isRequired,
+  remoteMessages: PropTypes.array,
 };
 
 export default ChatLog;

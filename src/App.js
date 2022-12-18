@@ -21,15 +21,6 @@ const App = () => {
 
   const likes = entries.filter((entry) => entry.liked === true);
   const likesCount = likes.length;
-  //   let likedMessages = 0;
-  //   for (let entry of entries)
-  //     if (entry.liked === true) {
-  //       console.log(entry);
-  //       return likedMessages++;
-  //     }
-  // };
-
-  // const likes = likeCount(entries);
 
   return (
     <div id="App">
