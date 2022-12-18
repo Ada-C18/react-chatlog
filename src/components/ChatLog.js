@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ChatEntry from './ChatEntry.js';
+import ChatEntry from './ChatEntry';
 
 import './ChatLog.css';
 
-function ChatLog({chats}){
-    // console.log('a')
-    // console.log('a',chats)
+const ChatLog = ({entries})=>{
+   
     const chatComponents = [];
 
 
-    for (const chat of chats) {
+    for (const chat of entries) {
         console.log('chat',chat)
         chatComponents.push(
             <ChatEntry
+            key = {chat.id}
             id={chat.id}
             Sender={chat.sender}
             Body={chat.body}
@@ -29,11 +29,11 @@ function ChatLog({chats}){
 ChatLog.propTypes = {
     ChatLog: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.number.isRequired,
+            // id: PropTypes.number.isRequired,
             Sender: PropTypes.string.isRequired,
             Body: PropTypes.string.isRequired,
             TimeStamp: PropTypes.string.isRequired,
-            liked: PropTypes.bool.isRequired,
+            // liked: PropTypes.bool.isRequired,
         })
     ),
 }
