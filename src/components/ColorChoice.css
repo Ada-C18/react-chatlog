@@ -1,0 +1,14 @@
+.colorPickers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.remote {
+    text-align: left;
+    /* align-items: left; */
+}
+
+.local {
+    text-align: right;
+    /* align-items: right; */
+}
