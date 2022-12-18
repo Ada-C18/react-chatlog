@@ -1,11 +1,10 @@
 import React from 'react';
 import './ChatLog.css';
-// import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, onToggleHeart }) => {
-  const chat = entries.map((message) => {
+const ChatLog = (props) => {
+  const chat = props.entries.map((message) => {
     return (
       <ChatEntry
         key={message.id}
@@ -13,7 +12,7 @@ const ChatLog = ({ entries, onToggleHeart }) => {
         sender={message.sender}
         body={message.body}
         timeStamp={message.timeStamp}
-        onToggleHeart={onToggleHeart}
+        onToggleHeart={props.onToggleHeart}
         liked={message.liked}
       />
     );

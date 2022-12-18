@@ -6,17 +6,6 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [messages, setMessages] = useState(chatMessages);
 
-  // for loop version
-  // const countHeart = (messages) => {
-  //   let count = 0;
-  //   for (const message of messages) {
-  //     if (message.liked) {
-  //       count += 1;
-  //     }
-  //   }
-  //   return `${count} ❤️'s`;
-  // };
-
   const countHeart = (messages) => {
     return messages.reduce((total, message) => {
       if (message.liked) total++;
@@ -41,7 +30,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>{totalLikedMessages}❤️'s</h1>
+        <h1>{totalLikedMessages} ❤️s</h1>
       </header>
       <main>
         <ChatLog entries={messages} onToggleHeart={updateHeartColor} />
