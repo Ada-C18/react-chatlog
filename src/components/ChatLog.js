@@ -17,8 +17,7 @@ const ChatLog = ({ entries, handleLikes }) => {
       handleLikes={handleLikes}
       />
     )
-  }
-  )
+  })
 
   return (
     <div>

@@ -6,13 +6,14 @@ import { useState } from 'react';
 
 
 const App = () => {
+
   const initialCopy = chatMessages.map((bike) => {
     return { ...bike };
   });
   
   const [chatMessagesData, setChatMessagesData] = useState(initialCopy);
   const [countLikes, setCountLikes] = useState(0);
-  console.log(chatMessagesData);
+  
   const updateLikes = (messageToUpdate)=>{
     const messages = chatMessagesData.map((message)=>{
     if (message.id === messageToUpdate.id){
@@ -24,7 +25,6 @@ const App = () => {
   if (messageToUpdate.liked){
     setCountLikes(countLikes+1);
   }
-  
 }
 
   return (
@@ -35,9 +35,6 @@ const App = () => {
       </header>
       <main>
         <ChatLog entries={chatMessagesData} handleLikes={updateLikes} />
-
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
       </main>
     </div>
   );
