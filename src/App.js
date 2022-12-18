@@ -1,10 +1,24 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
+// import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
+import { useState } from 'react';
 
 const App = () => {
+  const [entries, setEntries] = useState(chatMessages);
+
+  const likeEntry = (id) => {
+    setEntries((entries) =>
+      entries.map((entry) => {
+        if (entry.id === id) {
+          return { ...entry, liked: !entry.liked };
+        } else {
+          return entry;
+        }
+      })
+    );
+  };
   return (
     <div id="App">
       <header>
@@ -13,7 +27,7 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        <ChatLog entries={chatMessages} />
+        <ChatLog entries={entries} onLikeEntry={likeEntry} />
         {/* <ChatEntry
           sender="Joe Biden"
           body="Get out by 8am.  I'll count the silverware"
