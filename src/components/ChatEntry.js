@@ -1,39 +1,9 @@
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-// import { useState } from 'react';
-
-// create a button that toggles liking a chat entry - add /subtract likes counter
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked, updateLiked }) => {
-  // console.log(updateLiked);
-
-  const updateLikedButtonToggle = () => {
-    // let newliked = updateLiked(id);
-    // console.log(`☹️${newliked}`);
-    // console.log(`⬇️ ${id}`);
-    const updatedChatEntry = {
-      id: id,
-      sender: sender,
-      body: body,
-      timeStamp: timeStamp,
-      liked: updateLiked,
-    };
-    // console.log(`🐶 ${updatedChatEntry.id}`);
-    // console.log(`🐱 ${updatedChatEntry}`);
-    updateLiked(id, updatedChatEntry);
-    console.log(`🐤 ${updatedChatEntry.liked}`);
-  };
-
-  // console.log(liked);
   const buttonStyle = liked ? '❤️' : '🤍';
-  // const [buttonStyle, setButtonStyle] = useState('🤍');
-  // function handleClick() {
-  //   if (updateLiked === true) {
-  //     setButtonStyle('❤️');
-  //   } else {
-  //     setButtonStyle('🤍');
-  //   }
 
   return (
     <div className={`chat-entry ${sender === 'Vladimir' ? 'local' : 'remote'}`}>
@@ -44,7 +14,7 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, updateLiked }) => {
         <p className="entry-time">
           <TimeStamp time={timeStamp}></TimeStamp>
         </p>
-        <button className="like" onClick={() => updateLikedButtonToggle()}>
+        <button className="like" onClick={() => updateLiked(id)}>
           {buttonStyle}
         </button>
       </section>

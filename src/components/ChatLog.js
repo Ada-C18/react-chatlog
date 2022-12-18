@@ -2,20 +2,21 @@ import ChatEntry from './ChatEntry';
 import './ChatEntry.css';
 
 const ChatLog = (props) => {
-  const chatComponents = props.entries.map((chat) => {
+  console.log(props.entries);
+  // console.log(`😘 ${props.updateLiked}`);
+  const chatComponents = props.entries.map((entry) => {
     return (
       <ChatEntry
-        key={chat.id}
-        id={chat.id}
-        sender={chat.sender}
-        body={chat.body}
-        timeStamp={chat.timeStamp}
-        liked={chat.liked}
+        key={entry.id}
+        id={entry.id}
+        sender={entry.sender}
+        body={entry.body}
+        timeStamp={entry.timeStamp}
+        liked={entry.liked}
         updateLiked={props.updateLiked}
       ></ChatEntry>
     );
   });
-
   return <div>{chatComponents}</div>;
 };
 
