@@ -12,9 +12,11 @@ const App = () => {
   const toggleLiked = (id) => {
     const messages = messageData.map((message) => {
       if (message.id === id) {
-        message.liked = !message.liked;
+        return {...message, liked : !message.liked };
+      } else {
+        return message;
       }
-      return message
+      
     });
     const likes = messages.filter((message) => message.liked).length
     setMessageData(messages);
