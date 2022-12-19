@@ -5,18 +5,29 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const entries = chatMessages;
-// const data = [
-//   {
-//     id: 1,
-//     sender: 'Vladimir',
-//     body: 'why are you arguing with me',
-//     timeStamp: '2018-05-29T22:49:06+00:00',
-//     // liked: false,
-//   },
-// ];
+
 
 const App = () => {
   // const [messages, setMessages] = useState(messagesJson);
+  // const [entries, setEntries] = useState(chatMessages);
+
+  //Event handler for liked
+  // const updateEntries = ()/*updatedEntry*/ => {
+  //   // const entries = chatMessages.map(entry => {
+  //   //   entry.liked = entry.liked ? !entry.liked : entry.liked;
+  //   //   return entry;
+  //   // });
+  //   console.log('We got the button to work!')
+  //   setEntries(entries);
+  // }
+  // const likeOrUnlike = (liked) => {
+  //   const entries  = chatMessages.map((entry)=> {
+  //       entry.liked = entry.liked ? !entry.liked : entry.liked;
+  //       return entry;
+  //   });
+  //   setEntries(entry);
+  // };
+
 
   return (
     <div id="App">
@@ -24,7 +35,8 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatLog entries={entries} />
+        <ChatLog entries={entries} 
+        /*onUpdateLiked = {updateEntries}*//>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>

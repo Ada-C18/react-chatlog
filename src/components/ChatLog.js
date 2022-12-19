@@ -1,6 +1,6 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
-// import './ChatLog.css';
+import './ChatLog.css';
 
 const ChatLog = (props) => {
   // We are getting access on the props object.
@@ -17,6 +17,8 @@ const ChatLog = (props) => {
         body={chat.body}
         timeStamp={chat.timeStamp}
         liked={chat.liked}
+        /*onUpdateliked = {props.onUpdateLiked}*/
+    
       />
     );
   });
@@ -25,15 +27,14 @@ const ChatLog = (props) => {
 };
 
 ChatEntry.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number,
       sender: PropTypes.string,
       body: PropTypes.string,
       timeStamp: PropTypes.string,
       liked: PropTypes.bool,
-    })
-  ),
+    })),
+ /* onUpdateLiked: PropTypes.func,*/
 };
 
 export default ChatLog;
