@@ -1,13 +1,12 @@
 import ChatEntry from './ChatEntry';
-// import chatMessages from './data/messages.json';
 import PropTypes from 'prop-types';
 
 
 const ChatLog = (props) =>{
-    const chatMessagesData = props.chatMessages.map((message, i) => {  
+    const chatMessagesData = props.entries.map((message, i) => {  
         return <ChatEntry
         key={i}
-        id={message.id}
+        // id={message.id}
         sender={message.sender}
         body={message.body}
         timeStamp={message.timeStamp}
@@ -22,7 +21,7 @@ const ChatLog = (props) =>{
 
 ChatLog.propTypes = {
     chatEntries: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        // id: PropTypes.number.isRequired,
         sender: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         timeStamp:PropTypes.string.isRequired,

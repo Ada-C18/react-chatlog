@@ -6,12 +6,12 @@ import {useState} from 'react';
 
 
 const ChatEntry = (props) => {
-  const[likeTurnsRed, setLiked] = useState('🤍');
-  const[likeCount, setLikeCount] = useState(0);
+  const[liked, setLiked] = useState(false);
+  const[likeCount, setLikeCount] = useState (false);
 
   const handleOnClickCount = () => {
-    setLiked('❤️')
-    setLikeCount(1)
+    setLiked(!liked);
+    setLikeCount(!likeCount)
   }
 
   
@@ -21,8 +21,8 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp} /></p>
-        <button onClick ={handleOnClickCount} className="like">{likeTurnsRed}</button>
-        <p>{likeCount}</p>
+        <button onClick ={handleOnClickCount} className="like">{liked ? '❤️' : '🤍'}</button>
+        <p>{likeCount ? 1 : 0}</p>
       </section>
     </div>
   );
