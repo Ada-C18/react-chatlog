@@ -3,6 +3,7 @@ import './App.css';
 import chatMessages from './data/messages.json';
 import ChatEntry from './components/ChatEntry';
 import TimeStamp from './components/TimeStamp';
+import ChatLog from './components/ChatLog';
 const App = () => {
   return (
     <div id="App">
@@ -10,14 +11,7 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        {chatMessages.map((message) => (
-          <ChatEntry
-            sender={message.sender}
-            body={message.body}
-            timeStamp={message.timeStamp}
-            liked={message.liked}
-          ></ChatEntry>
-        ))}
+        <ChatLog entries={chatMessages}></ChatLog>
       </main>
     </div>
   );
