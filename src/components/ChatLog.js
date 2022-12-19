@@ -13,6 +13,7 @@ const ChatLog = ({ entries }) => {
                 sender={entry.sender}
                 body={entry.body}
                 timeStamp={entry.timeStamp}
+                liked={entry.liked}
             />
             </div>
         );

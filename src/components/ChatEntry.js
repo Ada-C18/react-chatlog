@@ -2,9 +2,10 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp'
+import { useState } from 'react';
 
-const ChatEntry = ({ sender, body, timeStamp, uniqueId }) => {
-  const messageLocation = uniqueId % 2 ? 'chat-entry remote' : 'chat-entry local'
+const ChatEntry = ({ sender, body, timeStamp, uniqueId, liked}) => {
+  const messageLocation = uniqueId % 2 ? 'chat-entry remote' : 'chat-entry local';
   return (
     <div className={messageLocation}>
       <h2 className="entry-name">{sender}</h2>
@@ -23,7 +24,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  uniqueId: PropTypes.number.isRequired
+  uniqueId: PropTypes.number.isRequired,
+  liked:PropTypes.bool.isRequired
 };
 
 export default ChatEntry;
