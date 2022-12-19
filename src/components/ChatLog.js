@@ -6,7 +6,13 @@ import './ChatLog.css'
 const ChatLog = ({ entries }) => {
     const chatEntryComponents = entries.map(entry => {
         return (
-            <div><ChatEntry sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp} /> </div>
+            <div>
+                <ChatEntry
+                sender={entry.sender}
+                body={entry.body}
+                timeStamp={entry.timeStamp}
+            />
+            </div>
         );
     });
 
@@ -18,3 +24,23 @@ const ChatLog = ({ entries }) => {
 };
 
 export default ChatLog;
+
+
+// const ChatLog = ({ entries }) => {
+//     const chatEntryComponents = entries.map((entry) => {
+//         return (
+//         <div>
+//       {/* // <div><ChatEntry sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp} /> </div> */}
+//             <ChatEntry
+//             key={entry.id}
+//             sender={entry.sender}
+//             body={entry.body}
+//             timeStamp={entry.timeStamp}
+//             liked={entry.liked}
+//                     />
+//         </div>
+//     );
+//     });
+
+//     return <div>{chatEntryComponents}</div>;
+// };
