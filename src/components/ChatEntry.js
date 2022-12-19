@@ -6,7 +6,7 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = (props) => {
 
   const chat = {
-    // id: message.id,
+    id: props.id,
     sender: props.sender,
     body: props.body,
     timeStamp: props.timeStamp,
@@ -26,6 +26,7 @@ const ChatEntry = (props) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
+  id: PropTypes.number,
   sender: PropTypes.string,
   body: PropTypes.string,
   timeStamp: PropTypes.string

@@ -1,19 +1,19 @@
 import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 
 
 const App = () => {
-  const messageData = {
-    id: 1,
-    sender: 'Vladimir',
-    body: 'why are you arguing with me',
-    timeStamp: '2018-05-29T22:49:06+00:00',
-    liked: false
-  };
+  // const messageData = {
+  //   id: 1,
+  //   sender: 'Vladimir',
+  //   body: 'why are you arguing with me',
+  //   timeStamp: '2018-05-29T22:49:06+00:00',
+  //   liked: false
+  // };
 
-  // const timeStamp = messageData.timeStamp;
+  
   
 
   return (
@@ -22,12 +22,12 @@ const App = () => {
         <h1>ChatLog</h1>
       </header>
       <main>
-        
-        <div><ChatEntry 
+        <ChatLog entries = {chatMessages}></ChatLog>
+        {/* <div><ChatEntry 
         sender = {messageData.sender}
         body = {messageData.body}
         timeStamp = {messageData.timeStamp}
-        ></ChatEntry></div>
+        ></ChatEntry></div> */}
         
         
       </main>

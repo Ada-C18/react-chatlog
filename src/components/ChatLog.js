@@ -1,0 +1,29 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import './ChatLog.css';
+import ChatEntry from './ChatEntry';
+
+const ChatLog = (props) => {
+    const chatMessages = [];
+    const entries = props.entries;
+
+    for (const entry of entries) {
+        chatMessages.push(
+            <ChatEntry
+            id = {entry.id}
+            sender = {entry.sender}
+            body = {entry.body}
+            timeStamp = {entry.timeStamp}
+            />
+        )
+    };
+    
+
+    return (
+        <section>
+            {chatMessages}
+        </section>
+    );
+};
+
+export default ChatLog;
