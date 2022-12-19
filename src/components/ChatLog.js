@@ -24,7 +24,7 @@ const ChatLog = (props) => {
 };
 ChatLog.propTypes = {
   sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   liked: PropTypes.bool.isRequired,
   timeStamp: PropTypes.string.isRequired,

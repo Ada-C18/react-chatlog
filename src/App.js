@@ -34,7 +34,6 @@ const App = () => {
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
         <ChatLog entries={entries} toggleheart={toggleheart} />
-        {/* <ChatEntry/> */}
       </main>
     </div>
   );
