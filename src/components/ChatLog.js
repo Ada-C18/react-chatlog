@@ -2,7 +2,7 @@ import ChatEntry from './ChatEntry';
 
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, onLike }) => {
   return (
     <ul>
       {entries.map((message) => (
@@ -12,6 +12,8 @@ const ChatLog = ({ entries }) => {
           timeStamp={message.timeStamp}
           liked={message.liked}
           id={message.id}
+          key={message.id}
+          onLike={onLike}
         ></ChatEntry>
       ))}
     </ul>
@@ -27,5 +29,6 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  onLike: PropTypes.func.isRequired,
 };
 export default ChatLog;

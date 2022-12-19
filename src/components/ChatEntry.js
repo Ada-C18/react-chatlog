@@ -3,10 +3,12 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({ sender, body, timeStamp, liked }) => {
+const ChatEntry = ({ sender, body, timeStamp, liked, id, onLike }) => {
   // const currentYear = new Date().getFullYear();
   // const yearOfMessage = new Date(timeStamp).getFullYear();
   // const howManyYearsAgo = currentYear - yearOfMessage;
+
+  const likedHeart = liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -14,7 +16,9 @@ const ChatEntry = ({ sender, body, timeStamp, liked }) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">{<TimeStamp time={timeStamp}></TimeStamp>}</p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => onLike(id)}>
+          {likedHeart}
+        </button>
       </section>
     </div>
   );
@@ -22,10 +26,12 @@ const ChatEntry = ({ sender, body, timeStamp, liked }) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.element.isRequired,
+  timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  onLike: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
