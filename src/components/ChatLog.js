@@ -11,6 +11,10 @@ const ChatLog = (props) => {
             sender={entry.sender}
             body={entry.body}
             timeStamp={entry.timeStamp}
+            id = {entry.id}
+            liked = {entry.liked}
+            toggleheart ={props.toggleheart}
+
           />
         );
       })}
