@@ -15,9 +15,7 @@ const ChatLog = (props) => {
             key={chat.id}
             liked={chat.liked}
             id={chat.id}
-            likeCount={chat.likeCount}
             onLike={props.onUpdateEntry}
-            // onIsLiked={props.onIsLiked}
           />
         ))} 
       </ul>
@@ -32,7 +30,7 @@ ChatLog.propTypes = {
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool,
-      likeCount: PropTypes.number.isRequired,
+      onLike: PropTypes.func.isRequired,
     })),
     onUpdateEntry: PropTypes.func.isRequired,
 };

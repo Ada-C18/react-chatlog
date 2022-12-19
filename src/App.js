@@ -227,9 +227,6 @@ function App() {
       </header>
       <main>
         <ChatLog entries={entryData} onUpdateEntry={updateEntryData}/>
-
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
       </main>
     </div>
   );

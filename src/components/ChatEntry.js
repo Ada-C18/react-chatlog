@@ -19,7 +19,7 @@ const ChatEntry = (props) => {
     props.onLike(updatedEntry);
   };
   
-  // const likeColor = props.liked ? 'red' : 'white';
+  const likeHeart = props.liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -29,7 +29,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           {yearsAgo(props.timeStamp)} {'years ago'}
         </p>
-        <button className="likeColor" onClick={() => onLikeButton()} >{props.liked ? '❤️' : '🤍'}</button>
+        <button className='like' onClick={onLikeButton}>{likeHeart}</button>
       </section>
     </div>
   );
@@ -42,8 +42,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool,
-  onLike: PropTypes.func.isRequired
-  // onIsLiked: PropTypes.func.isRequired,
+  onLike: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
