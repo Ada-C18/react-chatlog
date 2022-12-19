@@ -2,22 +2,23 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp'
-import chatMessages from '../data/messages.json';
-
-// const ChatEntry = (props) => {
-//   const id = props.id;
-//   const sender = props.Sender;
-//   const body = props.Body;
-//   const timeStamp= props.TimeStamp;
-//   const liked= props.liked;
 
 
-const ChatEntry = ()=>{
+// ****** wave 2 ******
+const ChatEntry = (props) => {
+  const id = props.id;
+  const sender = props.Sender;
+  const body = props.Body;
+  const timeStamp= props.TimeStamp;
+  const liked= props.liked;
+
+// ****** wave 1 ******
+// const ChatEntry = ()=>{
   
-  const id = 1;
-  const sender = "Joe Biden";
-  const body = "Get out by 8am.  I'll count the silverware";
-  const timeStamp= "2018-05-18T22:12:03Z";
+//   const id = 1;
+//   const sender = "Joe Biden";
+//   const body = "Get out by 8am.  I'll count the silverware";
+//   const timeStamp= "2018-05-18T22:12:03Z";
 
 
   return (

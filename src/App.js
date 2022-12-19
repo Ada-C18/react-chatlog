@@ -1,14 +1,16 @@
-import { useState} from 'react';
+import { useStates} from 'react';
 import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
-const entries = { chatMessages };
+
 
 
 
 const App = () => {
+
+  const entries = { chatMessages };
   // const initialCopy =  chatMessages.map((chat)=>{
   //   return {...chat};
   // });
