@@ -4,38 +4,35 @@ import ChatEntry from './ChatEntry';
 
 import './ChatLog.css';
 
-const ChatLog = ({entries})=>{
-   
-    const chatComponents = [];
+const ChatLog = ({ entries }) => {
+  const chatComponents = [];
 
-
-    for (const chat of entries) {
-        console.log('chat',chat)
-        chatComponents.push(
-            <ChatEntry
-            key = {chat.id}
-            id={chat.id}
-            Sender={chat.sender}
-            Body={chat.body}
-            TimeStamp={chat.timeStamp}
-            liked={chat.liked}
-            />
-        );
-        };
-
+  for (const chat of entries) {
+    console.log('chat', chat);
+    chatComponents.push(
+      <ChatEntry
+        key={chat.id}
+        id={chat.id}
+        Sender={chat.sender}
+        Body={chat.body}
+        TimeStamp={chat.timeStamp}
+        liked={chat.liked}
+      />
+    );
+  }
 
   return <div>{chatComponents}</div>;
 };
 ChatLog.propTypes = {
-    ChatLog: PropTypes.arrayOf(
-        PropTypes.shape({
-            // id: PropTypes.number.isRequired,
-            Sender: PropTypes.string.isRequired,
-            Body: PropTypes.string.isRequired,
-            TimeStamp: PropTypes.string.isRequired,
-            // liked: PropTypes.bool.isRequired,
-        })
-    ),
-}
+  ChatLog: PropTypes.arrayOf(
+    PropTypes.shape({
+      // id: PropTypes.number.isRequired,
+      Sender: PropTypes.string.isRequired,
+      Body: PropTypes.string.isRequired,
+      TimeStamp: PropTypes.string.isRequired,
+      // liked: PropTypes.bool.isRequired,
+    })
+  ),
+};
 
 export default ChatLog;

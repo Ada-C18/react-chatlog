@@ -2,22 +2,31 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp'
+import chatMessages from '../data/messages.json';
 
-const ChatEntry = (props) => {
-  console.log('b',props)
-  const id = props.id;
-  const chatSender = props.Sender;
-  const chatBody = props.Body;
-  const chatTimeStamp= props.TimeStamp;
-  // const liked= props.liked;
+// const ChatEntry = (props) => {
+//   const id = props.id;
+//   const sender = props.Sender;
+//   const body = props.Body;
+//   const timeStamp= props.TimeStamp;
+//   const liked= props.liked;
+
+
+const ChatEntry = ()=>{
+  
+  const id = 1;
+  const sender = "Joe Biden";
+  const body = "Get out by 8am.  I'll count the silverware";
+  const timeStamp= "2018-05-18T22:12:03Z";
+
 
   return (
-    <div className="chat-entry local">
-      {/* console.log('chatSender', {chatSender}) */}
-      <h2 className="entry-name">{chatSender}</h2>
+    <div className="chat-entry local" id={id} >
+     
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{chatBody}</p>
-        <p className="entry-time">{chatTimeStamp}</p>
+        <p>{body}</p>
+        <p className="entry-time">{timeStamp.slice(0,4)} years ago</p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -29,9 +38,9 @@ ChatEntry.propTypes = {
   ChatEntry: PropTypes.arrayOf(
       PropTypes.shape({
           id: PropTypes.number.isRequired,
-          chatSender: PropTypes.string.isRequired,
-          chatBody: PropTypes.string.isRequired,
-          chatTimeStamp: PropTypes.string.isRequired,
+          sender: PropTypes.string.isRequired,
+          body: PropTypes.string.isRequired,
+          timeStamp: PropTypes.string.isRequired,
           liked: PropTypes.bool.isRequired,
       })
   ),
