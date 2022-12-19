@@ -1,10 +1,11 @@
 #App {
-  background-color: #87cefa;
+  background-color: #ffdfe3;
 }
 
 #App header {
-  background-color: #222;
-  color: #fff;
+  background-color: #DCD0EA;
+  color: #9c75c3;
+  font: Pangolin;
   padding-bottom: 0.5rem;
   position: fixed;
   width: 100%;
