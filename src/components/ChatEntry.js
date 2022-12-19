@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+// import {useState} from 'react';
 import TimeStamp from './TimeStamp'
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
@@ -15,15 +15,11 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
   };
   let currentYears = TimeStamp(timePassed)
   
-  const [buttonText, setButtonText] = useState('🤍')
-
+  // const [buttonText, setButtonText] = useState('🤍')
+  const buttonText = liked ? '❤️' : '🤍'
   const toggleLiked = (id, likedStatus) => {
     console.log(`${likedStatus}`);
-    if (likedStatus === true){
-      setButtonText('❤️')
-    } else {
-      setButtonText('🤍')
-    }
+    
     updateLiked(id, likedStatus);
   };
   if (Number(id)%2){

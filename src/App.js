@@ -5,6 +5,7 @@ import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
+
   const copy = chatMessages.map((chat) => {
     return {...chat};
   });
