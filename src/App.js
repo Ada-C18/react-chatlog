@@ -11,35 +11,13 @@ const App = () => {
         <h1>Chat Log</h1>
       </header>
       <main>
-        {/* <ChatEntry
-        sender = {chatMessages[0].sender}
-        body = {chatMessages[0].body}
-        timeStamp= {chatMessages[0].timeStamp}
-        /> */}
-
-        <ChatLog
-
-        sender = {chatMessages.sender}
-        body = {chatMessages.body}
-        timeStamp= {chatMessages.timeStamp}
-        
-        />
-        
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        {/* <ChatLog>
-        
-      
-
-        {/* <DogList 
-        dogData={dogData}
-        onPetDog={petDog}
-        onUnregister={unregisterDog}
-      /> */}
+        <ChatLog entries={chatMessages} />
+        {/* The "entries" here should match the entries in line 6 in ChatLog.
+        <if we don't have props, it will only pass ChatMessages and won't pass the data from test/>
+         */}
       </main>
     </div>
   );
-  
 };
 
 export default App;
