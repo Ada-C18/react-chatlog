@@ -16,7 +16,7 @@ const ChatEntry = (props) => {
 
   //const flipliked = changeLike(liked);
   function flipLike(arg) {
-    changeLike(chatId, arg);
+    changeLike(chatId, !arg);
   }
   const heart = like(liked);
 

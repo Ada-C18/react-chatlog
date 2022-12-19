@@ -5,9 +5,31 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
-  const changeLike = (chatId, liked) => {
+  const [chatList, setChatList] = useState([]);
+  useEffect(() => {
+    const chatCopy = chatMessages.map((data) => {
+      return {
+        ...data,
+      };
+    });
+    setChatList(chatCopy);
+  }, []);
+
+  const changeLike = (chatId, likedOr) => {
     console.log('changeLike called');
-    return !liked;
+    const newchatlist = [];
+    for (const chat of chatList) {
+      if (chat.id !== chatId) {
+        newchatlist.push(chat);
+      } else {
+        const newChat = {
+          ...chat,
+          liked: likedOr,
+        };
+        newchatlist.push(newChat);
+      }
+    }
+    setChatList(newchatlist);
   };
 
   return (
@@ -16,7 +38,7 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <ChatLog entries={chatMessages} changeLike={changeLike} />
+        <ChatLog entries={chatList} changeLike={changeLike} />
       </main>
     </div>
   );
