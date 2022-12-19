@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
+import ChatLog from './components/ChatLog';
+import {useState} from 'react';
 
 
 
@@ -35,3 +37,20 @@ const App = () => {
 };
 
 export default App;
+
+
+// const App = () => {
+
+//   return (
+//     <div id="App">
+//       <header>
+//         <h1>Chat Log Vladmir and Estragon</h1>
+//       </header>
+//       <main>
+//         <ChatLog chatEntries={chatEntries}/>
+//       </main>
+//     </div>
+//   );
+// };
+
+// export default App;
