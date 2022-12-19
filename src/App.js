@@ -27,7 +27,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Between Vladimir and Estragon</h1>
         <HeaderLikeCounter likeCount={likeCount} />
       </header>
       <main>
