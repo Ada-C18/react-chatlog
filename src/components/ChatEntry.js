@@ -2,7 +2,6 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-import { useState } from 'react';
 
 const ChatEntry = (props) => {
   return (
@@ -10,10 +9,10 @@ const ChatEntry = (props) => {
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
-        <p className="entry-time">{props.timeStamp}</p>
-        {/* <button className="liked" onClick={increaseLikes}>
-          🤍 {increaseLikes}
-        </button> */}
+        <p className="entry-time">{props.timeStamp} years ago</p>
+        {/* <button onClick={() => props.updateLikes(props.liked)}>
+          🤍 {props.name}{' '} */}
+        {/* </button> */}
       </section>
     </div>
   );
@@ -25,6 +24,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired, //this should be func and call timestamp
   liked: PropTypes.bool.isRequired,
+  // updateLikes: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
