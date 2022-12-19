@@ -22,11 +22,11 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, updateLikes }) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes to define what type it will be, ex: string
-  id: PropTypes.number,
-  sender: PropTypes.string,
-  body: PropTypes.string,
-  timeStamp: PropTypes.string,
-  liked: PropTypes.bool,
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;
