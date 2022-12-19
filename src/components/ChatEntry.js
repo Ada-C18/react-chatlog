@@ -2,34 +2,52 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
+// import { useState } from 'react';
 
-const ChatEntry = (props) => {
-  // firstSender or not firstSender
+const ChatEntry = ({
+  id,
+  sender,
+  liked,
+  timeStamp,
+  body,
+  onLike,
+  firstSender,
+}) => {
   const messageSide =
-    props.firstSender === props.sender
-      ? 'chat-entry local'
-      : 'chat-entry remote';
+    firstSender === sender ? 'chat-entry local' : 'chat-entry remote';
+
+  const handleLike = () => {
+    onLike(id);
+  };
 
   return (
-    <div className={messageSide}>
-      <h2 className="entry-name">{props.sender}</h2>
+    <div className={messageSide} key={id}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p>{body}</p>
         <p className="entry-time">
-          <TimeStamp time={props.timeStamp}></TimeStamp>
+          <TimeStamp time={timeStamp}></TimeStamp>
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => handleLike()}>
+          {liked ? '❤️' : '🤍'}
+        </button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired,
-  firstSender: PropTypes.string,
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ),
+  firstSender: PropTypes.string.isRequired,
+  onLike: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;

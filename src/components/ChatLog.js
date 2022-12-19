@@ -3,21 +3,23 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 // import chatMessages from './data/messages.json';
 
-const ChatLog = (props) => {
-  if (props.entries.length === 0) {
-    const chatLog = props.entries;
-    return <section>{chatLog}</section>;
-  }
+const ChatLog = ({ entries, firstSender, onLike }) => {
+  // if (entries.length === 0) {
+  //   const chatLog = entries;
+  //   return <section key="emptyLog">{chatLog}</section>;
+  // }
 
-  const firstSender = props.entries[0].sender;
-  const chatLog = props.entries.map((message) => {
+  const chatLog = entries.map((message) => {
     return (
       <div key={message.id}>
         <ChatEntry
+          id={message.id}
           sender={message.sender}
           body={message.body}
           timeStamp={message.timeStamp}
           firstSender={firstSender}
+          liked={message.liked}
+          onLike={onLike}
         ></ChatEntry>
       </div>
     );
@@ -29,10 +31,14 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
     })
   ),
+  firstSender: PropTypes.string.isRequired,
+  onLike: PropTypes.func.isRequired,
 };
 export default ChatLog;
