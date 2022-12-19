@@ -211,19 +211,19 @@ function App() {
   };
 
 
-  // const calcTotalLikes = (entryData) => {
-  //   return entryData.reduce((total, chat) => {
-  //     return total + chat.likeCount;
-  //   }, 0);
-  // };
+  const calcTotalLikes = (entryData) => {
+    return entryData.reduce((total, chat) => {
+      return total + chat.liked;
+    }, 0);
+  };
 
-  // const totalLikeTally = calcTotalLikes(entryData);
+  const totalLikeTally = calcTotalLikes(entryData);
 
   return (
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
-        <h2>{} ❤️s</h2>
+        <h2>{totalLikeTally} ❤️s</h2>
       </header>
       <main>
         <ChatLog entries={entryData} onUpdateEntry={updateEntryData}/>
