@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import ChatEntry from "./ChatEntry";
