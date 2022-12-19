@@ -35,7 +35,10 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Room</h1>
+        <section className="widget" id="heartWidget">
+          2 ❤️s
+        </section>
       </header>
       <main>
         <ChatLog entries={chatList} changeLike={changeLike} />
