@@ -18,14 +18,12 @@ const ChatEntry = (props) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
-  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string. isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked:PropTypes.bool.isRequired
-
-
-
+  // not required for wave 1, but we're adding them anyways
+  // id: PropTypes.number.isRequired,
+  // liked:PropTypes.bool.isRequired
 };
 
 export default ChatEntry;
