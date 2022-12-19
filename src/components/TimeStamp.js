@@ -10,10 +10,7 @@ const TimeStamp = (props) => {
 };
 
 TimeStamp.propTypes = {
-  //Fill with correct proptypes
-  // id: PropTypes.isRequired,
   time: PropTypes.string.isRequired,
-  // liked: PropTypes.bool.isRequired,
 };
 
 export default TimeStamp;
