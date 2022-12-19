@@ -7,18 +7,23 @@ import {useState} from 'react';
 
 
 const ChatEntry = (props) => {
-  const[likeCount, setLiked] = useState('🤍');
+  const[likeTurnsRed, setLiked] = useState('🤍');
+  const[likeCount, setLikeCount] = useState(0);
 
-  const handleOnClickLikes = () => {
+  const handleOnClickCount = () => {
     setLiked('❤️')
+    setLikeCount(1)
   }
+
+  
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp} /></p>
-        <button onClick ={handleOnClickLikes} className="like">{likeCount}</button>
+        <button onClick ={handleOnClickCount} className="like">{likeTurnsRed}</button>
+        <p>{likeCount}</p>
       </section>
     </div>
   );
