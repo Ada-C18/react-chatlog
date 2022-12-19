@@ -1,4 +1,5 @@
 import './HeaderLikeCounter.css';
+import PropTypes from 'prop-types';
 
 const HeaderLikeCounter = (props) => {
   return (
@@ -6,6 +7,10 @@ const HeaderLikeCounter = (props) => {
       <h2>{`${props.likeCount} ❤️s`}</h2>
     </section>
   );
+};
+
+HeaderLikeCounter.propTypes = {
+  likeCount: PropTypes.number,
 };
 
 export default HeaderLikeCounter;
