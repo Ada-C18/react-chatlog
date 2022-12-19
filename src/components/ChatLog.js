@@ -4,10 +4,12 @@ import './ChatLog.css'
 
 
 const ChatLog = ({ entries }) => {
+
     const chatEntryComponents = entries.map(entry => {
         return (
-            <div>
+            <div key={entry.id}>
                 <ChatEntry
+                uniqueId={entry.id}
                 sender={entry.sender}
                 body={entry.body}
                 timeStamp={entry.timeStamp}
@@ -15,7 +17,6 @@ const ChatLog = ({ entries }) => {
             </div>
         );
     });
-
     return (
         <div>{chatEntryComponents}</div>
 
