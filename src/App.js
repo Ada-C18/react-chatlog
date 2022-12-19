@@ -5,15 +5,6 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const entries = chatMessages;
-// const data = [
-//   {
-//     id: 1,
-//     sender: 'Vladimir',
-//     body: 'why are you arguing with me',
-//     timeStamp: '2018-05-29T22:49:06+00:00',
-//     // liked: false,
-//   },
-// ];
 
 const App = () => {
   // const [messages, setMessages] = useState(messagesJson);
