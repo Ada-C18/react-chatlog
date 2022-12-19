@@ -22,7 +22,7 @@ const App = () => {
         <h1>ChatLog</h1>
       </header>
       <main>
-        <ChatLog entries = {chatMessages}></ChatLog>
+        <ChatLog entries = {chatMessages} className = "chat-log"></ChatLog>
         {/* <div><ChatEntry 
         sender = {messageData.sender}
         body = {messageData.body}

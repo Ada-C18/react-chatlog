@@ -11,9 +11,17 @@ const ChatEntry = (props) => {
     body: props.body,
     timeStamp: props.timeStamp,
     // liked: false
+    };
+
+  let sender;
+  if (props.sender === 'Vladimir') {
+    sender = 'chat-entry local';
+  } else {
+    sender = 'chat-entry remote';
   };
+
   return (
-    <div className="chat-entry local">
+    <div className={sender}>
       <h2 className="entry-name">{chat.sender}</h2>
       <section className="entry-bubble">
         <p>{chat.body}</p>
@@ -25,19 +33,10 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
-  id: PropTypes.number,
-  sender: PropTypes.string,
-  body: PropTypes.string,
-  timeStamp: PropTypes.string
-  // message: PropTypes.shape(
-  //   {
-  //   // {id: PropTypes.number.isRequired, 
-  //   sender: PropTypes.string.isRequired,
-  //   body: PropTypes.string.isRequired,
-  //   timeStamp: PropTypes.string.isRequired
-  //   }
-  // )
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired
 };
 
 export default ChatEntry;

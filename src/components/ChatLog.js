@@ -26,4 +26,8 @@ const ChatLog = (props) => {
     );
 };
 
+ChatLog.propTypes = {
+    entries: PropTypes.array.isRequired
+};
+
 export default ChatLog;
