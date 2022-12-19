@@ -3,10 +3,10 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ messages }) => {
+const ChatLog = (props) => {
   return (
     <ul className="chat-entry local">
-      {messages.map((message) => {
+      {props.entries.map((message) => {
         return (
           <ChatEntry
             key={message.id}
