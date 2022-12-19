@@ -18,17 +18,8 @@ const ChatEntry = (props) => {
     };
     props.onLike(updatedEntry);
   };
-  // const likedColor = props.isLiked ? 'red' : 'white';
-  //  const [likesCount, setLikesCount] = useState(0);
-
-
-  //  const increaseLikes = () => {
-  //   console.log('liked')
-  //   setLikesCount(likesCount+1);
-  //  };
-
   
-  // const likeColor = props.isLiked ? '❤️' : '🤍';
+  // const likeColor = props.liked ? 'red' : 'white';
 
   return (
     <div className="chat-entry local">
@@ -38,7 +29,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           {yearsAgo(props.timeStamp)} {'years ago'}
         </p>
-        <button className="likeColor" onClick={onLikeButton} >🤍</button>
+        <button className="likeColor" onClick={() => onLikeButton()} >{props.liked ? '❤️' : '🤍'}</button>
       </section>
     </div>
   );
