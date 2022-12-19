@@ -44,10 +44,12 @@ describe("Wave 02: ChatLog", () => {
   test("renders without crashing and shows all the names", () => {
     [
       {
+        id: 1,
         name: "Vladimir",
         numChats: 3,
       },
       {
+        id: 2,
         name: "Estragon",
         numChats: 2,
       },
