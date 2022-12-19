@@ -13,9 +13,9 @@ const ChatLog = ({ entries }) => {
       <ChatEntry
         key={chat.id}
         id={chat.id}
-        Sender={chat.sender}
-        Body={chat.body}
-        TimeStamp={chat.timeStamp}
+        sender={chat.sender}
+        body={chat.body}
+        timeStamp={chat.timeStamp}
         liked={chat.liked}
       />
     );

@@ -1,8 +1,10 @@
-import { useStates} from 'react';
+// import { useStates} from 'react';
 import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
+import ChatEntry from './components/ChatEntry';
+import TimeStamp from './components/TimeStamp';
 
 
 
@@ -11,6 +13,9 @@ import ChatLog from './components/ChatLog';
 const App = () => {
 
   const entries = { chatMessages };
+  
+ 
+
   // const initialCopy =  chatMessages.map((chat)=>{
   //   return {...chat};
   // });
@@ -29,9 +34,10 @@ const App = () => {
         <h1>Chat between Vladimir and Estragon</h1>
       </header>
       <main>
-        {/* **** wave 1 **** */}
-        {/* <ChatEntry sender={chatEntry}/> */}
-        <ChatLog entries={chatMessages} />
+        {/* Wave 01: Render one ChatEntry component
+        Wave 02: Render ChatLog component */}
+        <ChatLog entries={chatMessages}  />
+       
       </main>
     </div>
   );

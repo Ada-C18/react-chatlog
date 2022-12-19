@@ -5,12 +5,8 @@ import TimeStamp from './TimeStamp'
 
 
 // ****** wave 2 ******
-const ChatEntry = (props) => {
-  const id = props.id;
-  const sender = props.Sender;
-  const body = props.Body;
-  const timeStamp= props.TimeStamp;
-  const liked= props.liked;
+const ChatEntry = ({key, id, sender, body, timeStamp, liked}) => {
+
 
 // ****** wave 1 ******
 // const ChatEntry = ()=>{
@@ -27,8 +23,11 @@ const ChatEntry = (props) => {
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
-        <p className="entry-time">{timeStamp.slice(0,4)} years ago</p>
+        <p className="entry-time">{2022-(timeStamp.slice(0,4))} years ago
+        {/* <TimeStamp timeStamp ={timeStamp}/> */}
+        </p>
         <button className="like">🤍</button>
+        
       </section>
     </div>
   );
