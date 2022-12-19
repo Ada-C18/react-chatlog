@@ -6,6 +6,7 @@ const TimeStamp = (props) => {
   const relative = time.toRelative();
 
   return <span title={absolute}>{relative}</span>;
+
 };
 
 export default TimeStamp;
