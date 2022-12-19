@@ -5,7 +5,6 @@ import TimeStamp from './TimeStamp';
 import {useState} from 'react';
 
 
-
 const ChatEntry = (props) => {
   const[likeTurnsRed, setLiked] = useState('🤍');
   const[likeCount, setLikeCount] = useState(0);

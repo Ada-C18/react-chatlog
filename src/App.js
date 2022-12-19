@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
+import {useState} from 'react';
 import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
-import {useState} from 'react';
+import TimeStamp from './components/TimeStamp';
+
 
 
 
@@ -38,8 +40,16 @@ const App = () => {
 
 export default App;
 
+// const chatMessages = [
+//   {
+//     sender: 'Aviva',
+//     body: 'hello',
+//     TimeStamp: '3pm'
+//   }
+// ]
 
 // const App = () => {
+//   // const [chatEntries, setChatEntries] = useState(chatMessages);
 
 //   return (
 //     <div id="App">
@@ -47,7 +57,7 @@ export default App;
 //         <h1>Chat Log Vladmir and Estragon</h1>
 //       </header>
 //       <main>
-//         <ChatLog chatEntries={chatEntries}/>
+//         <ChatLog chatEntries={chatMessages}/>
 //       </main>
 //     </div>
 //   );
