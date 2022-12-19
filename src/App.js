@@ -1,19 +1,25 @@
 import React from 'react';
 import './App.css';
+import { useState } from 'react';
 import ChatEntry from './components/ChatEntry';
-// import chatMessages from './data/messages.json';
-const chatMessages = [
-  {
-    id: 1,
-    sender: 'Vladimir',
-    body: 'why are you arguing with me',
-    timeStamp: '2018-05-29T22:49:06+00:00',
-    liked: false
-  }
-]
+import chatMessages from './data/messages.json';
+
+
 
 
 const App = () => {
+  // const [chatData, setChatData] = useState(chatMessages);
+  // const chatData = useState(chatMessages)
+  const messages = chatMessages.map((message, i) => {
+  //   // return <ChatEntry
+  //   // key={i}
+  //   // sender={message.sender}
+  //   // body={message.body}
+  //   // timeStamp={message.timeStamp}
+  //   // liked={message.liked}
+  //   // />
+  // })
+
   return (
     <div id="App">
       <header>
@@ -22,10 +28,19 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        <ChatEntry chatMessages={chatMessages}/>
+        <ChatEntry
+          key={i}
+          sender={message.sender}
+          body={message.body}
+          timeStamp={message.timeStamp}
+          liked={message.liked}
+        />
       </main>
     </div>
   );
-};
+      }
+      )
+      return messages[0]
+    };
 
 export default App;

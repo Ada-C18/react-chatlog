@@ -1,17 +1,18 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import Chat from './Chat';
 
 const ChatEntry = (props) => {
-  const messages = props.chatMessages.map((message, i) => {
-    return <chatMessages
-    key={i}
-    sender={message.sender}
-    body={message.body}
-    timeStamp={message.timeStamp}
-    liked={message.liked}
-    />
-  })
+  // const messages = props.chatData.map((message, i) => {
+  //   return <Chat
+  //   key={i}
+  //   sender={message.sender}
+  //   body={message.body}
+  //   timeStamp={message.timeStamp}
+  //   liked={message.liked}
+  //   />
+  // })
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">name: {props.sender}</h2>
@@ -20,6 +21,9 @@ const ChatEntry = (props) => {
         <p className="entry-time">time: {props.timeStamp}</p>
         <button className="like">🤍</button>
       </section>
+      {/* {<div>
+        {messages}
+      </div>} */}
     </div>
   );
 };
