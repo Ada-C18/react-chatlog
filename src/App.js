@@ -5,7 +5,7 @@ import ChatLog from './components/ChatLog';
 
 
 const App = () => {
-  const chatData = chatMessages;
+  const entries = chatMessages;
 
   return (
     <div id="App">
@@ -13,7 +13,7 @@ const App = () => {
         <h1>Chat between Vladimir and Estagon</h1>
       </header>
       <main>
-        <ChatLog chatData={chatData}></ChatLog>
+        <ChatLog entries={entries}></ChatLog>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>

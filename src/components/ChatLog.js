@@ -1,8 +1,8 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({chatData}) => {
-  const chatComponents = chatData.map((chat) => {
+const ChatLog = ({entries}) => {
+  const chatComponents = entries.map((chat) => {
     return (
       <section key={chat.id}>
         <ChatEntry
@@ -23,7 +23,7 @@ const ChatLog = ({chatData}) => {
 };
 
 ChatLog.propTypes = {
-  chatData: PropTypes.arrayOf(PropTypes.object).isRequired
+  entries: PropTypes.arrayOf(PropTypes.object).isRequired
   //   PropTypes.shape({
   //   id: PropTypes.number.isRequired,
   //   senderData: PropTypes.string.isRequired,
