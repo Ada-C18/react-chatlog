@@ -29,13 +29,17 @@ const App = () => {
   };
 
   const totalHeartsTally = calcTotalLikes(entries);
-
+  // color choice  state for vlad
   const [colors, setColor] = useState(ColorChoice);
+  // color choice state for estragon
+
+  // passed to respetive senders, both into chatlog
+
 
   return (
     <div id="App">
       <header>
-        <h1>Chat between {entries[0].sender} and {entries[1].sender}</h1>
+        <h1>Top Secret Sesh: {entries[0].sender} and {entries[1].sender}</h1>
         <section>
           <span>
             <div className="header-text" id="vlad-div">Vladimir's color:</div>
@@ -56,7 +60,10 @@ const App = () => {
           timeStamp="2018-05-18T22:12:03Z"
           /> */}
         {/*Wave 02: Render ChatLog component */}
-        <ChatLog entries={entries} onLikeEntry={likeEntry} />
+        <ChatLog entries={entries} onLikeEntry={likeEntry} 
+        // e color state
+        // vlad color state
+        />
       </main>
     </div>
   );

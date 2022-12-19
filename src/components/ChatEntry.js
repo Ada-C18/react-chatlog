@@ -16,6 +16,7 @@ const ChatEntry = (props) => {
 
   const returnedvalue = props.sender === 'Vladimir' ? 'local' : 'remote';
 
+  
   return (
     <div className={`chat-entry ${returnedvalue}`}>
       <h2 className="entry-name">{props.sender}</h2>
@@ -39,8 +40,9 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-  onLikeEntry: PropTypes.func.isRequired,
+  liked: PropTypes.bool,
+  onLikeEntry: PropTypes.func,
+  // font color
 };
 
 export default ChatEntry;

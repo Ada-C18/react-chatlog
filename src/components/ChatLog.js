@@ -14,6 +14,7 @@ const ChatLog = (props) => {
         timeStamp={entry.timeStamp}
         liked={entry.liked}
         onLikeEntry={props.onLikeEntry}
+        // prop.fontcolorstate
       />
     )
 });
@@ -46,14 +47,14 @@ ChatLog.propTypes = {
     PropTypes.shape(
       {
         //Fill with correct proptypes
-        id: PropTypes.number.isRequired,
+        id: PropTypes.number,
         sender: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         timeStamp: PropTypes.string.isRequired,
         liked: PropTypes.bool.isRequired,
   }),
   ), 
-  onLikeEntry: PropTypes.func.isRequired
+  onLikeEntry: PropTypes.func
 };
 
 export default ChatLog;
