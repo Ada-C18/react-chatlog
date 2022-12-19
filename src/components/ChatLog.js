@@ -6,8 +6,6 @@ import ChatEntry from './ChatEntry';
 const ChatLog = (props) => {
   return (
     <>
-      <h2>Chat</h2>
-      <h3>Number of Likes</h3>
       <ul>
         {props.entries.map((chat) => (
           <ChatEntry className='chat-log'
@@ -15,7 +13,11 @@ const ChatLog = (props) => {
             body={chat.body}
             timeStamp={chat.timeStamp}
             key={chat.id}
+            liked={chat.liked}
             id={chat.id}
+            likeCount={chat.likeCount}
+            onLike={props.onUpdateEntry}
+            // onIsLiked={props.onIsLiked}
           />
         ))} 
       </ul>
@@ -23,14 +25,16 @@ const ChatLog = (props) => {
   );
 };
 
-// ChatLog.propTypes = {
-//   chatLog: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       sender: PropTypes.string.isRequired,
-//       body: PropTypes.string.isRequired,
-//       timeStamp: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
+ChatLog.propTypes = {
+  chatLog: PropTypes.arrayOf(
+    PropTypes.shape({
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool,
+      likeCount: PropTypes.number.isRequired,
+    })),
+    onUpdateEntry: PropTypes.func.isRequired,
+};
 
 export default ChatLog;

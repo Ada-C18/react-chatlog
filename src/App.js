@@ -196,25 +196,43 @@ const entries = [
   },
 ];
 
-
 function App() {
-  // const [isLiked, setIsLiked] = useState(entries);
+  const [entryData, setEntryData] = useState(entries);
 
-  // const likeEntry = 
+  const updateEntryData = updatedEntry => {
+    const entries = entryData.map(chat => {
+      if (chat.id === updatedEntry.id) {
+        return updatedEntry;
+      } else {
+        return chat;
+      }
+    });
+    setEntryData(entries);
+  };
+
+
+  // const calcTotalLikes = (entryData) => {
+  //   return entryData.reduce((total, chat) => {
+  //     return total + chat.likeCount;
+  //   }, 0);
+  // };
+
+  // const totalLikeTally = calcTotalLikes(entryData);
 
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat between Vladimir and Estragon</h1>
+        <h2>{} ❤️s</h2>
       </header>
       <main>
-        <ChatLog entries={entries} />
-        
+        <ChatLog entries={entryData} onUpdateEntry={updateEntryData}/>
+
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
     </div>
   );
-};
+}
 
 export default App;
