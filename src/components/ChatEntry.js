@@ -9,10 +9,12 @@ const ChatEntry = ({ onUpdate, ...message }) => {
       ...message,
       liked: !message.liked,
     });
-  let [likedClass, likedIcon] = message.liked
+
+  const [likedClass, likedIcon] = message.liked
     ? ['liked', '❤️']
     : ['unliked', '🤍'];
-  let localRemoteClass = message.localRemote ? 'local' : 'remote';
+  const localRemoteClass = message.localRemote ? 'local' : 'remote';
+
   return (
     <div className={`chat-entry ${localRemoteClass}`}>
       <h2 className="entry-name">{message.sender}</h2>
