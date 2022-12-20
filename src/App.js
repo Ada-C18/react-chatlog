@@ -29,11 +29,15 @@ const App = () => {
   };
 
   const totalHeartsTally = calcTotalLikes(entries);
+
   // color choice  state for vlad
-  const [colors, setColor] = useState(ColorChoice);
+  const [leftColor, setLeftColor] = useState('black');
+
   // color choice state for estragon
+  const [rightColor, setRightColor] = useState('black');
 
   // passed to respetive senders, both into chatlog
+// pass callBack function to colotShoice  "oncolorpick={}"
 
 
   return (
@@ -43,6 +47,7 @@ const App = () => {
         <section>
           <span>
             <div className="header-text" id="vlad-div">Vladimir's color:</div>
+            {/* use template string to  use color class naME */}
             <div id="vlad-colors"><ColorChoice/></div>
           </span>
           <h1 className='header-text'>{totalHeartsTally} ❤️s</h1>
@@ -61,8 +66,9 @@ const App = () => {
           /> */}
         {/*Wave 02: Render ChatLog component */}
         <ChatLog entries={entries} onLikeEntry={likeEntry} 
-        // e color state
-        // vlad color state
+
+        // left color prop
+        // right color prop passed to ChatLog
         />
       </main>
     </div>
