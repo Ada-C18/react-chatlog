@@ -3,6 +3,23 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
+// const ChatLog = ({ messages }) => {
+//   return (
+//     <ul className="chat-entry local">
+//       {messages.map((message) => {
+//         return (
+//           <ChatEntry
+//             key={message.id}
+//             sender={message.sender}
+//             body={message.body}
+//             timeStamp={message.timeStamp}
+//             liked={message.liked}
+//           />
+//         );
+//       })}
+//     </ul>
+//   );
+// };
 const ChatLog = (props) => {
   return (
     <ul className="chat-entry local">
@@ -22,9 +39,8 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  messages: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.number,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
