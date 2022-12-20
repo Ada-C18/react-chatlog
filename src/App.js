@@ -4,6 +4,7 @@ import ChatEntry from './components/ChatEntry';
 import TimeStamp from './components/TimeStamp';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
+import { useState } from 'react';
 const LOG = [
   {
     id: 1,
@@ -37,12 +38,36 @@ const LOG = [
   },
 ];
 
-const specialMessage = chatMessages[0];
 const App = () => {
+  const [entries, setData] = useState(chatMessages);
+  const calcTotallike = (entries) => {
+    return entries.reduce(
+      (total, i) => {
+        return total + i.liked;
+      },
+
+      0
+    );
+  };
+  const totalLike = calcTotallike(entries);
+
+  const updateLikeCount = (mId) => {
+    const newChatMessage = [...entries];
+    for (const message of newChatMessage) {
+      if (message.id === mId) {
+        if (message.liked) {
+          message.liked = false;
+        } else {
+          message.liked = true;
+        }
+      }
+    }
+    setData(newChatMessage);
+  };
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1> {totalLike} ❤️s </h1>
       </header>
       <main>
         {/* <ChatEntry */}
@@ -50,7 +75,7 @@ const App = () => {
         {/* body={specialMessage.body} */}
         {/* timeStamp={specialMessage.timeStamp} */}
         {/* /> */}
-        <ChatLog chats={chatMessages} />
+        <ChatLog entries={chatMessages} onUpdateLikeCount={updateLikeCount} />
       </main>
     </div>
   );
