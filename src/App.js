@@ -32,14 +32,12 @@ const App = () => {
   };
 
   function countHeart(chatList) {
-    console.log('countHeart called');
     let likeCount = 0;
     for (const chat of chatList) {
       if (chat.liked === true) {
         likeCount = likeCount + 1;
       }
     }
-    console.log(likeCount);
     return likeCount;
   }
   // add function which count the true in liked
