@@ -1,34 +1,46 @@
 import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
+// import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
   const intitialCopy = chatMessages.map((message) => {
-    // console.log(`HERE:`, { intitialCopy });
     return { ...message };
   });
-  // console.log(`NOW HERE:`, { intitialCopy });
   const [messagesList, setMessagesList] = useState(intitialCopy);
-  // console.log(messagesList);
+
+  const updateLike = (entryId) => {
+    const newMessagesList = [];
+    for (const entry of messagesList) {
+      if (entry.id !== entryId) {
+        newMessagesList.push(entry);
+      } else {
+        const newEntry = {
+          ...entry,
+          liked: !entry.liked,
+        };
+        newMessagesList.push(newEntry);
+      }
+    }
+    setMessagesList(newMessagesList);
+  };
+
+  let numOfLikes = 0;
+  for (const entry of messagesList) {
+    if (entry.liked === true) {
+      numOfLikes += 1;
+    }
+  }
+
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
+        <h2>{numOfLikes} ❤️s</h2>
       </header>
       <main>
-        <ChatLog entries={messagesList}></ChatLog>
-        {/* <ChatEntry
-          // messagesList={messagesList}
-          // id={chatMessages.id}
-          sender={chatMessages[0].sender}
-          body={chatMessages[0].body}
-          timeStamp={chatMessages[0].timeStamp}
-          // liked={chatMessages.liked}
-        ></ChatEntry> */}
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatLog entries={messagesList} updateLike={updateLike}></ChatLog>
       </main>
     </div>
   );

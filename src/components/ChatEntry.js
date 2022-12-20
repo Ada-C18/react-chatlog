@@ -4,17 +4,14 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  // const messagesList = props.messagesList;
-  // const id = messagesList[0].id;
-  // const sender = messagesList[0].sender;
-  // const body = messagesList[0].body;
-  // const timeStamp = messagesList[0].timeStamp;
-  // const liked = messagesList[0].liked;
-  // const messageComps
-
+  const id = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
+  const liked = props.liked;
+  const updateLike = props.updateLike;
+
+  const buttonContent = liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -24,22 +21,25 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={timeStamp}></TimeStamp>
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => updateLike(id)}>
+          {buttonContent}
+        </button>
       </section>
     </div>
   );
 };
 
-// ChatEntry.propTypes = {
-//   messagesList: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       sender: PropTypes.string.isRequired,
-//       body: PropTypes.string.isRequired,
-//       timeStamp: PropTypes.string.isRequired,
-//       liked: PropTypes.bool.isRequired,
-// })
-//   );
-// };
+ChatEntry.propTypes = {
+  messagesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+    })
+  ),
+  updateLike: PropTypes.func.isRequired,
+};
 
 export default ChatEntry;

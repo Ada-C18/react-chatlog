@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
+  const updateLike = props.updateLike;
   const entryComps = [];
   for (const entry of props.entries) {
-    console.log(`ENTRY:`, entry);
     entryComps.push(
       <>
         <ChatEntry
-          // id={entry.id}
+          className="chat-log"
+          id={entry.id}
           sender={entry.sender}
           body={entry.body}
           timeStamp={entry.timeStamp}
-          // liked={entry.liked}
+          liked={entry.liked}
+          updateLike={updateLike}
         ></ChatEntry>
       </>
     );
-    // console.log(`BODY:`, { entry.body });
   }
-  // console.log(`CHAT:`, { entryComps });
   return <>{entryComps}</>;
 };
 
@@ -34,6 +34,7 @@ ChatEntry.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  updateLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
