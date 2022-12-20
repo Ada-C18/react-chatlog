@@ -7,7 +7,7 @@ import ChatEntry from './ChatEntry';
 const ChatLog = (props) => {
   const handleLike = props.handleLike;
 
-  const messages = props.messages.map((message) => {
+  const messages = props.messages?.map((message) => {
     return (
       <ChatEntry
         key={message.id}
