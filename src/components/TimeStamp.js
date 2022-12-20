@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
-const TimeStamp = (props) => {
-  const time = DateTime.fromISO(props.time);
+const TimeStamp = ({ dataTime }) => {
+  const time = DateTime.fromISO(dataTime);
   const absolute = time.toFormat('MMMM Do YYYY, h:mm:ss a');
   const relative = time.toRelative();
 

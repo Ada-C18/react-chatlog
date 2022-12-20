@@ -6,15 +6,14 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages);
 
-  const updateChatData = (updatedChatEntry) => {
-    const chatEntries = chatData.map((chatEntry) => {
-      if (chatEntry.id === updatedChatEntry.id) {
-        return updatedChatEntry;
-      } else {
-        return chatEntry;
-      }
-    });
-    setChatData(chatEntries);
+  const toggleHeart = (id) => {
+    setChatData(
+      chatData.map((chatEntry) =>
+        chatEntry.id === id
+          ? { ...chatEntry, liked: !chatEntry.liked }
+          : chatEntry
+      )
+    );
   };
 
   const getLikeCount = () => {
@@ -30,14 +29,14 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Vladimir and Estragon's Chat</h1>
+        <h1>Chat Between Vladimir and Estragon</h1>
         <div>
           <h2>{getLikeCount()} ❤️s</h2>
         </div>
       </header>
 
       <main>
-        <ChatLog entries={chatData} onLike={updateChatData} />
+        <ChatLog entries={chatData} onLikeMessage={toggleHeart} />
       </main>
     </div>
   );

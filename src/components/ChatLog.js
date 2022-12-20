@@ -3,11 +3,19 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, onLike }) => {
+const ChatLog = ({ entries, onLikeMessage }) => {
   return (
     <div>
       {entries.map((entry) => (
-        <ChatEntry key={entry.id} entry={entry} onLike={onLike} />
+        <ChatEntry
+          key={entry.id}
+          id={entry.id}
+          sender={entry.sender}
+          body={entry.body}
+          timeStamp={entry.timeStamp}
+          liked={entry.liked}
+          onLikeMessage={onLikeMessage}
+        />
       ))}
     </div>
   );
@@ -24,6 +32,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool,
     })
   ),
+  onLikeMessage: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
