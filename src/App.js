@@ -53,13 +53,16 @@ const App = () => {
 
   const updateLikeCount = (mId) => {
     const newChatMessage = [...entries];
-    for (const message of newChatMessage) {
+    for (let i = 0; i < newChatMessage.length; i++) {
+      const message = newChatMessage[i];
       if (message.id === mId) {
-        if (message.liked) {
-          message.liked = false;
+        const newMessage = { ...message };
+        if (newMessage.liked) {
+          newMessage.liked = false;
         } else {
-          message.liked = true;
+          newMessage.liked = true;
         }
+        newChatMessage[i] = newMessage;
       }
     }
     setData(newChatMessage);
@@ -75,7 +78,7 @@ const App = () => {
         {/* body={specialMessage.body} */}
         {/* timeStamp={specialMessage.timeStamp} */}
         {/* /> */}
-        <ChatLog entries={chatMessages} onUpdateLikeCount={updateLikeCount} />
+        <ChatLog entries={entries} onUpdateLikeCount={updateLikeCount} />
       </main>
     </div>
   );
