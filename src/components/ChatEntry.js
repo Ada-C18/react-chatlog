@@ -2,6 +2,7 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
+// import messages.json from './data.messages.json';
 
 const ChatEntry = (props) => {
   return (
