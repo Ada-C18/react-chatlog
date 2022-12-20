@@ -4,22 +4,20 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, sender, body, timeStamp, like, updateLike }) => {
-  const changeLike = () => {
-    updateLike(id);
-  };
-
-  const liked = 'like';
+  const heart = like ? '❤️' : '🤍';
+  const localOrRemote =
+    sender === 'Vladimir' ? 'chat-entry local' : 'chat-entry remote';
 
   return (
-    <div className="chat-entry local">
+    <div className={localOrRemote}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">
           <TimeStamp time={timeStamp} />
         </p>
-        <button className={(like = liked)} onClick={changeLike}>
-          🤍
+        <button className="like" onClick={() => updateLike(id)}>
+          {heart}
         </button>
       </section>
     </div>

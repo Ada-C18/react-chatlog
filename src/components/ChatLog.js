@@ -9,6 +9,7 @@ const ChatLog = ({ entries, updateLike }) => {
     return (
       <div key={message.id} className="chat-entry local">
         <ChatEntry
+          id={message.id}
           sender={message.sender}
           body={message.body}
           timeStamp={message.timeStamp}

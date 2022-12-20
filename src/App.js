@@ -20,20 +20,31 @@ const App = () => {
   const [chatLogState, setChatLogState] = useState(chatLogCopy);
 
   const toggleLike = (id) => {
-    console.log('toggleLike called');
     const msgs = chatLogState.map((msg) => {
       if (msg.id === id) {
-        msg.liked = true;
+        msg.liked = !msg.liked;
+        countLikes(msg);
       }
       return msg;
     });
     setChatLogState(msgs);
   };
 
+  let [totalLikes, setTotalLikes] = useState(0);
+
+  const countLikes = (msg) => {
+    if (msg.liked === true) {
+      setTotalLikes(totalLikes + 1);
+    } else {
+      setTotalLikes(totalLikes - 1);
+    }
+  };
+
   return (
     <div id="App">
       <header>
         <h1>Chat Log</h1>
+        <h2>{totalLikes} ❤️s</h2>
       </header>
       <main>
         <ChatLog entries={chatLogState} updateLike={toggleLike} />
