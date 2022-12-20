@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import { useState } from 'react';
@@ -45,11 +44,7 @@ const App = () => {
         <h3>{likes} ❤️s</h3>
       </header>
       <main>
-        <ChatLog
-          messages={messages}
-          handleLike={handleLike}
-          // displayLikes={displayLikes}
-        />
+        <ChatLog messages={messages} handleLike={handleLike} />
       </main>
     </div>
   );

@@ -6,7 +6,6 @@ import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
   const handleLike = props.handleLike;
-  // const displayLikes = props.displayLikes;
 
   const messages = props.messages.map((message) => {
     return (
@@ -37,7 +36,6 @@ ChatEntry.propTypes = {
     })
   ),
   handleLike: PropTypes.func.isRequired,
-  // displayLikes: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

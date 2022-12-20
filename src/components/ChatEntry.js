@@ -2,7 +2,6 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-// import { useState } from 'react';
 
 const ChatEntry = (props) => {
   const id = props.id;
@@ -11,7 +10,6 @@ const ChatEntry = (props) => {
   const time = TimeStamp({ time: props.timeStamp });
   const liked = props.liked;
   const handleLike = props.handleLike;
-  // const displayLikes = props.displayLikes;
 
   return (
     <div className="chat-entry local">
@@ -34,7 +32,6 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   handleLike: PropTypes.func.isRequired,
-  // displayLikes: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
