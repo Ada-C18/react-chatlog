@@ -10,6 +10,7 @@ const App = () => {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component
+          // entries={entries}
         Wave 02: Render ChatLog component */}
       </main>
     </div>
