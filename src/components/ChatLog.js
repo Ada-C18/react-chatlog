@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
+import './ChatLog.css';
 // import chatMessages from './data/messages.json';
 
 const ChatLog = (props) => {
@@ -8,7 +9,8 @@ const ChatLog = (props) => {
     <>
       <ul>
         {props.entries.map((chat) => (
-          <ChatEntry className='chat-log'
+          <ChatEntry
+            className="chat-log"
             sender={chat.sender}
             body={chat.body}
             timeStamp={chat.timeStamp}
@@ -17,7 +19,7 @@ const ChatLog = (props) => {
             id={chat.id}
             onLike={props.onUpdateEntry}
           />
-        ))} 
+        ))}
       </ul>
     </>
   );
@@ -31,8 +33,9 @@ ChatLog.propTypes = {
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool,
       onLike: PropTypes.func.isRequired,
-    })),
-    onUpdateEntry: PropTypes.func.isRequired,
+    })
+  ),
+  onUpdateEntry: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
