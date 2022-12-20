@@ -8,8 +8,6 @@ const ChatEntry = (props) => {
   const timeStamp = <TimeStamp time={props.timeStamp}></TimeStamp>;
   const sender = props.sender;
 
-
-  
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>
@@ -26,7 +24,7 @@ ChatEntry.propTypes = {
   //Fill with correct proptypes
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timestamp: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;
