@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
-import Chat from './Chat';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   // const messages = props.chatData.map((message, i) => {
@@ -17,18 +17,19 @@ const ChatEntry = (props) => {
     <div className="chat-entry local">
       <h2 className="entry-name">name: {props.sender}</h2>
       <section className="entry-bubble">
-        <p>message: {props.body}</p>
-        <p className="entry-time">time: {props.timeStamp}</p>
+        <p>{props.id}</p>
+        <p>{props.body}</p>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp} />
+        </p>
         <button className="like">🤍</button>
       </section>
-      {/* {<div>
-        {messages}
-      </div>} */}
     </div>
   );
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,
