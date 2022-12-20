@@ -5,8 +5,14 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const time = <TimeStamp timeStamp={props.timeStamp} />;
+  const nameLocalRemote = props.sender === 'Vladimir' ? 'local' : 'remote';
+
+  const classes = `chat-entry ${nameLocalRemote}`;
+
+  // Source: https://stackoverflow.com/questions/34521797/how-to-add-multiple-classes-to-a-reactjs-component
+
   return (
-    <div className="chat-entry local">
+    <div className={classes}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
