@@ -5,13 +5,20 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
+  const handleLike = props.handleLike;
+  // const displayLikes = props.displayLikes;
+
   const messages = props.messages.map((message) => {
     return (
       <ChatEntry
+        key={message.id}
+        id={message.id}
         sender={message.sender}
         body={message.body}
         timeStamp={message.timeStamp}
         className="chat-log"
+        liked={message.liked}
+        handleLike={handleLike}
       />
     );
   });
@@ -20,7 +27,17 @@ const ChatLog = (props) => {
 };
 
 ChatEntry.propTypes = {
-  messages: PropTypes.array.isRequired,
+  ChatEntry: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+    })
+  ),
+  handleLike: PropTypes.func.isRequired,
+  // displayLikes: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
