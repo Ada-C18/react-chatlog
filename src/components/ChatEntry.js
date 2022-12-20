@@ -1,71 +1,43 @@
 import React from 'react';
 import './ChatEntry.css';
+import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
-  const chatEntryId = props.id;
-  const chatEntrySender = props.sender;
-  const chatEntryBody = props.body;
-  const chatEntryTimeStamp = props.timeStamp;
-  const chatEntryLiked = props.liked;
-  // const updateLiked = props.updateLiked;
-  // const deleteChatEntry = props.deleteChatEntry;
+  const id = props.id;
+  const sender = props.sender;
+  const body = props.body;
+  const timeStamp = props.timeStamp;
+  const liked = props.liked;
+  const updateLiked = props.updateLiked;
+  const display = sender === 'Vladimir' ? 'local' : 'remote';
+  const heart = liked === true ? '❤️' : '🤍';
 
-  // function updateLiked(inc) {
-  //   //inc is a boolean flag representing if we are increasing price or decreasing it
-  //   if (inc) {
-  //     //ChatEntryPrice += 1 WRONG
-  //     updatePrice(ChatEntryId, ChatEntryPrice + 1);
-  //   } else {
-  //     updatePrice(ChatEntryId, ChatEntryPrice - 1);
-  //   }
-  // }
-
-  // function getColorFromPrice(price) {
-  //   let myBudget = 100;
-  //   if (price <= myBudget) {
-  //     return "green";
-  //   } else {
-  //     return "red";
-  //   }
-  // }
-
-  // return (
-  // <div>
-  //   <h2 className="ChatEntry__name">{ChatEntryName}</h2>
-  //   <ul>
-  //     <li>{ChatEntrySender}</li>
-  //     <li>{ChatEntryBody}</li>
-  //     <li>{ChatEntryTimeStamp}</li>
-  //     <li><button
-  //     onClick={() => {
-  //       changeChatEntryPrice(true);
-  //     }}
-  //   >{ChatEntryLiked}</button></li>
-  //   </ul>
-  //   {/* <button onClick={() => deleteChatEntry(ChatEntryId)}>Delete</button> */}
-  // </div>
-  // );
+  const handleLiked = () => {
+    updateLiked(id);
+  };
 
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">{chatEntrySender}</h2>
+    <div className={`chat-entry ${display}`}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{chatEntryBody}</p>
-        <p className="entry-time">{chatEntryTimeStamp}</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <p className="entry-time">{timeStamp}</p>
+        <button className="like" on-onClick={handleLiked}>
+          {heart}
+        </button>
       </section>
     </div>
   );
 };
 
-ChatEntry.propTypes = {
-  //Fill with correct proptypes
-  id: PropTypes.number.isRequired,
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-};
+// ChatEntry.propTypes = {
+//   //Fill with correct proptypes
+//   id: PropTypes.number.isRequired,
+//   sender: PropTypes.string.isRequired,
+//   body: PropTypes.string.isRequired,
+//   timeStamp: PropTypes.string,
+//   liked: PropTypes.bool,
+// };
 
 export default ChatEntry;
