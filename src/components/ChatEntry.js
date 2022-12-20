@@ -1,50 +1,58 @@
+import { useState } from 'react';
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
-import TimeStamp from './TimeStamp'
-
+import TimeStamp from './TimeStamp';
 
 // ****** wave 2 ******
-const ChatEntry = ({key, id, sender, body, timeStamp, liked}) => {
+const ChatEntry = (props) => {
+  const id = props.id;
+  const sender = props.sender;
+  const body = props.body;
+  const timeStamp = props.timeStamp;
+  const liked = props.liked;
+  const updateLikes = props.updateLikes;
+  const countLikes = props.countLikes;
+
+  let locationClass = sender === 'Vladimir' ? 'local' : 'remote';
+  let heartToggles = liked === true ? '❤️' : '🤍';
 
 
-// ****** wave 1 ******
-// const ChatEntry = ()=>{
-  
-//   const id = 1;
-//   const sender = "Joe Biden";
-//   const body = "Get out by 8am.  I'll count the silverware";
-//   const timeStamp= "2018-05-18T22:12:03Z";
-
+  function changeLike(likeStatus) {
+    updateLikes(id, likeStatus)
+  }
 
   return (
-    <div className="chat-entry local" id={id} >
-     
+    <div className={`chat-entry ${locationClass}`} id={id}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
-        <p className="entry-time">{2022-(timeStamp.slice(0,4))} years ago
-        {/* <TimeStamp timeStamp ={timeStamp}/> */}
+        <p className="entry-time">
+          <TimeStamp time={timeStamp} />
         </p>
-        <button className="like">🤍</button>
-        
+        <button
+          onClick={() => {
+            changeLike({ liked });
+          }}
+          className="like"
+        >
+          {heartToggles}
+        </button>
       </section>
     </div>
   );
 };
 
-
 ChatEntry.propTypes = {
   ChatEntry: PropTypes.arrayOf(
-      PropTypes.shape({
-          id: PropTypes.number.isRequired,
-          sender: PropTypes.string.isRequired,
-          body: PropTypes.string.isRequired,
-          timeStamp: PropTypes.string.isRequired,
-          liked: PropTypes.bool.isRequired,
-      })
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+    })
   ),
-}
-
+};
 
 export default ChatEntry;
