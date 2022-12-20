@@ -36,7 +36,7 @@ const App = () => {
       </header>
       <main>
         <ChatLog entries={entries} 
-        /*onUpdateLiked = {updateEntries}*//>
+        /*onUpdateLiked = {updateEntries}/>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
