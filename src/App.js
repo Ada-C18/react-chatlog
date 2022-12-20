@@ -16,7 +16,6 @@ const App = () => {
   }, []);
 
   const changeLike = (chatId, likedOr) => {
-    console.log('changeLike called');
     const newchatlist = [];
     for (const chat of chatList) {
       if (chat.id !== chatId) {
@@ -32,12 +31,27 @@ const App = () => {
     setChatList(newchatlist);
   };
 
+  function countHeart(chatList) {
+    console.log('countHeart called');
+    let likeCount = 0;
+    for (const chat of chatList) {
+      if (chat.liked === true) {
+        likeCount = likeCount + 1;
+      }
+    }
+    console.log(likeCount);
+    return likeCount;
+  }
+  // add function which count the true in liked
+
+  const hearts = countHeart(chatList);
+
   return (
     <div id="App">
       <header>
         <h1>Chat Room</h1>
         <section className="widget" id="heartWidget">
-          2 ❤️s
+          {hearts} ❤️s
         </section>
       </header>
       <main>
