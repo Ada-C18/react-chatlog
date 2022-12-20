@@ -9,9 +9,12 @@ const ChatLog = (props) => {
     <li key={msg.id}>
       {
         <ChatEntry
+          id={msg.id}
           sender={msg.sender}
           body={msg.body}
           timeStamp={msg.timeStamp}
+          liked={msg.liked}
+          toggleLike={props.toggleLike}
         />
       }
     </li>
@@ -21,6 +24,7 @@ const ChatLog = (props) => {
 
 ChatLog.propTypes = {
   entries: PropTypes.array.isRequired,
+  toggleLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
