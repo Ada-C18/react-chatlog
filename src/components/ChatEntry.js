@@ -11,6 +11,7 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         <p className="entry-time">{<TimeStamp time={props.timeStamp}/>}</p>
         <button className="like">🤍</button>
+        
       </section>
     </div>
   );

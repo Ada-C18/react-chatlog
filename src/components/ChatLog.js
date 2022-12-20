@@ -5,15 +5,16 @@ import TimeStamp from './TimeStamp'
 
 const ChatLog = (props) => {
     const entries = props.entries;
-    console.log(props)
+    // console.log(props)
     return (
-        <div>{props.entries.map((i) => (
+        <div>{props.entries.map((chat,i) => (
         <ChatEntry
-        id = {i.id}
-        sender = {i.sender}
-        body = {i.body}
-        timeStamp = {i.timeStamp}
-        liked = {i.liked}
+        key={i}
+        id = {chat.id}
+        sender = {chat.sender}
+        body = {chat.body}
+        timeStamp = {chat.timeStamp}
+        liked = {chat.liked}
         />
         ))};
         </div>
