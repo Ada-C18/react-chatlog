@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
@@ -9,6 +9,12 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
     classLocation = 'chat-entry remote';
   }
 
+  const [isliked, setLiked] = useState(liked);
+  const heartEmodji = isliked ? '❤️' : '🤍';
+  const changeLiked = () => {
+    setLiked(!isliked);
+  };
+
   return (
     <div className={classLocation}>
       <h2 className="entry-name">{sender}</h2>
@@ -17,7 +23,9 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
         <p className="entry-time">
           <TimeStamp time={timeStamp}></TimeStamp>
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={changeLiked}>
+          {heartEmodji}
+        </button>
       </section>
     </div>
   );

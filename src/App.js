@@ -19,6 +19,11 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Log Application</h1>
+        <section>
+          <span className="widget" id="heartWidget">
+            <span>0</span> ❤️ s
+          </span>
+        </section>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component
