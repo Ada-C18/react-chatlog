@@ -8,23 +8,25 @@ const App = () => {
   const [chatLogEntries, setChatLogEntries] = useState(chatMessages);
 
   const updateChatEntry = (updatedChatEntry) => {
-    const entries = chatLogEntries.map((entry) =>
-      entry.id === updatedChatEntry.id ? updatedChatEntry : entry
+    setChatLogEntries(
+      chatLogEntries.map((entry) =>
+        entry.id === updatedChatEntry.id ? updatedChatEntry : entry
+      )
     );
-    setChatLogEntries(entries);
   };
 
-  const userNames = [...new Set(chatLogEntries.map((entry) => entry.sender))];
+  const [localUser, ...remoteUsers] = [
+    ...new Set(chatLogEntries.map((entry) => entry.sender)),
+  ];
   const totalLikes = chatLogEntries.reduce(
     (count, message) => count + (message.liked ? 1 : 0),
     0
   );
-
   return (
     <div id="App">
       <header>
         <h1>
-          Chat between {userNames[0]} and {[...userNames.slice(1)]}
+          Chat between {localUser} and {remoteUsers}
         </h1>
         <section>
           <div className="widget" id="heartWidget">
@@ -34,9 +36,11 @@ const App = () => {
       </header>
       <main>
         <ChatLog
-          entries={chatLogEntries}
-          onUpdateChatEntry={updateChatEntry}
-          localUser={userNames[0]}
+          {...{
+            entries: chatLogEntries,
+            updateChatEntry,
+            localUser,
+          }}
         ></ChatLog>
       </main>
     </div>

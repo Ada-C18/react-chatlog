@@ -3,13 +3,13 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, localUser, onUpdateChatEntry }) => {
+const ChatLog = ({ entries, localUser, updateChatEntry }) => {
   return entries.map((message) => {
     return (
       <ChatEntry
         {...{
           key: message.id,
-          onUpdate: onUpdateChatEntry,
+          onUpdate: updateChatEntry,
           localRemote: message.sender === localUser,
           ...message,
         }}
@@ -30,7 +30,7 @@ ChatLog.propTypes = {
       localUser: PropTypes.string,
     })
   ),
-  onUpdateChatEntry: PropTypes.func,
+  updateChatEntry: PropTypes.func,
 };
 
 export default ChatLog;
