@@ -19,7 +19,6 @@ const ChatLog = (props) => {
         )
     })
 
-    console.log(props.likeMessage);
 
     return (
         <div>{entries}</div>

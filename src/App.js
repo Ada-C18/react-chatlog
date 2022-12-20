@@ -26,7 +26,6 @@ const App = () => {
     }, 0)
   };
 
-  console.log(likeMessage);
 
 
   return(
