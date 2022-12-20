@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked, onLikeMessage }) => {
-  const displaySide =
-    sender === 'Vladimir' ? 'chat-entry local' : 'chat-entry remote';
+  const displaySide = sender === 'Vladimir' ? 'local' : 'remote';
 
   return (
-    <div className={displaySide}>
+    <div className={`chat-entry ${displaySide}`}>
       <h2 className="entry-name">{sender} </h2>
       <section className="entry-bubble">
         <p>{body}</p>
