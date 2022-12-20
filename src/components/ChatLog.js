@@ -47,7 +47,6 @@ ChatLog.propTypes = {
     PropTypes.shape(
       {
         //Fill with correct proptypes
-        key: PropTypes.number,
         id: PropTypes.number,
         sender: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,

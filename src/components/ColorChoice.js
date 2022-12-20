@@ -4,10 +4,10 @@ import './ColorChoice.css';
 
 const ColorChoice = (props) => {
   const colorChoices = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-  const inputButtons = colorChoices.map((color) => {
-    return <input key={color} type="radio" className={color}></input>
+  const colorButtons = colorChoices.map((color) => {
+    return <button className="button" id={color} key={color} ></button>
   })
-  return <div>{inputButtons}</div>
+  return <div>{colorButtons}</div>
 }
 
 
