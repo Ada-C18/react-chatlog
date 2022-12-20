@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Vladimir &amp; Estagon's Chatlog</h1>
       </header>
       <main>
         <div>{numLikedMessages} ❤️s</div>
