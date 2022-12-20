@@ -14,6 +14,8 @@ const ChatLog = (props) => {
             sender = {entry.sender}
             body = {entry.body}
             timeStamp = {entry.timeStamp}
+            liked = {entry.liked}
+            onLike = {props.onLike}
             />
         )
     };

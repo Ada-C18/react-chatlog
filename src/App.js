@@ -1,35 +1,67 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
 
+
 const App = () => {
-  // const messageData = {
-  //   id: 1,
-  //   sender: 'Vladimir',
-  //   body: 'why are you arguing with me',
-  //   timeStamp: '2018-05-29T22:49:06+00:00',
-  //   liked: false
-  // };
+
+  
+
+  const [chatLogData, setChatLogData] = useState(chatMessages);
+  const [likes, setLikes] = useState(0);
+
+  const updateChatLogData = updatedChat => {
+    const messages = chatLogData.map(message => {
+      if (message.id === updatedChat.id) {
+        return updatedChat;
+      } else {
+        return message;
+      };
+    });
+
+    setChatLogData(messages);
+    updateLikes(updatedChat);
+  };
+      
+  const updateLikes = (message) => {
+    let likesCount;
+    // for (const message of messages) {
+    //   if (message.liked === true) {
+    //     likesCount = likes + 1};
+    //   };
+    if (message.liked === true) {
+      likesCount = likes + 1;
+    } else {
+      likesCount = likes - 1;
+    };
+    
+    setLikes(likesCount);
+  };
+
+  
 
   
   
-
+  
   return (
     <div id="App">
       <header>
         <h1>ChatLog</h1>
+        <p>{likes} likes!</p>
       </header>
       <main>
-        <ChatLog entries = {chatMessages} className = "chat-log"></ChatLog>
-        {/* <div><ChatEntry 
-        sender = {messageData.sender}
-        body = {messageData.body}
-        timeStamp = {messageData.timeStamp}
-        ></ChatEntry></div> */}
-        
-        
+
+        <ChatLog 
+        entries = {chatLogData}
+        onLike = {updateChatLogData} 
+        className = "chat-log"
+        >
+
+        </ChatLog>
+             
       </main>
     </div>
   );
