@@ -3,9 +3,10 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({id, sender, body, timeStamp, liked}) => {
+const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
 
   const chatEntryClass = sender === 'Vladimir' ? 'chat-entry local' : 'chat-entry remote';
+  const like = liked === 'false' ? '🤍' : '❤️';
 
     return (
       <div className={chatEntryClass}>
@@ -13,7 +14,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked}) => {
         <section className="entry-bubble">
           <p>{body}</p>
           <p className="entry-time"><TimeStamp time={ timeStamp }/></p>
-          <button className="like">🤍</button>
+          <button className={like} onClick={() => updateLiked(id)}>🤍</button>
         </section>
       </div>
     );

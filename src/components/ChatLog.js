@@ -1,7 +1,7 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, updateLiked}) => {
   const chatComponents = entries.map((chat) => {
     return (
       <section key={chat.id}>
@@ -11,6 +11,7 @@ const ChatLog = ({entries}) => {
         body = {chat.body}
         timeStamp = {chat.timeStamp}
         liked = {chat.liked}>
+        updateLiked = {updateLiked}
           </ChatEntry>
       </section>
     );
