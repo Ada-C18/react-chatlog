@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 // import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
@@ -8,6 +8,16 @@ import { useState } from 'react';
 const App = () => {
   const [msgData, setMsgData] = useState(chatMessages);
 
+  useEffect(() => {
+    let likeCount = 0;
+    for (const msg of msgData) {
+      if (msg.liked) {
+        likeCount += 1;
+      }
+    }
+    document.getElementById('likeCounter').textContent = `${likeCount} ❤️s`;
+  }, [msgData]);
+
   const updateLiked = (likedMsg) => {
     const messages = msgData.map((message) => {
       if (message.id === likedMsg.id) {
@@ -16,7 +26,6 @@ const App = () => {
         return message;
       }
     });
-
     setMsgData(messages);
   };
 
@@ -24,6 +33,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Application title</h1>
+        <h2 id="likeCounter">0 ❤️s</h2>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component
