@@ -42,33 +42,33 @@
 
 #App #heartWidget {
   font-size: 1.5em;
-  margin: 1em
+  margin: 1em;
 }
 
 #App span {
-  display: inline-block
+  display: inline-block;
 }
 
 .red {
-  color: #b22222
+  color: #b22222;
 }
 
 .orange {
-  color: #e6ac00
+  color: #e6ac00;
 }
 
 .yellow {
-  color: #e6e600
+  color: #e6e600;
 }
 
 .green {
-  color: green
+  color: green;
 }
 
 .blue {
-  color: blue
+  color: blue;
 }
 
 .purple {
-  color: purple
+  color: purple;
 }
