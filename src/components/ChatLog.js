@@ -1,20 +1,22 @@
 import ChatEntry from './ChatEntry'
 
-const Chatlog = (props) =>{
+const ChatLog = (props) =>{
   return (
-  <>
-  <ul>{props.chatMessages.map((entries,i)=>(
+  <div>
+
+  {props.entries.map((entries,i)=>(
     <ChatEntry
-    sender={entries.sender}
-    body={entries.body}
-    timeStamp= {entries.timeStamp}
+      sender={entries.sender}
+      body={entries.body}
+      timeStamp= {entries.timeStamp}
+      liked={entries.liked}
+      key={i}
+
     />
     ))}
-      <ChatEntry/>
-      <ChatEntry/>
-    </ul> 
-    </>
+    
+    </div>
   )
 }
 
-export default Chatlog
+export default ChatLog
