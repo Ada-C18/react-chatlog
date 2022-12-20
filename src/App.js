@@ -5,7 +5,6 @@ import ChatLog from './components/ChatLog.js';
 
 const App = () => {
   const [chatMessagesData, setChatMessagesData] = useState(chatMessages);
-  // const [entryLikes, setEntryLikes] = useState(0);
 
   const updateChatMessageData = (updatedChat) => {
     const chats = chatMessagesData.map((chat) => {
@@ -29,7 +28,6 @@ const App = () => {
           Chat Between {names[0]} and {names[1]}
         </h1>
         <section>
-          {/* <section className="widget"> */}
           <span className="widget heartWidget">{chatlikes} ❤️s</span>
         </section>
       </header>

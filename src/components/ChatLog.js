@@ -25,7 +25,7 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   //Fill with correct proptypes
   entries: PropTypes.array.isRequired,
-  onUpdateLiked: PropTypes.func.isRequired,
+  onUpdateLiked: PropTypes.func,
 };
 
 export default ChatLog;

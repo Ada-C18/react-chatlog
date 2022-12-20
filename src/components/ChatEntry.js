@@ -5,7 +5,7 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const message = props.body;
-  const timeStamp = <TimeStamp time={props.timeStamp}></TimeStamp>;
+  const formattedTimeStamp = <TimeStamp time={props.timeStamp}></TimeStamp>;
   const sender = props.sender;
   const changeLikeStatus = () => {
     const updatedChat = {
@@ -31,7 +31,7 @@ const ChatEntry = (props) => {
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{message}</p>
-        <p className="entry-time">{timeStamp}</p>
+        <p className="entry-time">{formattedTimeStamp}</p>
         <button onClick={changeLikeStatus} className="like">
           {heartDisplay}
         </button>
@@ -42,12 +42,12 @@ const ChatEntry = (props) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-  onUpdate: PropTypes.func.isRequired,
+  liked: PropTypes.bool,
+  onUpdate: PropTypes.func,
 };
 
 export default ChatEntry;
