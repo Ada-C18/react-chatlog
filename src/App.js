@@ -10,6 +10,22 @@ const App = () => {
   });
 
   const [chatsList, setChatsList] = useState(chatMessagesInitialCopy);
+
+  const updateLike = (id, newLikeVal) => {
+    const newArr = [];
+    for (const chat of chatsList) {
+      if (id !== chat.id) {
+        newArr.push(chat);
+      } else {
+        const newChat = {
+          ...chat,
+          like: newLikeVal,
+        };
+        newArr.push(newChat);
+      }
+    }
+    setChatsList(newArr);
+  };
   return (
     <div id="App">
       <header>
@@ -24,7 +40,7 @@ const App = () => {
           timeStamp="2018-05-29T22:49:06+00:00"
         /> */}
         {/*Wave 02: Render ChatLog component */}
-        <ChatLog entries={chatsList} />
+        <ChatLog entries={chatsList} updateLike={updateLike} />
       </main>
     </div>
   );
