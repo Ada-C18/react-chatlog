@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
-  const chatEntryData = props.chatEntryData.map((chatEntry) => {
+  const entries = props.entries.map((entry) => {
     return (
       <ChatEntry
-        id={chatEntry.id}
-        key={chatEntry.id}
-        sender={chatEntry.sender}
-        body={chatEntry.body}
-        timeStamp={chatEntry.timeStamp}
+        id={entry.id}
+        key={entry.id}
+        sender={entry.sender}
+        body={entry.body}
+        timeStamp={entry.timeStamp}
         liked={props.liked}
         onHeartToggle={props.onHeartToggle}
       />
     );
   });
-  return <div className="chat-log">{chatEntryData}</div>;
+  return <div className="chat-log">{entries}</div>;
 };
 
 ChatLog.propTypes = {
-  chatEntryData: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       sender: PropTypes.string.isRequired,
