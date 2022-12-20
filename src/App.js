@@ -5,7 +5,8 @@ import ChatLog from './components/ChatLog';
 
 // our code from snow leopards
 const App = () => {
-  const[chatData, setChatData] = useState(0);
+  const[chatData, setChatData] = useState(entries);
+
   const likeMessage = (id) => {
     setChatData(chatData => chatData.map(chat => {
       if(chat.id === id) {
@@ -14,38 +15,18 @@ const App = () => {
         return chat;
       }
     }));
-  }
+  };
 
+  const calculateTotalLikes = (chatData) => {
+    return chatData.reduce((total, chat) => {
+      if(chat.liked){
+        total += 1;
+      }
+      return total;
+    }, 0)
+  };
 
-// copied code from snow leopards
-
-
-// const CatApp = () => {
-//   const [catData, setCatData] = useState([]);
- 
-//   const petCat = (id) => {
-//     return petCatApi(id)
-//     .then(catResult => {
-//       setCatData(catData => catData.map(cat => {
-//         if(cat.id === catResult.id) {
-//           return catResult;
-//         } else {
-//           return cat;
-//         }
-//       }));
-//     })
-//   }
-
-//   const calcTotalPets = (catData) => {
-//     return catData.reduce((total, cat) => {
-//       return total + cat.petCount;
-//     }, 0)
-//   };
-
-//   const totalPetTally = calcTotalPets(catData);
-// // end of copied code
-
-
+  console.log(likeMessage);
 
 
   return(
@@ -54,10 +35,9 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-       
-        <ChatLog entries={entries}
-        onLikeMessage={likeMessage}
-
+        <ChatLog 
+          entries={entries} 
+          onLikeMessage={likeMessage}
         />
       </main>
     </div>
