@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChatEntry.css';
-// import ChatLog from './ChatLog';
 import PropTypes from 'prop-types';
 import TimeStamp  from './TimeStamp';
 
 const ChatEntry = (props) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const toggleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
+  const heartColor = isLiked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -12,7 +17,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={toggleLike}>{heartColor}</button>
       </section>
     </div>
   );
