@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, updateLikes }) => {
   const chatList = [];
   for (const entry of entries) {
     chatList.push(
@@ -11,6 +11,7 @@ const ChatLog = ({ entries }) => {
         body={entry.body}
         timeStamp={entry.timeStamp}
         likes={entry.likes}
+        updateLikes={updateLikes}
       />
     );
   }
@@ -24,7 +25,7 @@ ChatLog.propTypes = {
       sender: propTypes.string.isRequired,
       body: propTypes.string.isRequired,
       timeStamp: propTypes.string.isRequired,
-      // likes: propTypes.bool.isRequired,
+      likes: propTypes.bool.isRequired,
     })
   ),
 };
