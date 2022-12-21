@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChatEntry.css';
-import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const id = props.id;
@@ -14,6 +14,7 @@ const ChatEntry = (props) => {
   const heart = liked === true ? '❤️' : '🤍';
 
   const handleLiked = () => {
+    console.log('handleLiked called');
     updateLiked(id);
   };
 
@@ -22,8 +23,10 @@ const ChatEntry = (props) => {
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
-        <p className="entry-time">{timeStamp}</p>
-        <button className="like" on-onClick={handleLiked}>
+        <p className="entry-time">
+          <TimeStamp time={timeStamp} />
+        </p>
+        <button className="like" onClick={handleLiked}>
           {heart}
         </button>
       </section>
@@ -31,13 +34,14 @@ const ChatEntry = (props) => {
   );
 };
 
-// ChatEntry.propTypes = {
-//   //Fill with correct proptypes
-//   id: PropTypes.number.isRequired,
-//   sender: PropTypes.string.isRequired,
-//   body: PropTypes.string.isRequired,
-//   timeStamp: PropTypes.string,
-//   liked: PropTypes.bool,
-// };
+ChatEntry.propTypes = {
+  //Fill with correct proptypes
+  id: PropTypes.number,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string,
+  liked: PropTypes.bool,
+  updateLiked: PropTypes.func,
+};
 
 export default ChatEntry;
