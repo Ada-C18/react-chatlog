@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
+
 const ChatEntry = (props) => {
 
-  const likeFill = props.liked ? '❤️' : '🤍';
+  
   //This line of code is using the ternary operator to set the value 
   //of the likeFill constant. If props.liked is true, 
   //then likeFill will be set to '❤️'. If props.liked is false, 
@@ -13,9 +14,21 @@ const ChatEntry = (props) => {
   //used later in the code to display either a red heart or a white
   // heart emoji, depending on whether the item has been liked or not.
   
+  // const onLike = () => {
+  //   props.updateLike(props.id);
+  // }
+  
+  const [isLiked, setIsLiked] = useState(false);
+
+  // const likeFill = isLiked ? '❤️' : '🤍';
+
+  const likeFill = props.isLiked ? '❤️' : '🤍';
+
   const onLike = () => {
-    props.updateLike(props.id);
+    props.updateLike(props.id); 
+    setIsLiked(!isLiked);
   }
+
   // This line of code is defining a function called onLike. When this function 
   //is called, it will call the updateLike function, passing in the props.id as an argument.
   // The updateLike function is likely a function that updates the like status of the item with the given id.
@@ -31,7 +44,10 @@ const ChatEntry = (props) => {
           <TimeStamp time={props.timeStamp} />
         </p>
         {/* <button className="like">🤍</button> */}
-        <button className="like" onClick={onLike}>{likeFill}</button>
+        <button className="like" onClick={onLike} >
+          {likeFill}
+        </button>
+    
       </section>
     </div>
   );

@@ -8,32 +8,11 @@ const App = () => {
 
   const [entries, setEntries] = useState(chatMessages)
 
-  //This line of code is using the useState hook to define a state 
-  //variable called entries. The useState hook is a way to add state to
-  // functional components in React. The useState hook takes an initial value for the
-  // state variable as an argument, and returns an array with two elements: the current 
-  //value of the state variable, and a function for updating the state variable. In this case, 
-  //the initial value for entries is chatMessages.
-
-
-
   const calcTotalLikes = () => {
     return entries.reduce((total, entry) => {
       return entry.liked ? total + 1 : total;
     }, 0)
     };
-
-    //This line of code is defining a function called calcTotalLikes.
-    //  When this function is called, it will iterate over the entries array 
-    //  and return the total number of items that have been liked. It does this by using
-    //   the reduce method, which takes a callback function as an argument. 
-    //   The callback function receives two arguments: total, which is the running total of 
-    //   the number of liked items, and entry, which is the current item being processed in the entries array. 
-    //   If the entry has a liked property that is true, then the running total is incremented by 1. If the entry has
-    //    a liked property that is false, then the running total is not incremented. The reduce method returns
-    //     the final running total after all items in the entries array have been processed.
-
-
 
     const updateLike = (id) =>{
     const newEntries = entries.map(entry => {
