@@ -1,23 +1,23 @@
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, updateHeartLikes}) => {
     const messagesComponents  = entries.map((message) => {
                 return (
-                    <div >
+                    <div key={message.id} >
                         <ChatEntry 
                                 key={message.id}
                                 id = {message.id}
                                 sender={message.sender}
                                 body={message.body}
                                 timeStamp={message.timeStamp}
-                                liked={message.liked} ></ChatEntry>
+                                liked={message.liked} 
+                                updateHeartLikes= {updateHeartLikes} ></ChatEntry>
                     </div>
                 )
             })
             return (
                 <div> {messagesComponents} </div>
-                
             )};    
 
 ChatLog.propTypes = {

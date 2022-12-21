@@ -6,29 +6,42 @@ import { useState } from 'react';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
-  const firstCopy = chatMessages.map(chat => {
+  const firstCopy = chatMessages.map((chat) => {
     return {...chat};
     } );
 
+  const [entries, setEntries] = useState(firstCopy);
 
-
-  const [likeCount, setLikeCount] = useState(0);
-  const updateLikes = () => {
-      setLikeCount(likeCount+1);
+  const updateHeartLikes = (chatId) => {
+    const newChatList =[];
+    for (const chat of entries) {
+      if (chat.id !== chatId) {
+        newChatList.push(chat);
+      } else {
+        const newChat ={
+          ...chat,
+          liked: !chat.liked,
+        };
+        newChatList.push(newChat);
+      }
+      setEntries(newChatList)
+    }
   };
 
- 
+    const heartLikes = () =>{
+      return entries.reduce((accumulator, count) => {
+        return count.liked ? accumulator +1 : accumulator;
+    }, 0 );
+  };
+
   return (
     <div id="App">
       <header>
         <h1>Interesting Conversations</h1> <br />
-        <span> ❤️  </span> <span id="setlike" > 0 </span>
+        <h2> {heartLikes()} ❤️s </h2>
       </header>
       <main>
-        {/* <ChatEntry chatMessagesList={chatMessages} */}
-        
-        <ChatLog entries={firstCopy} />
-        
+        <ChatLog entries={entries} updateHeartLikes={updateHeartLikes} />
         {/* /* Wave 01: Render one ChatEntry component */}
       </main>
     </div>
