@@ -1,22 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = (props) => {
+const ChatEntry = ({
+  id,
+  sender,
+  body,
+  timeStamp,
+  liked,
+  likeCountCallBack,
+}) => {
+  let classLocation = 'chat-entry local';
+  if (id % 2 === 0) {
+    classLocation = 'chat-entry remote';
+  }
+
+  const [isliked, setLiked] = useState(liked);
+  const heartEmodji = isliked ? '❤️' : '🤍';
+
+  const changeLiked = () => {
+    setLiked(!isliked);
+
+    likeCountCallBack(!isliked);
+  };
+
+  // useEffect(() => {
+  //   likeCountCallBack(isliked);
+  // }, [isliked]);
+
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className={classLocation}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <p className="entry-time">
+          <TimeStamp time={timeStamp}></TimeStamp>
+        </p>
+        <button className="like" onClick={changeLiked}>
+          {heartEmodji}
+        </button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  likeCountCallBack: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
