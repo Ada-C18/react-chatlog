@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>ChatLog</h1>
         <h2 id="likeCounter">0 ❤️s</h2>
       </header>
       <main>
