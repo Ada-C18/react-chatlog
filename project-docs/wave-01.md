@@ -1,4 +1,4 @@
-# Wave 01: Presentational Component
+# Wave 01: Presentational Component.
 
 **Learn Topics: React Components and Props required for this wave**
 
