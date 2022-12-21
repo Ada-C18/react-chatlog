@@ -1,46 +1,51 @@
 import React, { useState } from 'react';
 import './App.css';
-import allEntries from './data/messages.json';
+import allMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
-// our code from snow leopards
+
 const App = () => {
 
-  const [chatData, setChatData] = useState(allEntries);
+  const [chatData, setChatData] = useState(allMessages);
 
-  const calculateTotalLikes = (chatData) => {
-    return chatData.reduce((total, entry) => {
-      if(entry.liked){
-        total += 1;
+  
+  // pass this function down to ChatEntry using props
+  // updates chatData based on the input
+  const updateChatEntry = (updatedChatEntry) => {
+    const messages = chatData.map(message => {
+      if (message.id === updatedChatEntry.id) {
+        return updatedChatEntry
+      } else {
+        return message
+      };
+    });
+    setChatData(messages);
+  };
+
+
+  const countAllLikes = (chatData) => {
+    return chatData.reduce((likeCount, message) => {
+      if(message.liked){
+        likeCount += 1;
       }
-      return total;
+      return likeCount;
     }, 0)
   };
 
-  const totalLikeTally = calculateTotalLikes(chatData)
 
-  const updateChatData = (updatedChatData) => {
-    const entries = chatData.map(entry => {
-      if (entry.id === updatedChatData.id) {
-        return updatedChatData
-      } else {
-        return entry
-      };
-    });
-    setChatData(entries);
-  };
+  const totalLikeCount = countAllLikes(chatData)
 
 
   return(
     <div id="App">
       <header>
-        <h1>Application title</h1>
-        <div>Likes: {`${totalLikeTally} ❤️s`}</div>
+        <h1>Caitlyn and Anjula's Chat Log</h1>
+        <div>Total likes: {`${totalLikeCount} ❤️s`}</div>
       </header>
       <main>
         <ChatLog 
           entries={chatData} 
-          onUpdateChatData={updateChatData}
+          onUpdateChatEntry={updateChatEntry}
         />
       </main>
     </div>

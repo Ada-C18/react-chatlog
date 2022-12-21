@@ -13,7 +13,7 @@ const ChatEntry = (props) => {
         timeStamp:props.timeStamp,
         liked:!props.liked,
     };
-    props.onUpdateChatData(updatedChatEntry);
+    props.onUpdateChatEntry(updatedChatEntry);
   };
 
   const heart=props.liked ? '❤️' : '🤍';
@@ -27,7 +27,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}/>
         </p>
-        <button className="like" onClick={()=>likeButton()}>{heart}</button>
+        <button className="like" onClick={() => likeButton()}>{heart}</button>
         
       </section>
     </div>
