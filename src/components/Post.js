@@ -7,7 +7,9 @@ const Post = () => {
     const updateLikes = () => {
         setLikeCount(likeCount+1);
     };
+
     return (
+
         <section>
             <p> {likeCount} </p>
             <button onClick={updateLikes}>Like</button>
@@ -16,4 +18,8 @@ const Post = () => {
 };
 
 export default Post;
+
+
+
+
 
