@@ -12,7 +12,6 @@ const ChatLog = (props) =>{
         timeStamp={message.timeStamp}
         liked={message.liked}
         likedCount = {message.likedCount}
-        // onAddLike={props.onAddLike}
         onUpdateChat={props.onUpdateChat}
         />
     });
@@ -21,8 +20,6 @@ const ChatLog = (props) =>{
         </div>
         );
 };
-
-
 
 
 ChatLog.propTypes = {
@@ -34,8 +31,7 @@ ChatLog.propTypes = {
         liked: PropTypes.bool.isRequired
 
     })),
-    // onAddLike: PropTypes.func.isRequired,
-    onUpdateChat: PropTypes.func
+    onUpdateChat: PropTypes.func.isRequired
 
 };
 
