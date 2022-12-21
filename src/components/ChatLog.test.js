@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 
 const LOG = [
   {
-    sender: "Vladimir",
+    sender: 'Vladimir',
     body: "why are you arguing with me",
     timeStamp: "2018-05-29T22:49:06+00:00",
   },
