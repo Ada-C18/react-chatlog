@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
@@ -12,14 +11,14 @@ const ChatEntry = (props) => {
   const timeStamp = props.timeStamp;
   const liked = props.liked;
   const updateLikes = props.updateLikes;
-  const countLikes = props.countLikes;
+  // const countLikes = props.countLikes;
 
   let locationClass = sender === 'Vladimir' ? 'local' : 'remote';
   let heartToggles = liked === true ? '❤️' : '🤍';
 
-
   function changeLike(likeStatus) {
-    updateLikes(id, likeStatus)
+    console.log('likeStatus +', likeStatus);
+    updateLikes(id, likeStatus);
   }
 
   return (

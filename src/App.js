@@ -16,7 +16,7 @@ const App = () => {
   const [countLikes, setCountLikes] = useState(0);
   const [likeStatus, setlikeStatus] = useState(false);
 
-  const updateLikes = (chatId, updatedLike) => {
+  const updateLikes = (chatId, likeStatus) => {
     console.log('updateLike called');
     const newChatList = [];
     for (const chat of chatList) {
@@ -25,14 +25,20 @@ const App = () => {
       } else {
         const newChat = {
           ...chat,
-          like: updatedLike,
+          like: !likeStatus,
         };
         newChatList.push(newChat);
-        updatedLike? setCountLikes(countLikes + 1) : setCountLikes(countLikes - 1)
-        setlikeStatus(!likeStatus)
+       
       }
     }
     setChatList(newChatList);
+    if (likeStatus){
+      setCountLikes(countLikes +1)
+      setlikeStatus(!likeStatus)
+    }else{
+      setCountLikes(countLikes -1)
+      setlikeStatus(!likeStatus)
+    }
   };
 
   return (
