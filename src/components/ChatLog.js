@@ -1,6 +1,7 @@
+import React from 'react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
-import './ChatLog.css';
+// import './ChatLog.css';
 
 const ChatLog = (props) => {
   const chatComponents = props.entries.map((chat, i) => {
@@ -12,7 +13,7 @@ const ChatLog = (props) => {
         body={chat.body}
         timeStamp={chat.timeStamp}
         liked={chat.liked}
-        onUpdate={props.onUpdateLiked}
+        onUpdateLiked={props.onUpdateLiked}
       />
     );
   });
@@ -20,17 +21,17 @@ const ChatLog = (props) => {
   return <div>{chatComponents}</div>;
 };
 
-ChatEntry.propTypes = {
+ChatLog.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      sender: PropTypes.string,
-      body: PropTypes.string,
-      timeStamp: PropTypes.string,
-      liked: PropTypes.bool,
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
     })
   ),
-  onUpdateLiked: PropTypes.func,
+  onUpdateLiked: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

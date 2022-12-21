@@ -1,27 +1,27 @@
+import React from 'react';
 import { useState } from 'react';
 import './App.css';
 // import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
-// const entries = chatMessages;
-
 const App = () => {
   // const [messages, setMessages] = useState(messagesJson);
-  const [entries, setEntries] = useState(chatMessages);
+  const [data, setData] = useState(chatMessages);
 
   //Event handler for liked
   const updateEntries = (updatedEntry) => {
-    const entries = chatMessages.map((entry) => {
+    const entries = data.map((entry) => {
       // entry = entry.id === updatedEntry.id ? updatedEntry: entry;
       if (entry.id === updatedEntry.id) {
+        // console.log('What is updated here?');
         return updatedEntry;
       } else {
         return entry;
       }
     });
     // console.log('We got the button to work!')
-    setEntries(entries);
+    setData(entries);
   };
   // const likeOrUnlike = (liked) => {
   //   const entries  = chatMessages.map((entry)=> {
@@ -31,14 +31,25 @@ const App = () => {
   //   setEntries(entry);
   // };
 
+  const calcTotalLikes = (data) => {
+    return data.reduce((total, entry) => {
+      if (entry.liked) {
+        total += 1;
+      }
+      return total;
+    }, 0);
+  };
+
+  const totalLikes = calcTotalLikes(data);
+
   return (
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
+        <section>{totalLikes} ❤️s</section>
       </header>
       <main>
-        <ChatLog entries={entries} 
-        onUpdateLiked={updateEntries} />
+        <ChatLog entries={data} onUpdateLiked={updateEntries} />
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
