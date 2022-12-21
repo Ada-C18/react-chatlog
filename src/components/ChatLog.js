@@ -12,13 +12,27 @@ const ChatLog = (props) => {
           body={entry.body}
           id={entry.id}
           timeStamp={entry.timeStamp}
-          ulked={entry.liked}
+          liked={entry.liked}
+          setUpdateLikes={props.setUpdateLikes}
         />
       </ul>
     );
   });
 
   return <section>{chatEntries}</section>;
+};
+
+ChatLog.propTypes = {
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  setUpdateLikes: PropTypes.func,
 };
 
 export default ChatLog;
