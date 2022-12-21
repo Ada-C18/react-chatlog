@@ -1,4 +1,3 @@
-import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
@@ -16,12 +15,18 @@ const ChatEntry = (props) => {
   };
 
   const heart = props.liked ? '❤️' : '🤍';
+  
+  const alignment =
+    props.sender === 'Vladimir'
+      ? 'chat-entry local left'
+      : 'chat-entry local right';
+  const bubbleAlign =
+    props.sender === 'Vladimir' ? 'entry-bubble left' : 'entry-bubble right';
 
   return (
-    <div className="chat-entry local">
+    <div className={alignment}>
       <h2 className="entry-name">{props.sender}</h2>
-      <section className="entry-bubble">
-        {/* <p>{props.id}</p> */}
+      <section className={bubbleAlign}>
         <p>{props.body}</p>
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
@@ -39,7 +44,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool,
+  liked: PropTypes.bool.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
 

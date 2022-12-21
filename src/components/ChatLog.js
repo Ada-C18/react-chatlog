@@ -1,4 +1,3 @@
-import React from 'react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 // import './ChatLog.css';
