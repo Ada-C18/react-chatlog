@@ -72,3 +72,10 @@
 .purple {
   color: purple
 }
+
+.heart-counter {
+  background-color: lightblue;
+  color: black;
+  margin: 0;
+  padding-bottom: 0.5rem
+}
