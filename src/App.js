@@ -8,11 +8,12 @@ const App = () => {
   const [likesCount, setLikesCount] = useState(0);
 
   const updateLikes = (id, like) => {
-    const currentMessage = messages.find((message) => message.id === id);
+    const messageCopy = [...messages];
+    const currentMessage = messageCopy.find((message) => message.id === id);
     currentMessage.liked = like;
-    setMessages([...messages]);
     if (like) setLikesCount(likesCount + 1);
     if (!like) setLikesCount(likesCount - 1);
+    setMessages(messageCopy);
   };
 
   return (
