@@ -42,7 +42,8 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool,
   onLikeEntry: PropTypes.func,
-  // font color
+  onColorPickLeft: PropTypes.func,
+  onColorPickRight: PropTypes.func
 };
 
 export default ChatEntry;

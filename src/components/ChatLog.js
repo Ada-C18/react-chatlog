@@ -14,7 +14,8 @@ const ChatLog = (props) => {
         timeStamp={entry.timeStamp}
         liked={entry.liked}
         onLikeEntry={props.onLikeEntry}
-        // prop.fontcolorstate
+        onColorPickLeft={props.colorPickLeft}
+        onColorPickRight={props.colorPickRight}
       />
     )
 });
@@ -54,7 +55,9 @@ ChatLog.propTypes = {
         liked: PropTypes.bool,
   }),
   ), 
-  onLikeEntry: PropTypes.func
+  onLikeEntry: PropTypes.func,
+  onColorPickLeft: PropTypes.func,
+  onColorPickRight: PropTypes.func
 };
 
 export default ChatLog;

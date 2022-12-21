@@ -36,24 +36,33 @@ const App = () => {
   // color choice state for estragon
   const [rightColor, setRightColor] = useState('black');
 
-  // passed to respetive senders, both into chatlog
-// pass callBack function to colotShoice  "oncolorpick={}"
-
+  // pass to respective senders, both into chatlog
+  // pass callBack function to color choice  "onColorPick={}"
 
   return (
     <div id="App">
       <header>
-        <h1>Top Secret Sesh: {entries[0].sender} and {entries[1].sender}</h1>
+        <h1>
+          Top Secret Sesh: {entries[0].sender} and {entries[1].sender}
+        </h1>
         <section>
           <span>
-            <div className="header-text" id="vlad-div">Vladimir's color:</div>
+            <div className="header-text" id="vlad-div">
+              Vladimir's color:
+            </div>
             {/* use template string to  use color class naME */}
-            <div id="vlad-colors"><ColorChoice/></div>
+            <div id="vlad-colors">
+              <ColorChoice />
+            </div>
           </span>
-          <h1 className='header-text'>{totalHeartsTally} ❤️s</h1>
+          <h1 className="header-text">{totalHeartsTally} ❤️s</h1>
           <span>
-              <div className='header-text' id="e-div">Estragon's color:</div>
-              <div id='e-colors'><ColorChoice/></div>
+            <div className="header-text" id="e-div">
+              Estragon's color:
+            </div>
+            <div id="e-colors">
+              <ColorChoice />
+            </div>
           </span>
         </section>
       </header>
@@ -65,10 +74,14 @@ const App = () => {
           timeStamp="2018-05-18T22:12:03Z"
           /> */}
         {/*Wave 02: Render ChatLog component */}
-        <ChatLog entries={entries} onLikeEntry={likeEntry} 
+        <ChatLog
+          entries={entries}
+          onLikeEntry={likeEntry}
+          // onColorPickLeft={colorPickLeft}
+          // onColorPickRight={colorPickRight}
 
-        // left color prop
-        // right color prop passed to ChatLog
+          // left color prop
+          // right color prop passed to ChatLog
         />
       </main>
     </div>

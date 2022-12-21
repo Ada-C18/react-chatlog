@@ -1,25 +1,25 @@
 /* adding color classes for buttons */
-#red {
+.red {
     background-color: rgb(219, 6, 6);
 }
 
-#orange {
+.orange {
     background-color: rgb(219, 134, 6);
 }
 
-#yellow {
+.yellow {
     background-color: rgb(245, 222, 23);
 }
 
-#green {
+.green {
     background-color: rgb(81, 219, 6);
 }
 
-#blue {
+.blue {
     background-color: rgb(6, 38, 219);
 }
 
-#purple {
+.purple {
     background-color: rgb(162, 6, 219);
 }
 
@@ -28,4 +28,8 @@
     display: inline-block;
     margin: 10px 5px;
     border-radius: 100%;
+}
+
+.button:hover {
+    cursor: pointer;
 }

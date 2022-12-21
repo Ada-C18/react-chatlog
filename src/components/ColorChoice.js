@@ -5,9 +5,8 @@ import './ColorChoice.css';
 const ColorChoice = (props) => {
   const colorChoices = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
   const colorButtons = colorChoices.map((color) => {
-    // heart emojo as the buttons
-    return <button className="button" id={color} key={color} ></button>
-    // move the color on className!! (NOT id) template string for multiple class names...see tasklist
+    // heart emoji as buttons?
+    return <button className={`button ${color}`} key={color} ></button>
   })
   return <div>{colorButtons}</div>
 }
