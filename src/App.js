@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
+import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 
 const App = () => {
+  const [messages, setMessages] = useState(chatMessages);
+
+  const ToggleLike = (id, like) => {
+    const foundMessage = messages.find((x) => x.id === id);
+    foundMessage.liked = like;
+    setMessages([...messages]);
+  };
   return (
     <div id="App">
       <header>
@@ -11,6 +20,9 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
+        <div>
+          <ChatLog setToggleLike={ToggleLike} entries={chatMessages} />
+        </div>
       </main>
     </div>
   );
