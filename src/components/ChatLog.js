@@ -4,7 +4,16 @@ const ChatLog = (props) => {
 
     const chatComponents = props.entries.map(entry => {
         return (
-            <li key={entry.id}><ChatEntry sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp} liked={props.liked} data={props.data}></ChatEntry></li>
+            <div key={entry.id}>
+                <ChatEntry 
+                id={entry.id} 
+                sender={entry.sender} 
+                body={entry.body} 
+                timeStamp={entry.timeStamp} 
+                liked={entry.liked} 
+                toggleLike={props.toggleLike}>
+                </ChatEntry>
+            </div>
         );
     });
 
