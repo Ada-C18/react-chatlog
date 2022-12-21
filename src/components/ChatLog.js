@@ -20,8 +20,7 @@ const ChatLog = (props) =>{
         <div>{chatMessagesData}</div>
         </div>
         );
-       
-}
+};
 console.log(ChatLog)
 
 
@@ -36,7 +35,7 @@ ChatLog.propTypes = {
 
     })),
     onAddLike: PropTypes.func.isRequired,
-    onUpdateChat: PropTypes.func.isRequired
+    onUpdateChat: PropTypes.func
 
 };
 

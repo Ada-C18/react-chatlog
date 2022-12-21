@@ -11,7 +11,7 @@ const App = () => {
 
   const addLike = (id) => {
     console.log(`Liking message ${id}`)
-    // console.log({likedCount})
+ 
     const updatedLikes = chatData.map(message => {
       if (message.id === id){
         return{...message, likedCount: message.likedCount + 1}
@@ -26,38 +26,38 @@ const App = () => {
     
   const calcTotalLikes = (chatData) => {
     return chatData.reduce((total, message) => {
-      if (message.liked) {
-        total += 1
-      }
-      return total;
+      return total + message.likedCount
+      // if (message.likedCount) {
+      //   total += 1
+      // }
+      // return total;
     }, 0)
-    // console.log(likeCount);
   };
 
   const totalLikeTally = calcTotalLikes(chatData);
 
-  // const updateChatData = (updatedChatData) => {
-  //   const entries = chatData.map(entry => {
-  //     if (entry.id === updatedChatData.id) {
-  //       return updatedChatData
-  //     } else {
-  //       return entry
-  //     };
-  //   });
-  //   setChatData(entries);
-  // };
+  const updateChatData = (updatedChatData) => {
+    const entries = chatData.map(entry => {
+      if (entry.id === updatedChatData.id) {
+        return updatedChatData
+      } else {
+        return entry
+      };
+    });
+    setChatData(entries);
+  };
   
 
   return (
     <div id="App">
       <header>
         <h1>Chat Log Vladmir and Estragon</h1>
-        <h2>{totalLikeTally} ❤️s</h2>
+        <h2>{totalLikeTally}❤️s</h2>
       </header>
       <main>
         <ChatLog entries={chatData}
         onAddLike ={addLike}
-        // onUpdateChat = {updateChatData}
+        onUpdateChat = {updateChatData}
         />
       </main>
     </div>
