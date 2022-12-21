@@ -7,19 +7,19 @@ import './ChatLog.css';
 
 
 const ChatLog = (props) => {
-    const chats = props.entries.map((message, i) => {
-        //console.log(elem.sender);
+
+    const chats = props.entries.map((message) => {
         return (
             < ChatEntry
-                key={i}
+                id={message.id}
                 sender={message.sender}
                 body={message.body}
                 timeStamp={message.timeStamp}
+                liked={message.liked}
             />
         )
     })
     return <div>{chats}</div>;
-
 }
 
 
