@@ -5,16 +5,18 @@ import ChatLog from './components/ChatLog';
 
 
 const App = () => {
-  const [entries, setEntries] = useState([]);
-
   const copyChatMessages = chatMessages.map((chat) => {
     return {...chat};
   });
-  setEntries([copyChatMessages]);
+
+  const [entries, setEntries] = useState(copyChatMessages);
+
 
   const newChatList = [];
+  
   const updateLiked = (chatId) => {
-    for (const chat of copyChatMessages) {
+    console.log('updateLiked called');
+    for (const chat of entries) {
       if (chat.id !== chatId) {
         newChatList.push(chat);
       } else {
@@ -25,13 +27,15 @@ const App = () => {
         newChatList.push(newChat);
       };
   };
+  console.log(newChatList);
   setEntries(newChatList);
-};
+  };
+
 
   return (
     <div id="App">
       <header>
-        <h1>Chat between Vladimir and Estagon</h1>
+        <h1>Chat between Vladimir and Estragon</h1>
       </header>
       <main>
         <ChatLog entries={entries} updateLiked={updateLiked}></ChatLog>

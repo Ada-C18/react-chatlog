@@ -10,9 +10,9 @@ const ChatLog = ({entries, updateLiked}) => {
         sender = {chat.sender}
         body = {chat.body}
         timeStamp = {chat.timeStamp}
-        liked = {chat.liked}>
-        updateLiked = {updateLiked}
-          </ChatEntry>
+        liked = {chat.liked}
+        updateLiked = {updateLiked}>
+        </ChatEntry>
       </section>
     );
   });
@@ -24,7 +24,8 @@ const ChatLog = ({entries, updateLiked}) => {
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.object).isRequired
+  entries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateLiked: PropTypes.func,
   //   PropTypes.shape({
   //   id: PropTypes.number.isRequired,
   //   senderData: PropTypes.string.isRequired,
