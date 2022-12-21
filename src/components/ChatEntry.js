@@ -29,7 +29,10 @@ const ChatEntry = (props) => {
 
   return (
     <div className={classes}>
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className="entry-name">
+        {props.liked}
+        {props.sender}
+      </h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{time}</p>
@@ -45,7 +48,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  likes: PropTypes.bool.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;

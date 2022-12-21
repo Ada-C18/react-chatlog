@@ -10,7 +10,7 @@ const ChatLog = ({ entries, updateLikes }) => {
         sender={entry.sender}
         body={entry.body}
         timeStamp={entry.timeStamp}
-        likes={entry.likes}
+        liked={entry.liked}
         updateLikes={updateLikes}
       />
     );
@@ -25,7 +25,7 @@ ChatLog.propTypes = {
       sender: propTypes.string.isRequired,
       body: propTypes.string.isRequired,
       timeStamp: propTypes.string.isRequired,
-      likes: propTypes.bool.isRequired,
+      liked: propTypes.bool.isRequired,
     })
   ),
 };
