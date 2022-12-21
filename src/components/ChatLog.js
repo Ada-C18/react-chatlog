@@ -1,27 +1,27 @@
 import React from 'react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
-import TimeStamp from './TimeStamp'
 
 const ChatLog = (props) => {
-    const entries = props.entries.map((chat,i) => {
+    const chatEntries = props.entries.map((chatEntry,i) => {
+
         return (
             <ChatEntry
                 key={i}
-                id = {chat.id}
-                sender = {chat.sender}
-                body = {chat.body}
-                timeStamp = {chat.timeStamp}
-                liked = {chat.liked}
-                likeCount = {chat.likeCount}
-                likeMessage = {props.likeMessage}
+                id = {chatEntry.id}
+                sender = {chatEntry.sender}
+                body = {chatEntry.body}
+                timeStamp = {chatEntry.timeStamp}
+                liked = {chatEntry.liked}
+                onLikeMessage = {props.onLikeMessage}
+                onUpdateChatData = {props.onUpdateChatData}
             />
         )
     })
 
 
     return (
-        <div>{entries}</div>
+        <div>{chatEntries}</div>
     )
 
 }
@@ -33,10 +33,10 @@ ChatLog.propTypes = {
         timeStamp: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
         liked:PropTypes.bool.isRequired,
-        likeCount:PropTypes.number.isRequired
     })),
-    likeMessage:PropTypes.func.isRequired
-    };
+    onLikeMessage:PropTypes.func.isRequired,
+    onUpdateChatData: PropTypes.func.isRequired
+};
 
 
 export default ChatLog;
