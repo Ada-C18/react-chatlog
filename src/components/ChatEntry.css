@@ -16,7 +16,7 @@ button {
   margin-bottom: 0;
 }
 
-.chat-entry .entry-bubble.left {
+.chat-entry .entry-bubble {
   background-color: #ffffe0;
   border-radius: 30px;
   max-width: 50rem;
@@ -26,17 +26,7 @@ button {
   width: fit-content;
 }
 
-.chat-entry .entry-bubble.right {
-  background-color: #ffffe0;
-  border-radius: 30px;
-  max-width: 50rem;
-  min-width: 10rem;
-  padding: 1rem 1rem 0.1rem 1rem;
-  position: relative;
-  margin-left: auto; 
-  margin-right: 0;
-  width: fit-content;
-}
+
 
 .chat-entry .entry-bubble:hover {
   background-color: #fefea2;
@@ -45,6 +35,7 @@ button {
 .chat-entry .entry-name {
   font-size: medium;
   margin-bottom: 0.5rem;
+
 }
 
 .chat-entry .entry-time {
@@ -60,7 +51,7 @@ button {
   height: 22px;
   width: 44px;
   clip-path: polygon(100% 0, 0 0, 50% 100%);
-  /* transform: scaleX(-1); */
+
   position: absolute;
   top: 0;
 

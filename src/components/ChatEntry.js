@@ -15,13 +15,8 @@ const ChatEntry = (props) => {
   };
 
   const heart = props.liked ? '❤️' : '🤍';
-  
-  const alignment =
-    props.sender === 'Vladimir'
-      ? 'chat-entry local left'
-      : 'chat-entry local right';
-  const bubbleAlign =
-    props.sender === 'Vladimir' ? 'entry-bubble left' : 'entry-bubble right';
+  const alignment = props.sender === 'Vladimir'? 'chat-entry local' : 'chat-entry remote';
+  const bubbleAlign = props.sender === 'Vladimir' ? 'entry-bubble local' : 'entry-bubble remote';
 
   return (
     <div className={alignment}>
