@@ -16,8 +16,8 @@ const ChatEntry = (props) => {
 
     };
   
-    props.onUpdateChat(updatedChat)
-    props.onAddLike(props.id);
+    props.onUpdateChat(updatedChat);
+    // props.onAddLike(props.id);
   };
 
   const heart = props.liked ?  '❤️' : '🤍';
@@ -28,7 +28,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp} /></p>
-        <button onClick ={handleHeartChange} className="like">{heart}</button>
+        <button className="like" onClick ={handleHeartChange}>{heart}</button>
       </section>
     </div>
   );
@@ -39,10 +39,10 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,
-  liked: PropTypes.bool,
-  likedCount: PropTypes.number,
-  onAddLike: PropTypes.func.isRequired,
-  onUpdateChat: PropTypes.func
+  liked: PropTypes.bool.isRequired,
+  // likedCount: PropTypes.number,
+  // onAddLike: PropTypes.func.isRequired,
+  // onUpdateChat: PropTypes.func
 
 };
 

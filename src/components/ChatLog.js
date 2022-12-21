@@ -1,6 +1,6 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 
 const ChatLog = (props) =>{
     const chatMessagesData = props.entries.map((message, i) => {  
@@ -12,7 +12,7 @@ const ChatLog = (props) =>{
         timeStamp={message.timeStamp}
         liked={message.liked}
         likedCount = {message.likedCount}
-        onAddLike={props.onAddLike}
+        // onAddLike={props.onAddLike}
         onUpdateChat={props.onUpdateChat}
         />
     });
@@ -21,7 +21,7 @@ const ChatLog = (props) =>{
         </div>
         );
 };
-console.log(ChatLog)
+
 
 
 
@@ -34,7 +34,7 @@ ChatLog.propTypes = {
         liked: PropTypes.bool.isRequired
 
     })),
-    onAddLike: PropTypes.func.isRequired,
+    // onAddLike: PropTypes.func.isRequired,
     onUpdateChat: PropTypes.func
 
 };
