@@ -7,23 +7,19 @@ const App = () => {
   const [chatData, setChatData] = useState(chatMessages);
 
   const updateLikes = (chatId) => {
-    console.log('This is calling the updateLikes');
     const newChatEntries = [];
 
     for (const chat of chatData) {
       if (chat.id !== chatId) {
-        console.log(chat.id);
         newChatEntries.push(chat);
       } else {
         const newChat = {
           ...chat,
           liked: !chat.liked,
         };
-        console.log(newChat);
         newChatEntries.push(newChat);
       }
       setChatData(newChatEntries);
-      console.log(chatData);
     }
   };
 
