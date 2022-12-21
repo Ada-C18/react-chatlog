@@ -37,7 +37,7 @@ const App = () => {
       
       
     } changeMessages(newLog)
-    countLikes(newLog)
+    countLikes(newLog) //yes, this could be baked into the function to save a loop but the logic is clearer as 2 functions
     
   }
   return (

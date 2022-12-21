@@ -30,10 +30,12 @@ const ChatEntry = ({id,sender,body,timeStamp,liked, toggleLike}) => {
 };
 
 ChatEntry.propTypes = {
-  id:PropTypes.number,
+  id:PropTypes.number, //not required b/c test data has none
   sender:PropTypes.string.isRequired,
   body:PropTypes.string.isRequired,
-  timeStamp:PropTypes.string
+  timeStamp:PropTypes.string.isRequired,
+  liked:PropTypes.bool, //not required, info not in wave 1
+  toggleLike:PropTypes.func //not required, not passed in wave 1+2 tests
 };
 
 export default ChatEntry;

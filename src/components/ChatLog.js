@@ -23,14 +23,15 @@ const ChatLog = ({entries, toggleLike}) => {
 ChatLog.propTypes = {
     entries:PropTypes.arrayOf(
         PropTypes.shape({
-            id:PropTypes.number,
+            id:PropTypes.number, //not required b/c test data has none
             sender:PropTypes.string.isRequired,
             body:PropTypes.string.isRequired,
-            timeStamp:PropTypes.string.isRequired  
+            timeStamp:PropTypes.string.isRequired,
+            liked:PropTypes.bool //not required b/c not passed in all tests  
         })
     
     ),
-    toggleLike:PropTypes.func
+    toggleLike:PropTypes.func //not required b/c not passed in all tests
   };
 
 export default ChatLog;
