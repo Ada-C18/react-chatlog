@@ -7,7 +7,7 @@ const ChatEntry = (props) => {
   const [isLiked, setIsLiked] = useState(props.liked);
   const toggleLike = () => {
     setIsLiked(!isLiked);
-    props.data();
+    props.data(isLiked);
   };
 
   const heartColor = isLiked ? '❤️' : '🤍';
@@ -28,8 +28,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  data: PropTypes.func.isRequired
-    
+  data: PropTypes.func.isRequired,
+  liked: PropTypes.bool.isRequired
 };
 
 export default ChatEntry;

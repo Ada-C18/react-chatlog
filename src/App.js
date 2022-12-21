@@ -6,9 +6,15 @@ import chatMessages from './data/messages.json';
 const App = () => {
   const [count, setCount] = useState(0)
 
-  function getData(){
+  function getData(isLiked) {
+    console.log(isLiked);
+    if (isLiked === true) {
       setCount(count+1);
+    } else {
+      setCount(count-1);
+    }
   };
+
 
   return (
 
