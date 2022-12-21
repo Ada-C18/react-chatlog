@@ -31,7 +31,7 @@ const App = () => {
       })
       return newEnteries
     }) 
-    console.log(`likeMessage ${id}`)
+    // console.log(`likeMessage ${id}`)
   }
 
   const totalLikes = entries.reduce((total, entry) => {
