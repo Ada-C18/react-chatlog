@@ -6,9 +6,9 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
-
-  const [chatLogData, setChatLogData] = useState(chatMessages);
-  const [totalLikes, setTotalLikes] = useState(0);
+  
+  const [chatLogData, setChatLogData] = useState(chatMessages); 
+  const [totalLikes, setTotalLikes] = useState(0); 
   // let likeCount = 0
   const toggleLike = (id) => {
     const allEntries = chatLogData.map((entry) => {
@@ -20,20 +20,20 @@ const App = () => {
     });
   
     setChatLogData(allEntries);
-    calcLikes(chatLogData)
+    calcLikes(chatLogData);
+
 
   }
 
-  // let totalLikes = 0;
-
+  let allLikes = 0
   const calcLikes = (chatLogData) => {
-    if (chatLogData.liked === true) {
-      totalLikes += 1; 
-      // ? are we calculating it 
+    for (let chat of chatLogData) {
+      if (chat.liked === true) {
+        allLikes += 1;
+      }
+    setTotalLikes(allLikes)
     }
-    setTotalLikes(totalLikes)
-    console.log(totalLikes)
-    // return totalLikes
+    // return allLikes
   };
 
 
