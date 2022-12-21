@@ -5,11 +5,9 @@ import ChatEntry from './ChatEntry';
 // import TimeStamp from './TimeStamp.js';
 
 const ChatLog = (props) => {
-  const componentClass = 'chat-log';
-  // const chatEntries = ChatEntry.map(chatMessage);
+  // const componentClass = 'chat-log';
   // const chatEntries = ChatEntry.map((entries) => {
   return (
-    // <ul className="ChatLog">
     <ul className="ChatLog">
       {props.entries.map((entry) => {
         return (
@@ -18,6 +16,8 @@ const ChatLog = (props) => {
             sender={entry.sender}
             body={entry.body}
             timeStamp={entry.timeStamp}
+            liked={entry.liked}
+            onUpdateMessage={props.onUpdateMessage}
             key={entry.id}
           />
         );
@@ -26,16 +26,7 @@ const ChatLog = (props) => {
     </ul>
   );
 };
-
-// return (
-//   <article>
-//     <ul>
-//       {/* className={componentClass} */}
-//       {chatEntries}
-//     </ul>
-//   </article>
-// );
-
+// return <section>{chatEntries}</section>;
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
@@ -43,8 +34,10 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool,
     })
   ),
+  onUpdateMessage: PropTypes.func,
 };
 
 export default ChatLog;
