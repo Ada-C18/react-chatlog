@@ -3,7 +3,6 @@ import './App.css';
 import { useState } from 'react';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
-import ChatEntry from './components/ChatEntry';
 
 const entries = chatMessages;
 
@@ -14,14 +13,7 @@ const App = () => {
     setMessageData((messageData) =>
       messageData.map((message) => {
         if (message.id === id) {
-          if (message.liked === true) {
-            message.liked = false;
-
-            return message;
-          } else if (message.liked === false) {
-            message.liked = true;
-            return message;
-          }
+          return { ...message, liked: !message.liked };
         }
         return message;
       })

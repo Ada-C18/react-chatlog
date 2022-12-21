@@ -4,9 +4,17 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
+  const chatAlign = (props) => {
+    if (props.sender === 'Vladimir') {
+      return 'chat-entry local';
+    } else if (props.sender === 'Estragon') {
+      return 'chat-entry remote';
+    }
+  };
+
   const heart = props.liked ? '❤️' : '🤍';
   return (
-    <div className="chat-entry local">
+    <div className={chatAlign(props)}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
