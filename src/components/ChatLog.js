@@ -12,6 +12,8 @@ const ChatLog = (props) => {
             sender={entry.sender}
             body={entry.body}
             timeStamp={entry.timeStamp}
+            liked={entry.liked}
+            toggleHeart={props.toggleHeart}
             ></ChatEntry>
         );
     });
@@ -25,8 +27,12 @@ ChatLog.propTypes = {
         id: PropTypes.number,
         sender: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
-        timeStamp: PropTypes.string.isRequired
-    }))
+        timeStamp: PropTypes.string.isRequired,
+        liked: PropTypes.bool,
+        
+    })
+    ),
+    toggleHeart: PropTypes.func
 }
 
 export default ChatLog;
