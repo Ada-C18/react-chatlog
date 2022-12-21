@@ -15,10 +15,6 @@ const ChatEntry = (props) => {
   const onLikeClick = () => {
     console.log('I clicked a heart!');
     const updatedChat = {
-      id: props.id,
-      sender: props.sender,
-      body: props.body,
-      timeStamp: props.timeStamp,
       liked: !props.liked,
     };
     props.onUpdate(updatedChat);

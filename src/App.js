@@ -9,6 +9,14 @@ import { useState } from 'react';
 function App() {
   const [chatData, setChatData] = useState(chatMessages);
 
+  // const calculateTotalLikes = (chatData) => {
+  //   const totalLikes = 0;
+  //   chatData.map((entry) => {
+  //     totalLikes += entry.liked;
+  //   });
+  //   return totalLikes;
+  // };
+
   const updateChatData = (updatedChat) => {
     const entries = chatData.map((entry) => {
       if (entry.id === updatedChat.id) {
