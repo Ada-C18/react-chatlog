@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
@@ -6,13 +6,7 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
 
-  const [like, setLike] = useState(false)
-
-  const handleLike = () => {
-    setLike(() => !like)
-  }
-
-  const likeHearts = like ? '❤️' : '🤍'
+  const likeHearts = props.liked ? '❤️' : '🤍'
   const msgOrientation = props.id % 2 == 0 ? 'chat-entry local' : 'chat-entry remote';
 
   return (
@@ -23,7 +17,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
-        <button className="like" onClick={() => handleLike()} >{likeHearts}</button>
+        <button className="like" onClick={() => props.toggleLike(props.id)} >{likeHearts}</button>
       </section>
     </div>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 
@@ -8,14 +7,16 @@ import './ChatLog.css';
 
 const ChatLog = (props) => {
 
-    const chats = props.entries.map((message) => {
+    const chats = props.entries.map((entries) => {
         return (
             < ChatEntry
-                id={message.id}
-                sender={message.sender}
-                body={message.body}
-                timeStamp={message.timeStamp}
-                liked={message.liked}
+                toggleLike={props.toggleLike}
+                key={entries.id}
+                id={entries.id}
+                sender={entries.sender}
+                body={entries.body}
+                timeStamp={entries.timeStamp}
+                liked={entries.liked}
             />
         )
     })
