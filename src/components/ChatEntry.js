@@ -6,7 +6,7 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
 
   const chatEntryClass = sender === 'Vladimir' ? 'chat-entry local' : 'chat-entry remote';
-  const like = liked ? '❤️' : '🤍';
+  const likeOrNot = liked ? '❤️' : '🤍';
 
     return (
       <div className={chatEntryClass}>
@@ -14,7 +14,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
         <section className="entry-bubble">
           <p>{body}</p>
           <p className="entry-time"><TimeStamp time={ timeStamp }/></p>
-          <button className='like' onClick={() => updateLiked(id)}>{like}</button>
+          <button className='like' onClick={() => updateLiked(id)}>{likeOrNot}</button>
         </section>
       </div>
     );

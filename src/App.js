@@ -10,12 +10,14 @@ const App = () => {
   });
 
   const [entries, setEntries] = useState(copyChatMessages);
+  const [numLikes, setNumLikes] = useState(0);
 
 
   const newChatList = [];
+  let newNumLikes = numLikes;
   
   const updateLiked = (chatId) => {
-    console.log('updateLiked called');
+    setNumLikes(newNumLikes += 1);
     for (const chat of entries) {
       if (chat.id !== chatId) {
         newChatList.push(chat);
@@ -36,6 +38,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
+        <p>{numLikes} ❤️s</p>
       </header>
       <main>
         <ChatLog entries={entries} updateLiked={updateLiked}></ChatLog>
