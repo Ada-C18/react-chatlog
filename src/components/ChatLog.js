@@ -33,7 +33,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
-  updateLikes: PropTypes.func.isRequired,
+  updateLikes: PropTypes.func.isRequired
 };
 
 export default ChatLog;

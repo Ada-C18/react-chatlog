@@ -7,7 +7,7 @@ const App = () => {
   const entries = chatMessages;
   const localSender = entries[0].sender
   let remoteSender = ''
-   
+  
   for (const message of entries){
     if( message.sender !== localSender){
       remoteSender = message.sender;
@@ -50,8 +50,6 @@ const App = () => {
         <section >{countLikes} ❤️s</section>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
         <ChatLog entries={chatMessages} updateLikes={updateLikes} />
       </main>
     </div>
