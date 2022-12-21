@@ -4,9 +4,8 @@ import ChatEntry from './ChatEntry';
 
 import './ChatLog.css';
 
-const ChatLog = ({ entries, updateLikes,countLikes}) => {
+const ChatLog = ({ entries, updateLikes }) => {
   const chatComponents = [];
-//   const updateLikes = {updateLikes};
 
   for (const chat of entries) {
     chatComponents.push(
@@ -17,8 +16,7 @@ const ChatLog = ({ entries, updateLikes,countLikes}) => {
         body={chat.body}
         timeStamp={chat.timeStamp}
         liked={chat.liked}
-        updateLikes ={updateLikes}
-        countLikes= {countLikes}
+        updateLikes={updateLikes}
       />
     );
   }
@@ -35,7 +33,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
-  updateLikes:PropTypes.func.isRequired,
+  updateLikes: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

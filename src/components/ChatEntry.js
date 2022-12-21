@@ -1,24 +1,27 @@
+import { useState } from 'react';
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-// ****** wave 2 ******
 const ChatEntry = (props) => {
   const id = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
-  const liked = props.liked;
+  // const liked = props.liked;
   const updateLikes = props.updateLikes;
-  // const countLikes = props.countLikes;
 
+  const [likeStatus, setlikeStatus] = useState(false);
+  
   let locationClass = sender === 'Vladimir' ? 'local' : 'remote';
-  let heartToggles = liked === true ? '❤️' : '🤍';
+  let heartToggles = likeStatus === true ? '❤️' : '🤍';
 
   function changeLike(likeStatus) {
-    console.log('likeStatus +', likeStatus);
+    console.log('likeStatus', likeStatus);
+    
     updateLikes(id, likeStatus);
+    setlikeStatus(!likeStatus);
   }
 
   return (
@@ -31,7 +34,7 @@ const ChatEntry = (props) => {
         </p>
         <button
           onClick={() => {
-            changeLike({ liked });
+            changeLike(likeStatus);
           }}
           className="like"
         >
@@ -52,6 +55,7 @@ ChatEntry.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  updateLikes: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
