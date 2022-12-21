@@ -12,6 +12,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{timeStamp}</p>
+        {/* We will now need to update the ChatEntry component to use the liked field. */}
         <button className="like">🤍</button>
       </section>
     </div>
