@@ -7,6 +7,10 @@ const App = () => {
 
   const [entries, setEntries] = useState(chatMessages)
   
+  const getSenders = () => {
+    return [...new Set(entries.map(entry=>entry.sender))]
+  }
+
   const calcTotalLikes = () => {
     return entries.reduce((total, entry) => {
       return entry.liked ? total + 1 : total;
@@ -27,7 +31,7 @@ const App = () => {
 
     <div id="App">
       <header>
-        <h1>Chatty Vamp</h1>
+        <h1>{getSenders().join(" and ")}</h1>
         <h2> {calcTotalLikes()} ❤️s</h2>
       </header>
       <main>
