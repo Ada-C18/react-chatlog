@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
@@ -9,6 +8,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Log </h1>
+        <h3>Like count:</h3>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component
