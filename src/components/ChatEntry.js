@@ -6,7 +6,7 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, updateLiked }) => {
   const buttonStyle = liked ? '❤️' : '🤍';
 
   return (
-    <div className={`chat-entry ${sender === 'Vladimir' ? 'local' : 'remote'}`}>
+    <div className={`chat-entry ${sender === 'Luke' ? 'local' : 'remote'}`}>
       <h2 className="entry-name">{sender}</h2>
 
       <section className="entry-bubble">
@@ -23,12 +23,12 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, updateLiked }) => {
 };
 
 ChatEntry.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-  updateLiked: PropTypes.func.isRequired,
+  liked: PropTypes.bool,
+  updateLiked: PropTypes.func,
 };
 
 export default ChatEntry;

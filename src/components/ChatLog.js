@@ -5,10 +5,10 @@ import './ChatEntry.css';
 const ChatLog = (props) => {
   // console.log(props.entries);
   const chatLog = props.entries;
-  const chatComponents = chatLog.map((entry) => {
+  const chatComponents = chatLog.map((entry, i) => {
     return (
       <ChatEntry
-        key={entry.id}
+        key={i}
         id={entry.id}
         sender={entry.sender}
         body={entry.body}
@@ -24,14 +24,15 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   chatLog: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      key: PropTypes.number,
+      id: PropTypes.number,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool.isRequired,
+      liked: PropTypes.bool,
     })
   ),
-  updateLiked: PropTypes.func.isRequired,
+  updateLiked: PropTypes.func,
 };
 
 export default ChatLog;
