@@ -13,19 +13,12 @@ const ChatEntry = (props) => {
   // Source: https://stackoverflow.com/questions/34521797/how-to-add-multiple-classes-to-a-reactjs-component
   //Wave 3
   const [like, setLike] = useState(false);
-  const [numLikes, setNumLikes] = useState(0);
-  // const getNumLikes = () => {
-  //   return <h3>{numLikes}</h3>;
-  // };
+
   const toggleLike = () => {
     setLike(!like);
-    if (like === true) {
-      setNumLikes(numLikes + 1);
-    } else {
-      setNumLikes(numLikes - 1);
-    }
+    props.updateLike(props.id);
   };
-  const likeColor = like ? '❤️' : '🤍';
+  const likeColor = like === true ? '❤️' : '🤍';
 
   return (
     <div className={classes}>
@@ -45,10 +38,12 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  updateLike: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;

@@ -1,17 +1,18 @@
 import propTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, updateLikes }) => {
+const ChatLog = ({ entries, updateLike }) => {
   const chatList = [];
   for (const entry of entries) {
     chatList.push(
       <ChatEntry
         key={entry.id}
+        id={entry.id}
         sender={entry.sender}
         body={entry.body}
         timeStamp={entry.timeStamp}
         liked={entry.liked}
-        updateLikes={updateLikes}
+        updateLike={updateLike}
       />
     );
   }
@@ -28,5 +29,6 @@ ChatLog.propTypes = {
       liked: propTypes.bool.isRequired,
     })
   ),
+  updateLike: propTypes.func.isRequired,
 };
 export default ChatLog;
