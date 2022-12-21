@@ -8,9 +8,11 @@ const ChatEntry = (props) => {
   const [heart, heartState] = useState('🤍');
   const heartColorChange = () => {
     if (heart === '🤍') {
-      heartState('🤍');
+      heartState('❤️');
+      props.heartChange=true;
     }else {
       heartState('🤍');
+      props.heartChange=false;
     } 
   };
 
@@ -21,7 +23,7 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         {/* <p className="entry-time">{props.timeStamp}</p> */}
         <TimeStamp className="entry-time" time={props.timeStamp} />
-        <button className="like">🤍</button>
+        {/* <button className="like">🤍</button> */}
         {/* adding behavior to button ChatEntry */}
         <button onclick={heartColorChange} className="like">
           {heart}
@@ -35,6 +37,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  heartChange: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;
