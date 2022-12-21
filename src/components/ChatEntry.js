@@ -3,7 +3,14 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
+const ChatEntry = ({
+  id,
+  sender,
+  body,
+  timeStamp,
+  liked,
+  likeCountCallBack,
+}) => {
   let classLocation = 'chat-entry local';
   if (id % 2 === 0) {
     classLocation = 'chat-entry remote';
@@ -11,9 +18,16 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
 
   const [isliked, setLiked] = useState(liked);
   const heartEmodji = isliked ? '❤️' : '🤍';
+
   const changeLiked = () => {
     setLiked(!isliked);
+
+    likeCountCallBack(!isliked);
   };
+
+  // useEffect(() => {
+  //   likeCountCallBack(isliked);
+  // }, [isliked]);
 
   return (
     <div className={classLocation}>
@@ -37,6 +51,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  likeCountCallBack: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;

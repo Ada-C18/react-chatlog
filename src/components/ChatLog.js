@@ -2,7 +2,7 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, likeCountCallBack }) => {
   //   const messages = [
   //     {
   //       id: 1,
@@ -22,6 +22,7 @@ const ChatLog = ({ entries }) => {
           body={chatEntry.body}
           timeStamp={chatEntry.timeStamp}
           liked={chatEntry.liked}
+          likeCountCallBack={likeCountCallBack}
         ></ChatEntry>
       </div>
     );
@@ -36,6 +37,7 @@ const ChatLog = ({ entries }) => {
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  likeCountCallBack: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
