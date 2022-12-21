@@ -17,16 +17,17 @@ const App = () => {
   }
 
   return (
-    
+
     <div id="App">
+    <h1>{`${count} ❤️s`}</h1>
       <header>
+
         <h1>Chat between Vladimir and Estragon </h1>
-        <h2>{`${count}❤️s`}</h2>
       </header>
       
       
       <main>
-      
+
         <ChatLog entries={chatMessages} data={getData}></ChatLog>
 
       </main>

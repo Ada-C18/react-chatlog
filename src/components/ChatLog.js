@@ -11,7 +11,7 @@ const ChatLog = (props) => {
             <li  key={entry.id}><ChatEntry sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp} data={props.data}></ChatEntry></li>
     
         );
-       
+
 
     })
 
