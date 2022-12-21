@@ -19,22 +19,21 @@ const ChatLog = (props) => {
       );
     });
   };
-  return (
-    <ul className="tasks__list no-bullet">{getChatLogJSX(props.entries)}</ul>
-  );
+  return <ul>{getChatLogJSX(props.entries)}</ul>;
 };
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
+      key: PropTypes.number,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool,
     })
   ).isRequired,
-  onLikeMessage: PropTypes.func.isRequired,
+  onLikeMessage: PropTypes.func,
 };
 
 export default ChatLog;
