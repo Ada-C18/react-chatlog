@@ -10,6 +10,7 @@ const App = () => {
   });
 
   const [chatLog, setChatLog] = useState(chatDataCopy);
+  const [likesCount, setLikesCount] = useState(0);
 
   const updateLiked = (messageId) => {
     console.log(`update liked is called ${messageId}`);
@@ -23,6 +24,11 @@ const App = () => {
           liked: !message.liked,
         };
         newChatLog.push(newMessage);
+        if (newMessage.liked) {
+          setLikesCount(likesCount + 1);
+        } else {
+          setLikesCount(likesCount - 1);
+        }
       }
     }
     setChatLog(newChatLog);
@@ -32,6 +38,9 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chatty Lynny</h1>
+        <section>
+          <p className="widget">{likesCount} ❤️s </p>
+        </section>
       </header>
       <main>
         <ChatLog entries={chatLog} updateLiked={updateLiked}></ChatLog>
