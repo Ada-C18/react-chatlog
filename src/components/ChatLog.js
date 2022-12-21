@@ -1,9 +1,9 @@
 import React from 'react';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css'
+import PropTypes from 'prop-types';
 
-
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, updateLikes }) => {
 
     const chatEntryComponents = entries.map(entry => {
         return (
@@ -14,6 +14,7 @@ const ChatLog = ({ entries }) => {
                 body={entry.body}
                 timeStamp={entry.timeStamp}
                 liked={entry.liked}
+                updateLikes={updateLikes}
             />
             </div>
         );
@@ -23,7 +24,20 @@ const ChatLog = ({ entries }) => {
 
     );
 
-};
+}
+
+// Add prop types for entries and the also what each entry contains
+ChatLog.propTypes = {
+    entries: PropTypes.arrayOf(PropTypes.shape({
+        sender: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        timeStamp: PropTypes.string.isRequired,
+        uniqueId: PropTypes.number,
+        // uniqueId: PropTypes.number.isRequired,
+        liked: PropTypes.bool.isRequired,
+        updateLikes: PropTypes.func
+    })).isRequired,
+}
 
 export default ChatLog;
 
