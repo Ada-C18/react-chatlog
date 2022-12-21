@@ -27,7 +27,7 @@ ChatLog.propTypes = {
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
-      timestamp: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool.isRequired,
     })
   ),
