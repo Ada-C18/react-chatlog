@@ -7,9 +7,9 @@ const ChatLog = ({ entries, updateLikes }) => {
   // const updateLikes = updateLikes;
 
   const messageComponents = entries.map((message) => {
-    return (    
-        <ChatEntry
-          key={message.id}
+    return (
+      <div key={message.id}>           
+        <ChatEntry                     
           id={message.id}
           sender={message.sender}
           body={message.body}
@@ -17,6 +17,7 @@ const ChatLog = ({ entries, updateLikes }) => {
           liked={message.liked}
           updateLikes={updateLikes}
         />
+      </div>
     );
   });
 

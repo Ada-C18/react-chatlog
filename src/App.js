@@ -32,7 +32,7 @@ const App = () => {
 
   //2 set callback function to update the messageList to true/false for likes
   const updateLikes = (id) => {
-    console.log('updateLikes function from App.js is called')
+    // console.log('updateLikes function from App.js is called')
     const newMessageList = [];
     for (const message of messageList) {
       if(message.id !== id) {
