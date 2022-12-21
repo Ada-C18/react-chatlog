@@ -1,23 +1,40 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
-import { DateTime } from 'luxon';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
 
-  const timeDifference = (props) => {
-    const chatTime = DateTime.fromISO(props.timeStamp);
-    const relative = chatTime.toRelative();
-    return relative;
+  const chatAlign = (props) => {
+    if (props.sender === 'Vladimir') {
+      return 'chat-entry local';
+    } else if (props.sender === 'Estragon') {
+      return 'chat-entry remote';
+    }
   };
-  
+
+  // const onLikeButtonClicked = () => {
+  //   const updatedEntry = {
+  //     id: props.id,
+  //     sender: props.sender,
+  //     body: props.body,
+  //     timeStamp: props.timeStamp,
+  //     liked: !props.liked
+  //   };
+  //   props.onUpdate(updatedEntry)
+  // };
+
+  const heart = props.liked ? '❤️': '🤍';
+
   return (
-    <div className="chat-entry local">
+    <div className={chatAlign(props)}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
-        <p className="entry-time">{timeDifference(props)}</p>
-        <button className="like">🤍</button>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp}/>
+        </p>
+        <button className="like" onClick={() => props.onClickLike(props.id)}>{heart}</button>
       </section>
     </div>
   );
