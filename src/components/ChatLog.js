@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry.js';
 import './ChatEntry.css';
-// const map1 = array1.map(x => x * 2);
+
 const ChatLog = (props) => {
   const entries = props.entries;
 
@@ -9,6 +9,7 @@ const ChatLog = (props) => {
     <div className="chat-log">
       {entries.map((entry) => (
         <ChatEntry
+          key={entry.id}
           id={entry.id}
           sender={entry.sender}
           body={entry.body}
