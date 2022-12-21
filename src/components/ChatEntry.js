@@ -12,7 +12,7 @@ const ChatEntry = ({ id, sender, liked, timeStamp, body, onLike }) => {
   };
 
   return (
-    <div className={messageSide} key={id}>
+    <div className={messageSide}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
