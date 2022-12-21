@@ -26,6 +26,8 @@ button {
   width: fit-content;
 }
 
+
+
 .chat-entry .entry-bubble:hover {
   background-color: #fefea2;
 }
@@ -33,6 +35,7 @@ button {
 .chat-entry .entry-name {
   font-size: medium;
   margin-bottom: 0.5rem;
+
 }
 
 .chat-entry .entry-time {
@@ -51,11 +54,26 @@ button {
 
   position: absolute;
   top: 0;
+
 }
 
+/* .chat-entry .entry-bubble::before {
+  content: '';
+  height: 22px;
+  width: 44px;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+
+  position: absolute;
+  top: 0;
+} */
+
 /* "local" messages are shown on the left side */
-.chat-entry.local {
+.chat-entry.local.left {
   text-align: left;
+}
+
+.chat-entry.local.right {
+  text-align: right;
 }
 
 .chat-entry.local .entry-time {
@@ -98,3 +116,4 @@ button {
 .chat-entry.remote .entry-bubble:hover::before {
   background-color: #a9f6f6;
 }
+
