@@ -12,7 +12,7 @@ const App = () => {
   const [chatsList, setChatsList] = useState(chatMessagesInitialCopy);
 
   const updateLike = (id) => {
-    console.log(`updateLike called on chat id: ${id}`);
+    // console.log(`updateLike called on chat id: ${id}`);
     const newArr = [];
     for (const chat of chatsList) {
       if (id !== chat.id) {
