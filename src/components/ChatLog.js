@@ -3,7 +3,7 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 // import chatMessages from './data/messages.json';
 
-const ChatLog = ({ entries, firstSender, onLike }) => {
+const ChatLog = ({ entries, onLike }) => {
   // if (entries.length === 0) {
   //   const chatLog = entries;
   //   return <section key="emptyLog">{chatLog}</section>;
@@ -17,7 +17,6 @@ const ChatLog = ({ entries, firstSender, onLike }) => {
           sender={message.sender}
           body={message.body}
           timeStamp={message.timeStamp}
-          firstSender={firstSender}
           liked={message.liked}
           onLike={onLike}
         ></ChatEntry>
@@ -38,7 +37,6 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
-  firstSender: PropTypes.string.isRequired,
   onLike: PropTypes.func.isRequired,
 };
 export default ChatLog;

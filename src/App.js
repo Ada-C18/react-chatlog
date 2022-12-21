@@ -7,8 +7,6 @@ import { useState } from 'react';
 const App = () => {
   const [chatLogData, setChatLogData] = useState(chatMessages);
 
-  const firstSender = chatLogData[0].sender;
-
   const updateLiked = (id) => {
     const newChatLog = chatLogData.map((chat) => {
       if (chat.id === id) {
@@ -35,11 +33,7 @@ const App = () => {
         <h3>{countLikedChats()} ❤️s</h3>
       </header>
       <main>
-        <ChatLog
-          entries={chatLogData}
-          firstSender={firstSender}
-          onLike={updateLiked}
-        ></ChatLog>
+        <ChatLog entries={chatLogData} onLike={updateLiked}></ChatLog>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>

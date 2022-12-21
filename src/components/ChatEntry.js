@@ -4,17 +4,8 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 // import { useState } from 'react';
 
-const ChatEntry = ({
-  id,
-  sender,
-  liked,
-  timeStamp,
-  body,
-  onLike,
-  firstSender,
-}) => {
-  const messageSide =
-    firstSender === sender ? 'chat-entry local' : 'chat-entry remote';
+const ChatEntry = ({ id, sender, liked, timeStamp, body, onLike }) => {
+  const messageSide = id % 2 ? 'chat-entry local' : 'chat-entry remote';
 
   const handleLike = () => {
     onLike(id);
@@ -46,7 +37,6 @@ ChatEntry.propTypes = {
       id: PropTypes.number.isRequired,
     })
   ),
-  firstSender: PropTypes.string.isRequired,
   onLike: PropTypes.func.isRequired,
 };
 
