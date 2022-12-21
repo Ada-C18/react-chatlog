@@ -2,11 +2,14 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
-//import { useState } from 'react';
+import { useState } from 'react';
 
 const ChatEntry = (props) => {
+  const [likesCount, setLikesCount] = useState(0);
+
   const printMessage = () => {
     console.log('I have clicked on a heart!');
+    setLikesCount(likesCount + 1);
   };
 
   return (
@@ -17,7 +20,7 @@ const ChatEntry = (props) => {
 
         <TimeStamp time={props.timeStamp} />
         <button onClick={printMessage} className="like">
-          🤍
+          🤍 {likesCount}
         </button>
       </section>
     </div>
