@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 
 const App = () => {
-  const exampleMessage = chatMessages[0];
+  const [entriesData, setEntriesData] = useState(chatMessages);
+  const [numOfHearts, setNumOfHearts] = useState(0);
+
+  const likeMessage = (entryID) => {
+    const newEntriesData = [...entriesData];
+    for (const entry of newEntriesData) {
+      if (entry.id === entryID) {
+        if (entry.liked) {
+          entry.liked = false;
+          setNumOfHearts((numOfHearts) => numOfHearts - 1);
+        } else {
+          entry.liked = true;
+          setNumOfHearts((numOfHearts) => numOfHearts + 1);
+        }
+      }
+    }
+    setEntriesData(newEntriesData);
+  };
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1> ✧･ﾟ: *✧･ﾟ:* Chick Chat *:･ﾟ✧*:･ﾟ✧ </h1>
+        <h2 className="Heart-Counter">🐥 {numOfHearts} 🐥 </h2> {}
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        <ChatEntry
-          id={exampleMessage['id']}
-          sender={exampleMessage['sender']}
-          body={exampleMessage['body']}
-          timeStamp={exampleMessage['timeStamp']}
-          liked={exampleMessage['liked']}
-        />
+        <ChatLog entries={entriesData} onLikeMessage={likeMessage} />
       </main>
     </div>
   );
