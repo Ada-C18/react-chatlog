@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1> ✧･ﾟ: *✧･ﾟ:* Chick Chat *:･ﾟ✧*:･ﾟ✧ </h1>
+        <h1> ✧･ﾟ: *✧･ﾟ:* Chatting without Godot *:･ﾟ✧*:･ﾟ✧ </h1>
         <h2 className="Heart-Counter">🐥 {numOfHearts} 🐥 </h2> {}
       </header>
       <main>
