@@ -8,9 +8,8 @@ const ChatEntry = (props) => {
   const toggleLike = () => {
     setIsLiked(!isLiked);
     props.data()
-    
   };
-  
+
   const heartColor = isLiked ? '❤️' : '🤍';
 
   return (
@@ -20,7 +19,6 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
         <button className="like" onClick={toggleLike}>{heartColor}</button>
-        
       </section>
     </div>
   );
