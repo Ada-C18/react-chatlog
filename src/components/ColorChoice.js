@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import './ColorChoice.css';
 
 const ColorChoice = (props) => {
-    
-    let person = null;
-    if (props.id !== id) {
-    person = props.sender;
-    }
 
     return (
-        <div>
-            <h2>{person} color</h2>
-            <button>x</button>
+        <div className="buttonClass">
+            <button className="red"></button>
+            <button className="orange"></button>
+            <button className="yellow"></button>
+            <button className="green"></button>
+            <button className="blue"></button>
+            <button className="purple"></button>
         </div>
     )
 }
@@ -23,7 +22,7 @@ ColorChoice.propTypes = {
     body: PropTypes.string.isRequired,
     timeStamp: PropTypes.string.isRequired,
     liked: PropTypes.bool.isRequired,
-  };
+};
 
 export default ColorChoice;
 

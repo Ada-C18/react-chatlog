@@ -72,3 +72,15 @@
 .purple {
   color: purple
 }
+
+.senderOne {
+  text-align: left;
+}
+
+.senderTwo {
+  text-align: right;
+}
+
+span {
+  display: block;
+}
