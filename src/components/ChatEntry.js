@@ -7,7 +7,7 @@ const ChatEntry = (props) => {
   const [isLiked, setIsLiked] = useState(props.liked);
   const toggleLike = () => {
     setIsLiked(!isLiked);
-    props.data()
+    props.data();
   };
 
   const heartColor = isLiked ? '❤️' : '🤍';

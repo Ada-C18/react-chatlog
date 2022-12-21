@@ -6,7 +6,7 @@ const ChatLog = (props) => {
         return (
             <li  key={entry.id}><ChatEntry sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp} data={props.data}></ChatEntry></li>
         );
-    })
+    });
 
     return (
         <section>
@@ -14,7 +14,7 @@ const ChatLog = (props) => {
                 {chatComponents}
             </ul>
         </section>
-    )
+    );
 };
 
 

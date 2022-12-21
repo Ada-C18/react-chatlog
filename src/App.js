@@ -11,7 +11,7 @@ const App = () => {
   };
 
   return (
-    
+
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon </h1>
