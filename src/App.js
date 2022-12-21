@@ -13,10 +13,11 @@ const App = () => {
       <main>
         <ChatEntry />
         <ChatLog />
-        <ChatEntry chatList={chatMessages} />
-        console.log("This is the chatList"
-        <ChatEntry chatList={chatMessages} />
-        );
+        <ChatEntry
+          sender={chatMessages[0]['sender']}
+          body={chatMessages[0]['body']}
+          timeStamp={chatMessages[0]['timeStamp']}
+        />
         <ChatEntry
           sender={chatMessages[1]['sender']}
           body={chatMessages[1]['body']}

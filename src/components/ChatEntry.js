@@ -9,8 +9,10 @@ const ChatEntry = (props) => {
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
-        {/* <p className="entry-time">{TimeStamp(props.timeStamp)}</p> */}
-        <TimeStamp time={props.timeStamp}></TimeStamp>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp}></TimeStamp>
+        </p>
+        {/* <TimeStamp time={props.timeStamp}></TimeStamp> */}
         <button className="like">🤍</button>
       </section>
     </div>
