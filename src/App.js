@@ -36,7 +36,7 @@ const App = () => {
       </header>
 
       <main>
-        <ChatLog entries={chatData} onLikeMessage={toggleHeart} />
+        <ChatLog entries={chatData} onToggleHeart={toggleHeart} />
       </main>
     </div>
   );
