@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
-// import chatMessages from './data/messages.json';
-// import TimeStamp from './TimeStamp.js';
 
 const ChatLog = (props) => {
-  // const componentClass = 'chat-log';
-  // const chatEntries = ChatEntry.map((entries) => {
   return (
     <ul className="ChatLog">
       {props.entries.map((entry) => {
@@ -26,7 +22,7 @@ const ChatLog = (props) => {
     </ul>
   );
 };
-// return <section>{chatEntries}</section>;
+
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({

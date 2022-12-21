@@ -10,12 +10,9 @@ const ChatEntry = (props) => {
       sender: props.sender,
       body: props.body,
       timeStamp: props.timeStamp,
-      // may be timestamp:props.timestamp or may need to bring that function below this one
       liked: !props.liked,
     };
 
-    // Invoke the function passed in through the prop named "onUpdate"
-    // This function is referenced by the name "updateMessageData" in App
     props.onUpdateMessage(updatedMessage.id);
   };
 
@@ -30,11 +27,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
-        <button
-          className="like"
-          onClick={onLikeButtonClick}
-          // props.onUpdateMessage(props.id, !props.liked)}
-        >
+        <button className="like" onClick={onLikeButtonClick}>
           {heartColor}
         </button>
       </section>

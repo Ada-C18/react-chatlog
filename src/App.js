@@ -8,14 +8,8 @@ const App = () => {
   const [likesCount, setLikesCount] = useState(0);
 
   const updateMessageData = (mId) => {
-    //is this a map of messages piece of state or chatMessages.json file
-    // const newChatMessages = chatMessages.map((ChatMessage) => {
-    //   if (ChatMessage.id === mId) {
-    //     let newMessage = ChatMessage;
-    //     // updateLikes(newMessage);
-    // const updateMessageData = (id) => {
     const newChatMessages = [...messages];
-    // const newMessage = newChatMessages.find((message) => message.id === mId);
+
     for (let thisMessage of newChatMessages) {
       if (thisMessage.id === mId) {
         let newMessage = thisMessage;
@@ -46,11 +40,3 @@ const App = () => {
   );
 };
 export default App;
-
-// {/* Here's the first chat Message */}
-//         {/* <chatMessages></chatMessages> */}
-//         {/* <ChatEntry
-//         sender={oneMessage.sender}
-//         body={oneMessage.body}
-//         timestamp={oneMessage.timeStamp}
-//       ></ChatEntry> */}
