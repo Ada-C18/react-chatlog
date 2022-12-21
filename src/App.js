@@ -8,18 +8,6 @@ const App = () => {
 
   const [chatData, setChatData] = useState(allEntries);
 
-
-  const likeMessage = (id) => {
-    setChatData(chatData => chatData.map(entry => {
-      if(entry.id === id) {
-        return{...entry, likeCount: entry.likeCount + 1};
-      } else {
-        return entry;
-      }
-    }));
-  };
-
-
   const calculateTotalLikes = (chatData) => {
     return chatData.reduce((total, entry) => {
       if(entry.liked){
@@ -52,7 +40,6 @@ const App = () => {
       <main>
         <ChatLog 
           entries={chatData} 
-          onLikeMessage={likeMessage}
           onUpdateChatData={updateChatData}
         />
       </main>
