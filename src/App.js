@@ -2,27 +2,29 @@ import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 
 const App = () => {
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
-        {console.log(chatMessages[0]['timeStamp'])}
       </header>
       <main>
+        <ChatEntry />
+        <ChatLog />
+        <ChatEntry chatList={chatMessages} />
+        console.log("This is the chatList"
+        <ChatEntry chatList={chatMessages} />
+        );
         <ChatEntry
-          sender="Jessica"
-          body="Hello World!"
-          timeStamp="2018-05-29T22: 49:06+00:00"
+          sender={chatMessages[1]['sender']}
+          body={chatMessages[1]['body']}
+          timeStamp={chatMessages[1]['timeStamp']}
         />
-        <ChatEntry
-          sender="Alma"
-          body="Hello World!"
-          timeStamp="2018-05-29T22: 49:06+00:00"
-        />
+        <ChatLog id={chatMessages[1]['id']} />
         {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        Wave 02: Render ChatLog component */}{' '}
       </main>
     </div>
   );
