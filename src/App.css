@@ -26,6 +26,12 @@
   display: inline-block;
 }
 
+#App h2 {
+  color: #222;
+  padding: 0.75rem;
+  margin: -0.2rem;
+}
+
 #App header section {
   background-color: #e0ffff;
 }
