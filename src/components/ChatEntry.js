@@ -12,7 +12,6 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
-        {/* <TimeStamp time={props.timeStamp}></TimeStamp> */}
         <button className="like">🤍</button>
       </section>
     </div>
@@ -20,6 +19,7 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
