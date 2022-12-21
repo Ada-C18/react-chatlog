@@ -6,9 +6,9 @@ import ChatEntry from './ChatEntry';
 const ChatLog = ({ entries, onToggleHeart }) => {
   return (
     <div>
-      {entries.map((entry) => (
+      {entries.map((entry, index) => (
         <ChatEntry
-          key={entry.id}
+          key={index}
           id={entry.id}
           sender={entry.sender}
           body={entry.body}
@@ -25,14 +25,14 @@ const ChatLog = ({ entries, onToggleHeart }) => {
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.number,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool,
     })
   ).isRequired,
-  onToggleHeart: PropTypes.func.isRequired,
+  onToggleHeart: PropTypes.func,
 };
 
 export default ChatLog;
