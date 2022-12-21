@@ -2,38 +2,20 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 import TimeStamp from './TimeStamp';
-import { useState } from 'react';
 
-const ChatEntry = (props) => {
-  const [likedState, setLikedState] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
-
-  const changeLike = props.liked ? '❤️' : '🤍';
-
-  const onButtonClick = () => {
-    liked: !props.liked,
-  };
-  // const toggleLikedState = () => {
-  //   if (likedState === '🤍') {
-  //     setLikedState('❤️');
-  //     setLikeCount(likeCount + 1);
-  //   } else {
-  //     setLikedState('🤍');
-  //     setLikeCount(likeCount - 1);
-  //   }
-  //   console.log(likeCount);
-  // };
+const ChatEntry = ({ id, sender, body, timeStamp, liked, setLikeStatus }) => {
+  const likeStatus = liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p>{body}</p>
         <p className="entry-time">
-          <TimeStamp time={props.timeStamp}></TimeStamp>
+          <TimeStamp time={timeStamp}></TimeStamp>
         </p>
-        <button className="like" onClick={() => props.setUpdateLikes()}>
-          {changeLike}
+        <button className="like" onClick={() => setLikeStatus(id, !liked)}>
+          {likeStatus}
         </button>
       </section>
     </div>
@@ -44,8 +26,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  likeCount: PropTypes.number,
   liked: PropTypes.bool,
+  setLikeStatus: PropTypes.func,
 };
 
 export default ChatEntry;

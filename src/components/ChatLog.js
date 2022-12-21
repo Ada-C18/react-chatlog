@@ -12,10 +12,8 @@ const ChatLog = (props) => {
           sender={entry.sender}
           body={entry.body}
           timeStamp={entry.timeStamp}
-          likeCount={entry.likeCount}
-          likedState={entry.likedState}
-          onLikeButton={entry.onLikeButton}
           liked={entry.liked}
+          setLikeStatus={props.setLikeStatus}
         />
       </ul>
     );
@@ -35,12 +33,10 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
-      likeCount: PropTypes.number,
-      likedState: PropTypes.string,
       liked: PropTypes.bool,
     })
   ).isRequired,
-  onLikeButton: PropTypes.func,
+  setLikeStatus: PropTypes.func,
 };
 
 export default ChatLog;
