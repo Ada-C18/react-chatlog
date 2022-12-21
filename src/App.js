@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
-import ColorChoice from './components/ColorChoice';
+// import ColorChoice from './components/ColorChoice';
 
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages);
@@ -37,16 +37,16 @@ const App = () => {
       <header>
         <h1>Chat between {senderOne} and {senderTwo}</h1>
         <div>Total Likes: {totalLikeCount} ❤️s</div>
-        <span className='colorButtons'>
+        {/* <span className='colorButtons'> */}
           <div className='senderOne'>
             <h2>{senderOne}'s color:</h2>
-            <ColorChoice/>
+            {/* <ColorChoice/> */}
           </div>
           <div className='senderTwo'>
             <h2> {senderTwo}'s color:</h2>
-            <ColorChoice/>
+            {/* <ColorChoice/> */}
           </div>
-        </span>
+        {/* </span> */}
       </header>
       <main>
           <ChatLog entries={chatData} onUpdateChatData={updateChatData} />
