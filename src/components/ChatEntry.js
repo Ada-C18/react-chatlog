@@ -5,12 +5,14 @@ import TimeStamp from './TimeStamp.js';
 import { useState } from 'react';
 
 const ChatEntry = (props) => {
-  const [likesCount, setLikesCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
-  const printMessage = () => {
+  const toggleLiked = () => {
     console.log('I have clicked on a heart!');
-    setLikesCount(likesCount + 1);
+    setIsLiked(!isLiked);
   };
+
+  const heartStatus = isLiked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -19,8 +21,8 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
 
         <TimeStamp time={props.timeStamp} />
-        <button onClick={printMessage} className="like">
-          🤍 {likesCount}
+        <button onClick={toggleLiked} className="heart-liked">
+          {heartStatus}
         </button>
       </section>
     </div>
