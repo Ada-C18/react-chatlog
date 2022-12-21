@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
@@ -12,7 +11,7 @@ const ChatLog = (props) => {
         body={entry.body}
         timeStamp={entry.timeStamp}
         liked={entry.liked}
-        updateLike = {props.updateLike}
+        updateLike={props.updateLike}
       />
     );
   });
@@ -21,13 +20,6 @@ const ChatLog = (props) => {
       <div>{chats}</div>
     </div>
   );
-};
-
-ChatLog.propTypes = {
-  id: PropTypes.number.isRequired,
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.number.isRequired,
 };
 
 export default ChatLog;

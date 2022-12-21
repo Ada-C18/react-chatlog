@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 
-
 const ChatEntry = (props) => {
-
   // const onLike = () => {
   //   props.updateLike(props.id);
   // }
-  
+
   const [isLiked, setIsLiked] = useState(false);
 
   const likeFill = isLiked ? '❤️' : '🤍';
@@ -17,16 +15,16 @@ const ChatEntry = (props) => {
   const toggleLiked = () => {
     setIsLiked(!isLiked);
   };
-  
-  const onLike = () => {
-    props.updateLike(props.id); 
-    toggleLiked();
-  }
 
-  // This line of code is defining a function called onLike. When this function 
+  const onLike = () => {
+    props.updateLike(props.id);
+    toggleLiked();
+  };
+
+  // This line of code is defining a function called onLike. When this function
   //is called, it will call the updateLike function, passing in the props.id as an argument.
   // The updateLike function is likely a function that updates the like status of the item with the given id.
-  // The onLike function will be used later in the code as an event handler for a button or some other UI element 
+  // The onLike function will be used later in the code as an event handler for a button or some other UI element
   //that allows the user to like or unlike an item.
 
   return (
@@ -38,10 +36,9 @@ const ChatEntry = (props) => {
           <TimeStamp time={props.timeStamp} />
         </p>
         {/* <button className="like">🤍</button> */}
-        <button className="like" onClick={onLike} >
+        <button className="like" onClick={onLike}>
           {likeFill}
         </button>
-    
       </section>
     </div>
   );
@@ -50,7 +47,7 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.number.isRequired,
+  timeStamp: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;
