@@ -7,8 +7,10 @@ const ChatEntry = (props) => {
   const [isLiked, setIsLiked] = useState(props.liked);
   const toggleLike = () => {
     setIsLiked(!isLiked);
+    props.data()
+    
   };
-
+  
   const heartColor = isLiked ? '❤️' : '🤍';
 
   return (
@@ -18,6 +20,7 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
         <button className="like" onClick={toggleLike}>{heartColor}</button>
+        
       </section>
     </div>
   );
@@ -26,7 +29,9 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired
+  timeStamp: PropTypes.string.isRequired,
+  data: PropTypes.func.isRequired
+    
 };
 
 export default ChatEntry;
