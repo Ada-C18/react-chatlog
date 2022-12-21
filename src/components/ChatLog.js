@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChatEntry from './components/ChatEntry.js';
-
-// import TimeStamp from './TimeStamp.js';
+import ChatEntry from './ChatEntry';
 // import chatMessages from './data/messages.json';
+// import TimeStamp from './TimeStamp.js';
 
 const ChatLog = (props) => {
-  const chatEntries = ChatEntry.map(chatMessage);
+  const componentClass = 'chat-log';
+  // const chatEntries = ChatEntry.map(chatMessage);
+  // const chatEntries = ChatEntry.map((entries) => {
   return (
+    // <ul className="ChatLog">
     <ul className="ChatLog">
-      {props.entries.map((entry, i) => {
+      {props.entries.map((entry) => {
         return (
           <ChatEntry
             id={entry.id}
@@ -20,9 +22,19 @@ const ChatLog = (props) => {
           />
         );
       })}
+      ;
     </ul>
   );
 };
+
+// return (
+//   <article>
+//     <ul>
+//       {/* className={componentClass} */}
+//       {chatEntries}
+//     </ul>
+//   </article>
+// );
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(

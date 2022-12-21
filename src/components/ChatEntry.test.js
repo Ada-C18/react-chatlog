@@ -22,7 +22,7 @@ describe('Wave 01: ChatEntry', () => {
     expect(screen.getByText(/Get out by 8am/)).toBeInTheDocument();
   });
 
-  //   test("that it will display the time", () => {
-  //     expect(screen.getByText(/\d+ years ago/)).toBeInTheDocument();
-  //   });
+  test('that it will display the time', () => {
+    expect(screen.getByText(/\d+ years ago/)).toBeInTheDocument();
+  });
 });
