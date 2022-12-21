@@ -18,8 +18,13 @@ const ChatEntry = (props) => {
 
   const heart = props.liked ? '❤️' : '🤍';
 
+  let chatStyle = 'chat-entry local'
+  if (props.id %2 !== 0) {
+    chatStyle = 'chat-entry remote'
+  }
+
   return (
-    <div className="chat-entry local">
+    <div className={chatStyle}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         {/* <p>{props.id}</p> */}
