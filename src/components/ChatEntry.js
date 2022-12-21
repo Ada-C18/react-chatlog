@@ -2,17 +2,29 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const ChatEntry = (props) => {
-  const [isLiked, setIsLiked] = useState(false);
+  // const [isLiked, setIsLiked] = useState(false);
 
-  const toggleLiked = () => {
-    console.log('I have clicked on a heart!');
-    setIsLiked(!isLiked);
+  // const toggleLiked = () => {
+  //   console.log('I have clicked on a heart!');
+  //   setIsLiked(!isLiked);
+  // };
+
+  const onLikeClick = () => {
+    console.log('I clicked a heart!');
+    const updatedChat = {
+      id: props.id,
+      sender: props.sender,
+      body: props.body,
+      timeStamp: props.timeStamp,
+      liked: !props.liked,
+    };
+    props.onUpdate(updatedChat);
   };
 
-  const heartStatus = isLiked ? '❤️' : '🤍';
+  const heartStatus = props.liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -20,8 +32,10 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
 
-        <TimeStamp time={props.timeStamp} />
-        <button onClick={toggleLiked} className="heart-liked">
+        <p>
+          <TimeStamp time={props.timeStamp} />
+        </p>
+        <button onClick={onLikeClick} className="heart-liked">
           {heartStatus}
         </button>
       </section>
@@ -35,6 +49,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  onupdate: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
