@@ -4,17 +4,21 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  const onLikeButtonClick = () => {
-    const updatedChat = {
+  const onLikeClick = () => {
+    const updateEntry = {
       id: props.id,
       sender: props.sender,
       body: props.body,
       timeStamp: props.timeStamp,
       liked: !props.liked,
     };
-    props.onUpdate(updatedChat);
+    props.onUpdate(updateEntry);
   };
-  const heart = props.liked ? '❤️' : '🤍';
+
+  const hearts = props.liked ? '❤️' : '🤍';
+      // const message = props.body;
+      // const timeStamp = <TimeStamp time={props.timeStamp}></TimeStamp>;
+      // const sender = props.sender;
 
   return (
     <div className="chat-entry local">

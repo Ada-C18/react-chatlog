@@ -1,9 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 // import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
-import { useState } from 'react';
+// import ChatEntry from './components/ChatEntry';
+
 
 const App = () => {
   const [chatMessagesData, setChatMessagesData] = useState(chatMessages);
