@@ -31,7 +31,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
-        <h2>{hearts} ❤️s</h2>
+        <section className="heartWidget">{hearts} ❤️s</section>
       </header>
       <main>
         <ChatLog entries={entries} likeMessage={likeMessage}></ChatLog>
