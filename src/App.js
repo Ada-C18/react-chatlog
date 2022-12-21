@@ -15,7 +15,7 @@ const App = () => {
       </header>
       <main>
         <ChatLog
-          chatMessages={chatMessages}
+          entries = {chatMessages}
         />
       </main>
     </div>
