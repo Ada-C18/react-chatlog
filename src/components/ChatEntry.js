@@ -3,11 +3,12 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({ sender, body, timeStamp }) => {
-  let senderClass = 'chat-entry local';
+const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
+  let senderClass = 'chat-entry-local';
   if (sender === 'Estragon') {
-    senderClass = 'chat-entry remote';
+    senderClass = 'chat-entry-remote';
   }
+
   return (
     <div className={senderClass}>
       <h2 className="entry-name">{sender}</h2>
@@ -26,6 +27,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;
