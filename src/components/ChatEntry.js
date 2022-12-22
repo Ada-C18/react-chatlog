@@ -14,7 +14,8 @@ const ChatEntry = (props) => {
   // using ternary operator for above logic: **if/else on one line**
   // e.g. <div className={`main-class ${this.state.isSelected ? 'selected’:’not-selected’ }`}></div> 
 
-  const returnedvalue = props.sender === 'Vladimir' ? 'local' : 'remote';
+  // const returnedvalue = props.sender === 'Vladimir' ? 'local' : 'remote'; **do NOT hard code via sender, less dynamic!
+  const returnedvalue = props.position === 'local' ? 'local' : 'remote';
 
   
   return (
@@ -41,9 +42,9 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool,
+  position: PropTypes.string.isRequired,
   onLikeEntry: PropTypes.func,
-  onColorPickLeft: PropTypes.func,
-  onColorPickRight: PropTypes.func
+  onColorPick: PropTypes.func,
 };
 
 export default ChatEntry;

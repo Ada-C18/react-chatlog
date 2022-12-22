@@ -5,21 +5,40 @@ import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice';
 import chatMessages from './data/messages.json';
 
+const local = chatMessages[0].sender;
+const remote = chatMessages[1].sender;
+console.log(local, remote);
+// position: local
+// position: remote
+// sender needs a position attached to is to assign a color later
+const chatMessagesLocalRemote = chatMessages.map(entry => {
+  if (entry.sender === local) {
+    return {...entry, position: 'local'};
+  } else {
+    return {...entry, position: 'remote'}
+  }
+})
+
+// check position in list of entries
+  // console.log(chatMessagesLocalRemote);
+
 const App = () => {
-  const [entries, setEntry] = useState(chatMessages);
+  const [entries, setEntry] = useState(chatMessagesLocalRemote);
 
   const likeEntry = (id) => {
     setEntry((entries) => {
       return entries.map((entry) => {
         if (entry.id === id) {
           console.log('id:', id, entry.liked);
-          return { ...entry, liked: !entry.liked };
+          return { ...entry, liked: !entry.liked};
         } else {
           return entry;
         }
       });
     });
   };
+
+  console.log(entries);
 
   // count number of red hearts
   const calcTotalLikes = (entries) => {
@@ -30,12 +49,14 @@ const App = () => {
 
   const totalHeartsTally = calcTotalLikes(entries);
 
-  // color choice  state for vlad
-  const [leftColor, setLeftColor] = useState('black');
-
   // color choice state for estragon
-  const [rightColor, setRightColor] = useState('black');
-
+  const [color, setColor] = useState('black');
+  const pickColor = () => {
+    console.log('color picked')
+    setColor(color);
+    console.log(color)
+    return color;
+  }
   // pass to respective senders, both into chatlog
   // pass callBack function to color choice  "onColorPick={}"
 
@@ -43,16 +64,16 @@ const App = () => {
     <div id="App">
       <header>
         <h1>
-          Top Secret Sesh: {entries[0].sender} and {entries[1].sender}
+          Top Secret Chat Sesh: {entries[0].sender} and {entries[1].sender}
         </h1>
         <section>
           <span>
             <div className="header-text" id="vlad-div">
               Vladimir's color:
             </div>
-            {/* use template string to  use color class naME */}
+            {/* use template string to use color className */}
             <div id="vlad-colors">
-              <ColorChoice />
+              <ColorChoice onColorPick={pickColor}/>
             </div>
           </span>
           <h1 className="header-text">{totalHeartsTally} ❤️s</h1>
@@ -61,7 +82,7 @@ const App = () => {
               Estragon's color:
             </div>
             <div id="e-colors">
-              <ColorChoice />
+              <ColorChoice onColorPick={pickColor}/>
             </div>
           </span>
         </section>
@@ -77,11 +98,7 @@ const App = () => {
         <ChatLog
           entries={entries}
           onLikeEntry={likeEntry}
-          // onColorPickLeft={colorPickLeft}
-          // onColorPickRight={colorPickRight}
-
-          // left color prop
-          // right color prop passed to ChatLog
+          onColorPick={pickColor}
         />
       </main>
     </div>

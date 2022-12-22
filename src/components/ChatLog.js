@@ -13,9 +13,10 @@ const ChatLog = (props) => {
         body={entry.body}
         timeStamp={entry.timeStamp}
         liked={entry.liked}
+        position={entry.position}
         onLikeEntry={props.onLikeEntry}
-        onColorPickLeft={props.colorPickLeft}
-        onColorPickRight={props.colorPickRight}
+        onColorPick={props.onColorPick}
+        
       />
     )
 });
@@ -33,6 +34,7 @@ return <div className="chat-log">{entries}</div>
 //           body={entry.body}
 //           timeStamp={entry.timeStamp}
 //           liked={entry.liked}
+//           position={entry.position}
 //           onLikeEntry={props.onLikeEntry}
 //         />
 //       );
@@ -53,11 +55,11 @@ ChatLog.propTypes = {
         body: PropTypes.string.isRequired,
         timeStamp: PropTypes.string.isRequired,
         liked: PropTypes.bool,
+        position: PropTypes.string.isRequired,
   }),
   ), 
   onLikeEntry: PropTypes.func,
-  onColorPickLeft: PropTypes.func,
-  onColorPickRight: PropTypes.func
+  onColorPick: PropTypes.func,
 };
 
 export default ChatLog;
