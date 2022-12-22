@@ -19,7 +19,6 @@ const App = () => {
   };
 
   const sumOfHearts = (entries) => {
-    console.log('the number of hearts changed');
     return entries.reduce((total, entry) => {
       return total + entry.liked;
     }, 0);
