@@ -28,6 +28,8 @@
 
 #App header section {
   background-color: #e0ffff;
+  color: black;
+  font-weight: bold;
 }
 
 #App .widget {
@@ -40,9 +42,10 @@
   padding-right: 1em;
 }
 
-#App #heartWidget {
+#App .heartWidget {
   font-size: 1.5em;
-  margin: 1em
+  margin: 1px;
+  padding: 8px;
 }
 
 #App span {
