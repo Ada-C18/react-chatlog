@@ -27,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <div id="App">
+    <div id='Waiting For Godot (to reply...)'>
       <header>
         <h1>Application title</h1>
         <section>
