@@ -5,12 +5,14 @@ import ChatLog from './components/ChatLog';
 
 const App = () => {
   // console.log('the value of chatMessages is', chatMessages);
-  // do I need to make a copy of chatMessages here?
 
-  const [entryData, setEntryData] = useState(chatMessages);
+  const chatMessagesCopy = chatMessages.map((entry) => {
+    return { ...entry };
+  });
+
+  const [entryData, setEntryData] = useState(chatMessagesCopy);
   const [likesCount, setLikesCount] = useState(0);
 
-  
   const updateEntry = (entryToUpdate) => {
     const entries = entryData.map((entry) => {
       if (entry.id === entryToUpdate.id) {
@@ -19,29 +21,26 @@ const App = () => {
       return entry;
     });
     setEntryData(entries);
+    countLikes(entryToUpdate.liked);
   };
 
-  //need function to count hearts
-  const countLikes = () => {
-    for (const entry of entryData) {
-      if (entry.liked) {
-        setLikesCount(likesCount +=1);
-      }
-    } return likesCount
-  }
-
-  //add heart count in the JSX below?
+  // Helper function that counts hearts (it's being called above)
+  const countLikes = (entry) => {
+    if (!entry.liked) {
+      setLikesCount(likesCount + 1);
+    } else {
+      setLikesCount(likesCount - 1);
+    }
+  };
 
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
-        <section> Future Counts: {} </section>
+        <h1>Chat between Vlad & Estra</h1>
+        <section> {likesCount} ❤️s</section>
       </header>
       <main>
-        <ChatLog entries={entryData} onUpdateEntry={updateEntry} />
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatLog entries={entryData} updateEntry={updateEntry} />
       </main>
     </div>
   );

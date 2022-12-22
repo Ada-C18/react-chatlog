@@ -3,10 +3,10 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, onUpdateEntry }) => {
+const ChatLog = ({ entries, updateEntry }) => {
   const chatlogMessages = entries.map((entry) => {
     return (
-      <div className="">
+      <div>
         <ChatEntry
           key={entry.id}
           sender={entry.sender}
@@ -14,7 +14,7 @@ const ChatLog = ({ entries, onUpdateEntry }) => {
           timeStamp={entry.timeStamp}
           id={entry.id}
           isLiked={entry.liked}
-          onUpdateEntry={onUpdateEntry}
+          updateEntry={updateEntry}
         />
       </div>
     );
@@ -32,6 +32,6 @@ ChatLog.propTypes = {
       isLiked: PropTypes.bool,
     })
   ),
-  onUpdateEntry: PropTypes.func.isRequired,
+  updateEntry: PropTypes.func.isRequired,
 };
 export default ChatLog;
