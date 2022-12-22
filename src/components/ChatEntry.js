@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
+  const flipHeart = () => {
+    props.toggleHeartCallback(props.id);
+  };
+
   return (
     <div
       className={`chat-entry ${
@@ -16,30 +20,25 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={flipHeart}>
+          {props.liked ? '❤️' : '🤍'}
+        </button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool,
+  toggleHeartCallback: PropTypes.func,
+};
+
+ChatEntry.defaultProps = {
+  toggleHeartCallback: () => {},
 };
 
 export default ChatEntry;
-
-// (copy of above code just in case I need it)
-// const ChatEntry = (props) => {
-//   return (
-//     <div className="chat-entry local">
-//       <h2 className="entry-name">Replace with name of sender</h2>
-//       <section className="entry-bubble">
-//         <p>Replace with body of ChatEntry</p>
-//         <p className="entry-time">Replace with TimeStamp component</p>
-//         <button className="like">🤍</button>
-//       </section>
-//     </div>
-//   );
-// };
