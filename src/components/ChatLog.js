@@ -28,9 +28,9 @@ ChatLog.propTypes = {
       id: PropTypes.number.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool.isRequired,
-      onUpdateChatMessages: PropTypes.func.isRequired,
     })
-  ).isRequired,
+  ),
+  onUpdateChatMessages: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
