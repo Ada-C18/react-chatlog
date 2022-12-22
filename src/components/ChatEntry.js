@@ -12,7 +12,7 @@ const ChatEntry = ({ sender, body, timeStamp, isLiked, id, updateEntry }) => {
       liked: !isLiked,
       id: id,
     });
-    console.log('running updateLike');
+    // console.log('running updateLike');
   };
 
   const heart = isLiked ? '❤️' : '🤍';
@@ -24,13 +24,13 @@ const ChatEntry = ({ sender, body, timeStamp, isLiked, id, updateEntry }) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">
-          {' '}
-          <TimeStamp time={timeStamp} />{' '}
+          <TimeStamp time={timeStamp} />
         </p>
-
+        
         <button className="like" onClick={updateLike}>
           {heart}
         </button>
+      
       </section>
     </div>
   );
