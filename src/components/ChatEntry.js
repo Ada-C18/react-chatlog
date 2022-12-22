@@ -3,17 +3,18 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import { DateTime } from 'luxon';
 
-// BreakfastList.js or Breakfast.js?
-// messages.json is breakfastData? yes
-// Start at Step 8 in notes
 const ChatEntry = (props) => {
   const id = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
+  const liked = props.liked;
+  const updateLikes = props.updateLikes;
 
   let time = new Date(timeStamp);
   let difference = 2022 - time.getFullYear();
+
+  const buttonClass = liked ? '❤️' : '🤍';
 
   if (id % 2 === 0) {
     return (
@@ -22,7 +23,14 @@ const ChatEntry = (props) => {
         <section className="entry-bubble">
           <p>{body}</p>
           <p className="entry-time">{difference} years ago</p>
-          <button className="like">🤍</button>
+          <button
+            className="like"
+            onClick={() => {
+              updateLikes(id);
+            }}
+          >
+            {buttonClass}
+          </button>
         </section>
       </div>
     );
@@ -33,7 +41,14 @@ const ChatEntry = (props) => {
         <section className="entry-bubble">
           <p>{body}</p>
           <p className="entry-time">{difference} years ago</p>
-          <button className="like">🤍</button>
+          <button
+            className="like"
+            onClick={() => {
+              updateLikes(id);
+            }}
+          >
+            {buttonClass}
+          </button>
         </section>
       </div>
     );
@@ -46,6 +61,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;

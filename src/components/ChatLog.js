@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, updateLikes }) => {
   const getChatEntryJSX = (entries) => {
     return entries.map((entry) => {
       return (
@@ -14,6 +14,7 @@ const ChatLog = ({ entries }) => {
           body={entry.body}
           timeStamp={entry.timeStamp}
           liked={entry.liked}
+          updateLikes={updateLikes}
         />
       );
     });
@@ -23,6 +24,7 @@ const ChatLog = ({ entries }) => {
 
 ChatLog.propTypes = {
   entries: PropTypes.array.isRequired,
+  updateLikes: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
