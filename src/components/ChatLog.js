@@ -12,6 +12,8 @@ const ChatLog = (props) => {
                 timeStamp = {entry.timeStamp}
                 key = {entry.id}
                 id = {entry.id}
+                liked = {entry.liked}
+                onUpdate={props.updatedChat}
             />
         ))}
     </ul>
@@ -19,13 +21,15 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  //Fill with correct proptypes
+
   entries: PropTypes.arrayOf(PropTypes.shape({
     sender: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     timeStamp: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-  }))
+    liked : PropTypes.bool.isRequired
+  })),
+  updatedChat: PropTypes.func.isRequired
 };
 
 export default ChatLog;
