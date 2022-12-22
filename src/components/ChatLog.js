@@ -13,6 +13,9 @@ const ChatLog = (props) => {
             body={message.body}
             timeStamp={message.timeStamp}
             key={i}
+            liked={message.liked}
+            id={message.id}
+            onUpdateLikeCount={props.onUpdateLikeCount}
           />
         );
       })}
@@ -26,8 +29,11 @@ ChatLog.prototype = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
     })
   ),
+  onUpdateLikeCount: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
