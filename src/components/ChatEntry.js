@@ -1,22 +1,41 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = (props) => {
+const ChatEntry = ({id,sender,body,timeStamp,liked, toggleLike}) => {
+  let local = 'chat-entry remote'
+  if (id%2) {
+    local='chat-entry local'
+  }
+
+  // (❤️) to an empty heart (🤍
+  const toggleHeart = () => {
+    return toggleLike(id)
+  }
+  const likeDict = {
+    false:'🤍',
+    true:'❤️'
+  }
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className={local} key={id}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <p className="entry-time"><TimeStamp time={timeStamp}/></p>
+        <button className="like" onClick={toggleHeart}>{likeDict[liked]}</button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  id:PropTypes.number, //not required b/c test data has none
+  sender:PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
+  timeStamp:PropTypes.string.isRequired,
+  liked:PropTypes.bool, //not required, info not in wave 1
+  toggleLike:PropTypes.func //not required, not passed in wave 1+2 tests
 };
 
 export default ChatEntry;
