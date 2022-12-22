@@ -28,7 +28,7 @@ const App = () => {
         <div>
           <p>ChatLog Here:</p>
           <ChatLog
-            chatData={chatData}
+            chats={chatData}
             // onLiked={toggleLikeButton}
           />
         </div>
