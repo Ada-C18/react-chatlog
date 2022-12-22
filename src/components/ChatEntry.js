@@ -1,6 +1,6 @@
 import React from 'react';
-import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
@@ -14,30 +14,25 @@ const ChatEntry = (props) => {
     onLike: props.onLike
     };
 
-  let sender;
-  if (props.sender === 'Vladimir') {
-    sender = 'chat-entry local';
-  } else {
-    sender = 'chat-entry remote';
-  };
+  // Assuming the first message in our data represents the 'local' user, any other participants are remote
+    let sender;
+    if (props.sender === props.participants[0]) {
+      sender = 'chat-entry local';
+    } else {
+      sender = 'chat-entry remote';
+    };
 
   const onLikeButtonClick = () => {
     const updatedChat = {
-        id: props.id,
-        sender: props.sender,
-        body: props.body,
-        timeStamp: props.timeStamp,
-        liked: !props.liked,
-        onLike: props.onLike
+      ...props,
+        liked: !props.liked,      
       };
     props.onLike(updatedChat);
     console.log('button clicked!');
-    }
+    };
   
+  const heartColor = props.liked ? '❤️' : '🤍';
   
-  const heartColor = props.liked ? '❤' : '🤍';
-  
-
   return (
     <div className={sender}>
       <h2 className="entry-name">{chat.sender}</h2>
@@ -55,7 +50,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired
+  liked: PropTypes.bool.isRequired,
+  participants: PropTypes.array.isRequired
 };
 
 export default ChatEntry;

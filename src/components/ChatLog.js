@@ -16,11 +16,10 @@ const ChatLog = (props) => {
             timeStamp = {entry.timeStamp}
             liked = {entry.liked}
             onLike = {props.onLike}
-            />
-        )
+            participants = {props.participants}
+            />)
     };
     
-
     return (
         <section>
             {chatMessages}
@@ -29,7 +28,8 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-    entries: PropTypes.array.isRequired
+    entries: PropTypes.array.isRequired,
+    participants: PropTypes.array.isRequired
 };
 
 export default ChatLog;
