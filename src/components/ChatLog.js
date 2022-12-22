@@ -8,7 +8,7 @@ const ChatLog = (props) => {
   const entryComps = [];
   for (const entry of props.entries) {
     entryComps.push(
-      <>
+      <div key={entry.id}>
         <ChatEntry
           className="chat-log"
           id={entry.id}
@@ -18,7 +18,7 @@ const ChatLog = (props) => {
           liked={entry.liked}
           updateLike={updateLike}
         ></ChatEntry>
-      </>
+      </div>
     );
   }
   return <>{entryComps}</>;
