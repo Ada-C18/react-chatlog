@@ -12,17 +12,17 @@ const App = () => {
   const [chatLogs, setChatLogs] = useState(chatMessages);
   const [totalLikes, setTotalLikes] = useState(0);
 
-  // count total number of likes whenever logs change
-  useEffect(() => { likeCounter() }, [chatLogs]);
-
   const likeCounter = () => {
     const likeCount = (chatLogs.filter(log => (log.liked))).length;
     setTotalLikes(likeCount);
   };
 
+  // count total number of likes whenever logs change
+  useEffect(() => { likeCounter() }, [chatLogs]);
+
   const updateData = (updatedMessage) => {
     const updatedLogs = () => chatLogs.map(log => {
-      if (log.id == updatedMessage.id) {
+      if (log.id === updatedMessage.id) {
         return updatedMessage;
       } else {
         return log;
