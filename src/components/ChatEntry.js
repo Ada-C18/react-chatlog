@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
   // const convertedTimeStamp = TimeStamp(props.chat.timeStamp);
+  const heart = props.liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -12,7 +13,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button className="like" onClick={() => props.onLiked(props.id)}>🤍</button>
+        <button className="like" onClick={() => props.onLiked(props.id)}>{heart}</button>
       </section>
     </div>
   );
