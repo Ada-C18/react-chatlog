@@ -29,9 +29,10 @@ const App = () => {
   return (
     <div id='App'>
       <header>
-        <h1>Waiting For Godot (to reply...)</h1>
+        <h1>Waiting For Godot</h1>
+        <h3>(to reply...)</h3>
         <section>
-          <h1>{totalLikes} ❤️s</h1>
+          <h1 id='heartWidget'>{totalLikes} ❤️s</h1>
         </section>
       </header>
       <main>

@@ -26,9 +26,14 @@
   display: inline-block;
 }
 
+#App header h3 {
+  font-size: .7em;
+  display: inline-block;
+  padding-left: .7em;
+}
+
 #App header section {
   background-color: #e0ffff;
-  color: black;
 }
 
 #App .widget {
@@ -43,7 +48,8 @@
 
 #App #heartWidget {
   font-size: 1.5em;
-  margin: 1em
+  margin: 1em;
+  color: black;
 }
 
 #App span {
