@@ -5,7 +5,12 @@ const TimeStamp = ({ timeStamp }) => {
   const absolute = time.toFormat('MMMM Do YYYY, h:mm:ss a');
   const relative = time.toRelative();
 
-  return <span title={absolute}>{relative}</span>;
+  return (
+    // Had to change span to div because CSS wasn't being applied properly
+    <div className="entry-time" title={absolute}>
+      {relative}
+    </div>
+  );
 };
 
 export default TimeStamp;

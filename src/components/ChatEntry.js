@@ -4,11 +4,11 @@ import TimeStamp from './TimeStamp';
 import './ChatEntry.css';
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked, likeMessage }) => {
-  // EVERYTHING YOU'RE DOING BESIDES RENDERING GOES HERE! BEFORE RETURN!
   const heart = liked ? '❤️' : '🤍';
+  const chatEntryType = sender === 'Estragon' ? 'remote' : 'local';
 
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${chatEntryType}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
