@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
@@ -21,15 +21,18 @@ const App = () => {
       return entry;
     });
     setEntryData(entries);
-    countLikes(entryToUpdate.liked);
   };
 
-  // Helper function that counts hearts (it's being called above in updateEntry)
-  const countLikes = (entry) => {
-    if (!entry.liked) {
-      setLikesCount(likesCount + 1);
+  useEffect(() => {
+    let currentLikes = 0;
+    for (const entry of entryData) {
+      // console.log(entryData)
+      if (entry.liked) {
+        currentLikes += 1;
+      }
     }
-  };
+    setLikesCount(currentLikes);
+  }, [entryData]);
 
   return (
     <div id="App">
