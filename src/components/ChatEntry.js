@@ -2,6 +2,7 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
+// import { useState } from 'react';
 
 const ChatEntry = (props) =>
 {
@@ -12,17 +13,18 @@ const ChatEntry = (props) =>
   // "liked": false
   
   const chatId = props.id;
+  const liked = props.liked;
   const chatSender = props.sender;
   const chatBody = props.body;
   const chatTimeStamp = props.timeStamp;
-  const rightLeft = () =>
-  {
-    if (chatSender === 'Vladimir')
-    {
+  const updateHeartStatus = props.updateHeartStatus;
+
+  const likeButton = liked ? '❤️' : '🤍';
+  
+  const rightLeft = () => {
+    if (chatSender === 'Vladimir'){
       return 'local';
-    }
-    else
-    {
+    }else{
       return 'remote';
     }
   };
@@ -36,7 +38,8 @@ const ChatEntry = (props) =>
         <p className="entry-time">
           <TimeStamp time={chatTimeStamp} />
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => updateHeartStatus(chatId, !liked)}>{likeButton}</button>
+       
       </section>
     </div>
   );
@@ -48,6 +51,10 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  updateHeartStatus: PropTypes.func.isRequired,
+ 
 };
+
 
 export default ChatEntry;

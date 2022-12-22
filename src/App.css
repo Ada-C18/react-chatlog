@@ -21,9 +21,15 @@
 }
 
 #App h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
   display: inline-block;
+}
+
+#App header center{
+  font-size: 2em;
+  background-color: #e0ffff;
+  color:#222; 
 }
 
 #App header section {
