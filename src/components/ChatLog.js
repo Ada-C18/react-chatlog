@@ -3,17 +3,16 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ entries, setToggleLike }) => {
+const ChatLog = ({ entries }) => {
   const chatComponents = entries.map((message, id) => {
     return (
-      <ul key={id}>
+      <ul class="chat-log" key={id}>
         <ChatEntry
           id={message.id}
           sender={message.sender}
           body={message.body}
           timeStamp={message.timeStamp}
           liked={message.liked}
-          setToggleLike={setToggleLike}
         />
       </ul>
     );
@@ -32,7 +31,6 @@ ChatLog.propTypes = {
       liked: PropTypes.bool,
     })
   ).isRequired,
-  setToggleLike: PropTypes.func,
 };
 
 export default ChatLog;
