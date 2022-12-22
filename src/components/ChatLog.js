@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const ChatLog = ({ entries }) => {
   const chatComponents = entries.map((message, id) => {
     return (
-      <ul class="chat-log" key={id}>
+      <ul className="chat-log" key={id}>
         <ChatEntry
           id={message.id}
           sender={message.sender}
