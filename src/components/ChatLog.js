@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
-    const entryComponents = props.entries.map((entry, index) => {
+    const entryComponents = props.entries.map((entry) => {
         return (
             <ChatEntry
                 key={`${entry.sender}-${entry.timeStamp}`}
