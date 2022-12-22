@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
+import React, { useState } from 'react';
 
 const App = () => {
   const [likesCount, setLikesCount]= useState(0);
   const updateLikes = (isLike) => {
     if (isLike) {
-      setLikesCount(likesCount + 1);
+      setLikesCount(likesCount +1);
     } else {
       setLikesCount(likesCount -1);
     }
     
-
   }
   return (
     <div id="App">

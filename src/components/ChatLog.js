@@ -22,7 +22,15 @@ const ChatLog = (props) => {
         </div>
     )
 };
-ChatLog.prototype = {
-    entries: PropTypes.array.isRequired,
+ChatLog.propTypes = {
+    entries: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            sender: PropTypes.string.isRequired,
+            body:PropTypes.string.isRequired,
+            timeStamp:PropTypes.string.isRequired
+        })
+    ),
+    updateLikes:PropTypes.func.isRequired
 }
 export default ChatLog;
