@@ -42,7 +42,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Beep Boop</h1>
-        <h3>🤍{totalLikes}🤍</h3>
+        <h3>💛{totalLikes}💛</h3>
       </header>
       <main>
         <ChatLog entries={chatData} clickLike={clickLike}></ChatLog>
