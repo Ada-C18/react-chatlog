@@ -24,7 +24,7 @@ const App = () => {
         numberOfHearts += 1
       }
       return `${numberOfHearts}${everyHeart}`;
-    });
+    }, 1);
   };
 
   const displayTotalLikes = calcTotalLikes(chatData);
