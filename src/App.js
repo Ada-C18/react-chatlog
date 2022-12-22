@@ -19,15 +19,19 @@ const App = () => {
     );
   };
 
-  // const calcTotalLikes = ( chatData ) => {
-  //   return
-  // }
+  const calcTotalLikes = (chatData) => {
+    return chatData.reduce((total, current) => {
+      return total + current.liked;
+    }, 0);
+  };
+
+  const displayTotalLiked = calcTotalLikes(chatData);
 
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
-        {/* <h2></h2> */}
+        <h2>{displayTotalLiked} ❤️s</h2>
       </header>
       <main>
         <ChatLog entries={chatData} onToggleLiked={toggleLikeButton} />
