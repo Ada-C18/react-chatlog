@@ -27,9 +27,9 @@ const App = () => {
   };
 
   return (
-    <div id='Waiting For Godot (to reply...)'>
+    <div id='App'>
       <header>
-        <h1>Application title</h1>
+        <h1>Waiting For Godot (to reply...)</h1>
         <section>
           <h1>{totalLikes} ❤️s</h1>
         </section>

@@ -3,6 +3,9 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
+const getSenderStyle = isLocal => isLocal ? 'local' : 'remote';
+const LOCAL_USER_NAME = 'Vladimir';
+
 const ChatEntry = (props) => {
   const likeFill = props.liked ? '❤️' : '🤍';
 
@@ -10,8 +13,10 @@ const ChatEntry = (props) => {
     props.updateLike(props.id);
   }
 
+  const senderStyle = getSenderStyle(props.sender === LOCAL_USER_NAME)
+
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${senderStyle}`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
