@@ -2,7 +2,7 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, clickLike}) => {
     return (
         <ul>
             {entries.map((message) => (
@@ -12,7 +12,8 @@ const ChatLog = ({entries}) => {
                     body={message.body}
                     timeStamp={message.timeStamp}
                     liked={message.liked}
-                    key={message.id}>
+                    key={message.id}
+                    clickLike={clickLike}>
                     </ChatEntry>
             ))}
         </ul>
@@ -29,6 +30,7 @@ ChatLog.propTypes = {
             timeStamp: PropTypes.string.isRequired
         })
     ),
+    clickLike: PropTypes.func.isRequired,
 };
 
 
