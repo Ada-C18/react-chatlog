@@ -13,6 +13,7 @@ const ChatLog = (props) => {
           body={message.body}
           timeStamp={message.timeStamp}
           liked={message.liked}
+          heartClickCallback={props.heartClickCallback}
         />
       </div>
     );
