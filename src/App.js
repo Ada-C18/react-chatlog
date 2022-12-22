@@ -17,15 +17,30 @@ const App = () => {
     console.log("Hey I'm here!!")
   };
 
-  // calculate function here
-  const displayTotalLikes = (chatData) => {
-    let skip = 0;
-  }
+  const calcTotalLikes = (chatData) => {
+    let everyHeart = ''
+    const total = chatData.reduce((likeTotal, chat) => {
+      let numberOfHearts = 0
+      if (chat.liked) {
+        numberOfHearts += 1
+      }
+      return numberOfHearts;
+    });
+    
+    for (let i=0; i<total.length; i++) {
+      everyHeart += '❤️'
+    }
+
+    return everyHeart;
+  };
+
+  const displayTotalLikes = calcTotalLikes(chatData);
 
   return (
     <div id="App">
       <header className="App-header">
         <h1>ChatLog Wave 02</h1>
+        <h2 className="likes-counter">Likes: {displayTotalLikes}</h2>
       </header>
       <main>
         <div>

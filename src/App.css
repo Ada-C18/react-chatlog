@@ -49,6 +49,12 @@
   display: inline-block
 }
 
+.likes-counter {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1em;
+}
+
 .red {
   color: #b22222
 }
