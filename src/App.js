@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-//import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
@@ -32,7 +31,6 @@ const App = () => {
       }
     });
     setEntries(updatedEntries);
-    console.log(updatedEntries);
 
     heartClickCounter(updatedEntry.liked);
   };
