@@ -10,16 +10,19 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"> <TimeStamp time={props.timeStamp}></TimeStamp> </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => props.onLikeMessage(props.id)}>🤍</button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  onLikeMessage: PropTypes.func.isRequired
   //Fill with correct proptypes
 };
 

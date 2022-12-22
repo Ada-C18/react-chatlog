@@ -220,6 +220,7 @@ ChatLog.propTypes = {
         sender: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         timeStamp: PropTypes.string.isRequired,
-    })).isRequired};
+    })).isRequired,
+    onLikeMessage:PropTypes.func.isRequired};
 
 export default ChatLog;
