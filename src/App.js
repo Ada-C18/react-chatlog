@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import { useState } from 'react';
 import ChatLog from './components/ChatLog';
@@ -41,7 +40,6 @@ const App = () => {
       </header>
       <main>
         <ChatLog entries={entries} updateHeartLikes={updateHeartLikes} />
-        {/* /* Wave 01: Render one ChatEntry component */}
       </main>
     </div>
   );
