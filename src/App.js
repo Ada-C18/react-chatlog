@@ -18,7 +18,7 @@ const App = () => {
   
   const [chatData, setChatData] = useState(chatMessages);
 
-  const clickLike = () => {
+  const clickLike = (id) => {
     setChatData((chatData) =>
     chatData.map((message) => {
       if (message.id === id) {
@@ -29,13 +29,23 @@ const App = () => {
     })
     );
   };
+
+  const countLikes = (chatData) => {
+    return chatData.reduce((total, message) => {
+      return message.liked ? (total += 1) : total;
+    }, 0);
+  };
+
+  const totalLikes = countLikes(chatData);
+
   return (
     <div id="App">
       <header>
         <h1>Beep Boop</h1>
+        <h3>🤍{totalLikes}🤍</h3>
       </header>
       <main>
-        <ChatLog entries={chatMessages}></ChatLog>
+        <ChatLog entries={chatData} clickLike={clickLike}></ChatLog>
       </main>
     </div>
   );
