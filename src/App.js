@@ -10,23 +10,6 @@ const App = () => {
   const[messages, setMessages ]= useState(chatMessages)
   const [likesCount, setLikesCount] = useState(0);
 
-  // const calcTotalHearts = () => {
-  //   return chatMessages.reduce((total, message) => {
-  //     return message.liked? (total +=1): total;
-  //   }, 0)
-  // };
-
-//   setChatMessagesData((chatMessagesData) =>
-//   chatMessagesData.map((message) => {
-//     if (message.id === id) {
-//       return { ...message, liked: !message.liked };
-//     } else {
-//       return message;
-//     }
-//   })
-// );
-// };
-
   const updateHeartLikes = (id, like) =>{
 
     const newMessages = messages.map((message)=> {
@@ -38,14 +21,14 @@ const App = () => {
         return message
       }
     });
-    // console.log(like, currentMessage.liked)
+
 
     setMessages(newMessages);
     if (like) setLikesCount(likesCount +1);
     if (!like) setLikesCount(likesCount-1);
     return likesCount
   };
-  // const totalHeartTally = calcTotalHearts(chatMessages);
+ 
 
   return (
     <div id="App">

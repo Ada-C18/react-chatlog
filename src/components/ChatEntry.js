@@ -1,10 +1,10 @@
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-// import React, { useState } from 'react';
+
 
 const ChatEntry = (props) => {
-  // const [isLiked, setIsLiked] = useState(props.liked)
+
   const changeHeart= props.liked ? '❤️': '🤍'
   console.log(props.id)
   return (
@@ -15,9 +15,7 @@ const ChatEntry = (props) => {
         <p className="entry-time"><TimeStamp
         time={props.timeStamp}
         /></p>
-        {<button onClick={()=>props.setUpdateHeartLikes(props.id, !props.liked)} className="like">{changeHeart}</button>
-
-        /* <button onClick={(e)=>{setIsLiked(!isLiked)}} className="like"> {isLiked ? '❤️': '🤍'}</button> */}
+        {<button onClick={()=>props.setUpdateHeartLikes(props.id, !props.liked)} className="like">{changeHeart}</button>}
        
       </section>
     </div>
