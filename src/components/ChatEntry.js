@@ -1,15 +1,20 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = (props) => {
+
+const ChatEntry = ({id, sender, body, timeStamp, liked, updateIsLiked}) => {
+  const entryClass = (id % 2 === 0) ? 'remote':'local';
+  const hearts = liked ? '❤️': '🤍' ;
+  
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className= { 'chat-entry' + ' ' + entryClass}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <p className="entry-time"> <TimeStamp time={timeStamp}/></p>
+        <button className="like" onClick={()=>updateIsLiked(id)}>{hearts}</button>
       </section>
     </div>
   );
@@ -17,6 +22,17 @@ const ChatEntry = (props) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
+  id:PropTypes.number.isRequired,
+  sender:PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
+  timeStamp:PropTypes.string.isRequired,
+  liked:PropTypes.bool.isRequired,
+  updateIsLiked:PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
+
+// const [likeCount, setLikeCount] = useState(0);
+// const updateIsLiked = () => { 
+//   setLikeCount(likeCount+1);
+// };
