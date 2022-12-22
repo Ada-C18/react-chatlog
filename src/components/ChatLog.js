@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
-    const entryComponents = props.entries.map((entry) => {
+    const entryComponents = props.entries.map((entry, index) => {
         return (
             <ChatEntry
-                key={`${entry.id}`}
+                key={`${entry.sender}-${entry.timeStamp}`}
                 id={entry.id}
                 sender={entry.sender}
                 body={entry.body}
