@@ -28,7 +28,6 @@ const App = () => {
     setTotalLikes(newTotalLikes);
   }
 
-  console.log(chatData)
   
 
   return (
