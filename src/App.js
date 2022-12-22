@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
+import ChatLog from './components/ChatLog';
 
 // {
 //   id: 1,
@@ -11,7 +11,7 @@ import ChatEntry from './components/ChatEntry';
 //   liked: false,
 // }
 
-const kMessage1 = chatMessages[0];
+const entries = chatMessages;
 
 const App = () => {
   return (
@@ -22,13 +22,7 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        <ChatEntry
-          id={kMessage1.id}
-          sender={kMessage1.sender}
-          body={kMessage1.body}
-          timeStamp={kMessage1.timeStamp}
-          liked={kMessage1.liked}
-        />
+        <ChatLog entries={entries} />
       </main>
     </div>
   );
