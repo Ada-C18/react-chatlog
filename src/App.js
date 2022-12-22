@@ -1,41 +1,39 @@
 import React, { useState } from 'react';
 import './App.css';
+import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
   // brain
   const [ChatData, setChatData] = useState(chatMessages);
-
-  const NewMessage = (updatedMessage) => {
-    const newdata = ChatData.map((message) => {
-      if (message.id === updatedMessage.id) {
-        return updatedMessage;
-      } else {
-        return message;
-      }
-    });
-    setChatData(newdata);
+  const [likeCount, setLikeCount] = useState(0);
+  const updateLike = (id, like) => {
+    const newMessage = ChatData.find((entry) => entry.id === id);
+    newMessage.liked = like;
+    setChatData([...ChatData]);
+    if (like) {
+      setLikeCount(likeCount + 1);
+    }
+    if (!like) {
+      setLikeCount(likeCount - 1);
+    }
   };
-  const numlikes = ChatData.reduce((total, message) => {
-    return total + message.liked;
-  }, 0);
-
   // beauty
   return (
     <div id="App">
       <header>
-        <h1>{numlikes}</h1>
+        <h1>{likeCount} ❤️s</h1>
       </header>
       <main>
-        {/* <ChatEntry */}
-        {/* sender={chatMessages[0].sender}
+        {/* <ChatEntry
+          sender={chatMessages[0].sender}
           body={chatMessages[0].body}
           timestamp={chatMessages[0].timeStamp}
         /> */}
         {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        <ChatLog messages={ChatData} updateMessage={NewMessage}></ChatLog>
+        // Wave 02: Render ChatLog component */}
+        <ChatLog messages={ChatData} updateMessage={updateLike}></ChatLog>
       </main>
     </div>
   );
