@@ -14,24 +14,16 @@ const App = () => {
         return chat;
       }
     }))
-    console.log("Hey I'm here!!")
   };
 
   const calcTotalLikes = (chatData) => {
     let everyHeart = ''
-    const total = chatData.reduce((likeTotal, chat) => {
-      let numberOfHearts = 0
+    return chatData.reduce((likeTotal, chat) => {
       if (chat.liked) {
-        numberOfHearts += 1
+        everyHeart += '❤️'
       }
-      return numberOfHearts;
+      return everyHeart;
     });
-    
-    for (let i=0; i<total.length; i++) {
-      everyHeart += '❤️'
-    }
-
-    return everyHeart;
   };
 
   const displayTotalLikes = calcTotalLikes(chatData);
@@ -40,7 +32,7 @@ const App = () => {
     <div id="App">
       <header className="App-header">
         <h1>ChatLog Wave 02</h1>
-        <h2 className="likes-counter">Likes: {displayTotalLikes}</h2>
+        <h2 className="likes-counter" >Likes: {displayTotalLikes}</h2>
       </header>
       <main>
         <div>

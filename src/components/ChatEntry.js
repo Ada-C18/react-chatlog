@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
-  // const convertedTimeStamp = TimeStamp(props.chat.timeStamp);
+  // const convertedTimeStamp = TimeStamp(props);
   const heart = props.liked ? '❤️' : '🤍';
 
   return (
