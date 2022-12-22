@@ -9,7 +9,6 @@ const ChatEntry = (props) => {
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
-  const entryId = props.id
   const updateLikeCount = props.updateLikeCount;
   
 
@@ -26,14 +25,12 @@ const changeHearts = () => {
   setLike(false)
 }
 }
-//setLike (!liked)
+
 const Hearts =() => {
   updateLikeCount(!liked)
   changeHearts()
   console.log(liked)
-  // updateLikeCount(liked)
-  // console.log(liked)
-   
+ 
 
 }
 
@@ -46,13 +43,13 @@ const Hearts =() => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time"> <TimeStamp time = {timeStamp} ></TimeStamp></p>
-        <button className="like" onClick =  {Hearts}>{(liked === false)? '🤍': '❤️'} </button> 
+        <button className="like" onClick =  {Hearts}>{(liked === false)? '🤍':'❤️'}</button> 
       </section>
     </div>
   );
 };
 
-//ternary operator if condition is true, first expression is executed
+
 
 
 
@@ -62,7 +59,7 @@ ChatEntry.propTypes = {
   body:PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,
   updateLikeCount: PropTypes.func.isRequired,
-  id:PropTypes.number.isRequired
+  // id:PropTypes.number.isRequired
 
 
 

@@ -8,7 +8,7 @@ import ChatEntry from './ChatEntry';
 
 
 const ChatLog = ({entries, updateLikeCount}) => {
-// const updatedLikeCount = entries.updatedLikeCount;
+
 
 
 
@@ -21,7 +21,7 @@ const LOGS = entries.map((entry) => {
             timeStamp = {entry.timeStamp}
             updateLikeCount={updateLikeCount}
             /> 
-            //line 22 refers ro line 11. Every chat will use call back function
+           
        
         )
     });
