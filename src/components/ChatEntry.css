@@ -24,6 +24,8 @@ button {
   padding: 1rem 1rem 0.1rem 1rem;
   position: relative;
   width: fit-content;
+  box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
 }
 
 .chat-entry .entry-bubble:hover {
@@ -33,10 +35,11 @@ button {
 .chat-entry .entry-name {
   font-size: medium;
   margin-bottom: 0.5rem;
+  color: black;
 }
 
 .chat-entry .entry-time {
-  color: #bbb;
+  color: white;
   font-size: x-small;
   margin-bottom: 0.1rem;
   margin-right: 0.5rem;
@@ -59,12 +62,15 @@ button {
 }
 
 .chat-entry.local .entry-time {
+  color: black;
   text-align: right;
 }
 
 .chat-entry.local .entry-bubble::before {
   background-color: #ffffe0;
   left: -18px;
+  box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
 }
 
 .chat-entry.local .entry-bubble:hover::before {
@@ -74,16 +80,17 @@ button {
 /* "remote" messages are shown on the right side, in blue */
 .chat-entry.remote {
   text-align: right;
+  color: white;
 }
 
 .chat-entry.remote .entry-bubble {
-  background-color: #e0ffff;
+  background-color: #96bebc;
   margin-left: auto;
   margin-right: 0;
 }
 
 .chat-entry.remote .entry-bubble:hover {
-  background-color: #a9f6f6;
+  background-color: #759593;
 }
 
 .chat-entry.remote .entry-time {
@@ -91,10 +98,10 @@ button {
 }
 
 .chat-entry.remote .entry-bubble::before {
-  background-color: #e0ffff;
+  background-color: #96bebc;
   right: -18px;
 }
 
 .chat-entry.remote .entry-bubble:hover::before {
-  background-color: #a9f6f6;
+  background-color: #759593;
 }

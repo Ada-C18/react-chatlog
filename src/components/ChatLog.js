@@ -18,7 +18,7 @@ const ChatLog = (props) => {
     });
 
     return (
-        <ul>{entryComponents}</ul>
+        <ul className="chat-log">{entryComponents}</ul>
     );
 }
 
