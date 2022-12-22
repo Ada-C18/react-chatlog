@@ -1,12 +1,12 @@
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
 const ChatEntry = (props) => {
-  const [heartCount, setheartCount] = useState(0)
-  const [isLiked, setIsLiked] = useState(props.liked)
-
+  // const [isLiked, setIsLiked] = useState(props.liked)
+  const changeHeart= props.liked ? '❤️': '🤍'
+  console.log(props.id)
   return (
     <div className={props.sender === 'Vladimir' ? 'chat-entry local': 'chat-entry remote'}>
       <h2 className="entry-name">{props.sender}</h2>
@@ -15,11 +15,14 @@ const ChatEntry = (props) => {
         <p className="entry-time"><TimeStamp
         time={props.timeStamp}
         /></p>
-        <button onClick={(e)=>setheartCount(heartCount => heartCount + 1) }className="like">{heartCount ? `${heartCount} ❤️s`: '🤍'} </button>
-        {/* <button onClick={(e)=>{setheartCount(heartCount => heartCount + 1); setIsLiked(!isLiked)}} className="like"> {isLiked ? '❤️': '🤍'}</button> */}
+        {<button onClick={()=>props.setUpdateHeartLikes(props.id, !props.liked)} className="like">{changeHeart}</button>
+
+        /* <button onClick={(e)=>{setIsLiked(!isLiked)}} className="like"> {isLiked ? '❤️': '🤍'}</button> */}
+       
       </section>
     </div>
   );
+  
 };
 
 ChatEntry.propTypes = {

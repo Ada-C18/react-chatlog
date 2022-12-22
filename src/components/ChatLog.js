@@ -10,7 +10,9 @@ const ChatLog = (props) =>{
       body={entries.body}
       timeStamp= {entries.timeStamp}
       liked={entries.liked}
+      id={entries.id}
       key={i}
+      setUpdateHeartLikes= {props.setUpdateHeartLikes}
 
     />
     ))}
