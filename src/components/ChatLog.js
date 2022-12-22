@@ -7,7 +7,7 @@ const ChatLog = ({entries,updateLikes}) => {
 
     return (
         <li key={chats.id}>
-            < ChatEntry sender={chats.sender} body={chats.body} timeStamp={chats.timeStamp} liked={chats.liked} updateLikes={updateLikes}/>
+            < ChatEntry id = {chats.id} sender={chats.sender} body={chats.body} timeStamp={chats.timeStamp} liked={chats.liked} updateLikes={updateLikes}/>
         </li>
     )
 });

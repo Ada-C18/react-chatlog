@@ -5,19 +5,23 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
-  const [chatData, setChatData]= useState(chatMessages)
+  const chatCopy =[]
+  for (const message of chatMessages){
+    chatCopy.push(message)
+  }
+  const [chatData, setChatData]= useState(chatCopy)
 
-  const updateLikes = (id) => {
+  const updateLikes = (id, updatedLike) => {
     console.log('updatelikes is being called');
     const newChatEntries = [];
-
     for (const chat of chatData) {
       if (chat.id !== id) {
+        
         newChatEntries.push(chat);
       } else {
         const newChat = {
           ...chat,
-          liked: !chat.liked,
+          liked: updatedLike
         };
       
       newChatEntries.push(newChat);
