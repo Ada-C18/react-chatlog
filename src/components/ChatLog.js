@@ -1,5 +1,6 @@
 import React from 'react';
 import './ChatLog.css';
+// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
@@ -11,6 +12,8 @@ const ChatLog = (props) => {
           sender={entry.sender}
           body={entry.body}
           timeStamp={entry.timeStamp}
+          updateLikeCallback={props.updateLikeCallback}
+          liked={false}
         ></ChatEntry>
       </div>
     );

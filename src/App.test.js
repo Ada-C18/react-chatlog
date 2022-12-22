@@ -15,6 +15,7 @@ describe('Wave 03: clicking like button and rendering App', () => {
 
     // Assert
     const countScreen = screen.getByText(/3 ❤️s/);
+    // const countScreen = screen.getByText(/3 🤍's/);
     expect(countScreen).not.toBeNull();
   });
 
