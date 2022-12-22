@@ -3,21 +3,22 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
-  let senderClass = 'chat-entry-local';
-  if (sender === 'Estragon') {
-    senderClass = 'chat-entry-remote';
-  }
+const ChatEntry = (props) => {
+  const heartClick = () => {
+    props.heartClickCallback(props.id);
+  };
 
   return (
-    <div className={senderClass}>
-      <h2 className="entry-name">{sender}</h2>
+    <div className={'chat entry local'}>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>{body}</p>
+        <p>{props.body}</p>
         <p className="entry-time">
-          <TimeStamp time={timeStamp} />
+          <TimeStamp time={props.timeStamp} />
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={heartClick}>
+          🤍
+        </button>
       </section>
     </div>
   );
@@ -28,7 +29,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  liked: PropTypes.bool.isRequired,
+  liked: PropTypes.bool,
 };
 
 export default ChatEntry;
