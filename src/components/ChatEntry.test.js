@@ -1,4 +1,4 @@
-"avoidEscape": true;
+// "avoidEscape": true;
 
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
