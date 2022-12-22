@@ -3,15 +3,22 @@ import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
   return (
-    <div id="chatLog">
+    <div className="chatLog">
       {props.entries.map((entry) => {
         return (
-          <ChatEntry key={entry.id} {...entry} likeFunc={props.likeFunc}/>
+          <ChatEntry
+            key={entry.id}
+            {...entry}
+            liked={entry.liked}
+            likeHandler={props.onClick}
+            isLocal={entry.sender === props.uniqueSenders[0] ? true : false}           
+          />
         );
       })}
     </div>
   );
 };
+
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
@@ -19,10 +26,9 @@ ChatLog.propTypes = {
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
-      timeStamp: PropTypes.instanceOf(Date).isRequired,
+      timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool,
     })
   ).isRequired,
-  likeFunc: PropTypes.func.isRequired,
 };
 export default ChatLog;
