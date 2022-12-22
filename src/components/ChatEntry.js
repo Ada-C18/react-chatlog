@@ -19,14 +19,10 @@ const ChatEntry = ({sender,body,timeStamp,updateLikes}) => {
         <p className="entry-time">
           <TimeStamp time={timeStamp}/>
           </p>
-        {/* <TimeStamp className="entry-time" time={timeStamp} /> */}
         <button className="like" onClick={()=> updateLikes(like,numLike)}>
           {like ? '❤️': '🤍' }
         </button>
-        {/* adding behavior to button ChatEntry */}
-        {/* <button onclick={heartColorChange} className="like"> */}
-          {/* {heart} */}
-        {/* </button> */}
+
       </section>
     </div>
   );
@@ -36,7 +32,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  // heartChange: PropTypes.bool.isRequired,
+ 
 };
 
 export default ChatEntry;
