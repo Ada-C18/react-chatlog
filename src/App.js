@@ -12,12 +12,22 @@ const App = () => {
   const [entries, setEntries] = useState(copyChatMessages);
   const [numLikes, setNumLikes] = useState(0);
 
+  let likeSum = 0
+
+  const likeCounter = (newChatList) => {
+    for (const chat of newChatList) {
+      if (chat.liked === true) {
+        likeSum += 1;
+      };
+    };
+    console.log(`The likeSum is: ${likeSum}`);
+    setNumLikes(likeSum);
+  }
+
 
   const newChatList = [];
-  let newNumLikes = numLikes;
   
   const updateLiked = (chatId) => {
-    setNumLikes(newNumLikes += 1);
     for (const chat of entries) {
       if (chat.id !== chatId) {
         newChatList.push(chat);
@@ -28,9 +38,10 @@ const App = () => {
         };
         newChatList.push(newChat);
       };
-  };
-  console.log(newChatList);
-  setEntries(newChatList);
+    };
+    console.log(newChatList);
+    setEntries(newChatList);
+    likeCounter(newChatList);
   };
 
 
