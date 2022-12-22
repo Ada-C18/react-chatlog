@@ -7,7 +7,9 @@ import ChatEntry from './ChatEntry';
 
 
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, updateLikeCount}) => {
+// const updatedLikeCount = entries.updatedLikeCount;
+
 
 
 const LOGS = entries.map((entry) => {
@@ -16,7 +18,10 @@ const LOGS = entries.map((entry) => {
             key = {entry.id}
             sender = {entry.sender} 
             body= {entry.body} 
-            timeStamp = {entry.timeStamp}/>
+            timeStamp = {entry.timeStamp}
+            updateLikeCount={updateLikeCount}
+            /> 
+            //line 22 refers ro line 11. Every chat will use call back function
        
         )
     });
@@ -29,11 +34,11 @@ const LOGS = entries.map((entry) => {
     }; 
 
     ChatLog.propTypes = {
-        entrys: PropTypes.arrayOf(PropTypes.object).isRequired
-        
+        entrys: PropTypes.arrayOf(PropTypes.object).isRequired,
+        updatedLikeCount:PropTypes.func.isRequired,
     }
 
-
+  
   
 
 
