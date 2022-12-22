@@ -13,6 +13,7 @@ const ChatLog = (props) => {
         body={entry.body}
         timeStamp={entry.timeStamp}
         liked={entry.liked}
+        local={entry.local}
         onHeartClick={props.onPressHeart}
       />
     ));
@@ -27,6 +28,7 @@ ChatLog.propTypes = {
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool,
+      local: PropTypes.bool,
     })
   ).isRequired,
   onPressHeart: PropTypes.func.isRequired,

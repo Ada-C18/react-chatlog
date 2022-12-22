@@ -8,8 +8,10 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = (props) => {
   const heartBasedOnLiked = props.liked ? '❤️' : '🤍';
 
+  const setLocalRemote = props.local ? 'local' : 'remote';
+
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${setLocalRemote}`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
@@ -28,6 +30,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool,
+  local: PropTypes.bool,
   onHeartClick: PropTypes.func.isRequired,
 };
 

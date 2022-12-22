@@ -12,7 +12,21 @@ import ChatLog from './components/ChatLog';
 // }
 
 const App = () => {
-  const [chatData, setChatData] = useState(chatMessages);
+  const entries = chatMessages.map((entry) => {
+    if (Object.hasOwn(entry, 'local')) {
+      return entry;
+    }
+
+    if (entry.sender === chatMessages[0].sender) {
+      entry['local'] = true;
+    } else {
+      entry['local'] = false;
+    }
+
+    return entry;
+  });
+
+  const [chatData, setChatData] = useState(entries);
 
   const toggleLiked = (id) => {
     setChatData((chatData) =>
@@ -38,6 +52,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>I, Absurdist Chatbot</h1>
+        {/* <h2>Chat between </h2> */}
         <p>Spreading the love: {activeHeartTally} ❤️s</p>
       </header>
       <main>
