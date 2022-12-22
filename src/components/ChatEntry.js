@@ -16,7 +16,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateHeartLikes}) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">{time}</p>
-        <button className="like" onClick={()=>{updateHeartLikes(id)}} > {liked ? '❤️':'🤍' } </button>
+        <button className="like" onClick={()=>{updateHeartLikes(id)}} >{liked ? '❤️' :'🤍'}</button>
 
       </section>
     </div>

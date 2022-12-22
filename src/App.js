@@ -26,8 +26,7 @@ const App = () => {
       }
       setEntries(newChatList)
     }
-  };
-
+}; 
     const heartLikes = () =>{
       return entries.reduce((accumulator, count) => {
         return count.liked ? accumulator +1 : accumulator;
