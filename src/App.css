@@ -30,8 +30,16 @@
   background-color: #e0ffff;
 }
 
-#App .widget {
+#App #color-picker {
   display: block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#App .widget {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   line-height: 0.5em;
   border-radius: 10px;
   color: black;

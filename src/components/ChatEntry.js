@@ -12,6 +12,8 @@ const ChatEntry = (props) => {
   const updateLiked = props.updateLiked;
   const display = sender === 'Vladimir' ? 'local' : 'remote';
   const heart = liked === true ? '❤️' : '🤍';
+  const updateColor = props.updateColor;
+  const color = updateColor;
 
   const handleLiked = () => {
     console.log('handleLiked called');
@@ -22,7 +24,7 @@ const ChatEntry = (props) => {
     <div className={`chat-entry ${display}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{body}</p>
+        <p className={color}>{body}</p>
         <p className="entry-time">
           <TimeStamp time={timeStamp} />
         </p>
@@ -42,6 +44,7 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string,
   liked: PropTypes.bool,
   updateLiked: PropTypes.func,
+  updateColor: PropTypes.func,
 };
 
 export default ChatEntry;
