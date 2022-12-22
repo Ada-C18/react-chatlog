@@ -36,12 +36,11 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat Log Assigment</h1>
+        <h1>{klocalUser}'s Phone</h1>
         {/* <h2> Total Likes: {Array(totalLikes).fill('❤️')}</h2> */}
         <h2>{totalLikes} ❤️s</h2>
       </header>
       <main>
-        {/* {<ChatEntry sender={chatMessages[0].sender} body={chatMessages[0].body} timeStamp={chatMessages[0].timeStamp} /> */}
         <ChatLog
           entries={chatLogs}
           localUser={klocalUser}
