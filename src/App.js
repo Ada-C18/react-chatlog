@@ -28,8 +28,6 @@ const App = () => {
     setChatData(entries);
     updateLikes(entries);
   };
-  
-
 
   return (
     <div id="App">
