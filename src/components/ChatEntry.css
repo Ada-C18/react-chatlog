@@ -27,7 +27,7 @@ button {
 }
 
 .chat-entry .entry-bubble:hover {
-  background-color: #afff81;
+  background-color: #d4f8c0;
 }
 
 .chat-entry .entry-name {
@@ -68,7 +68,7 @@ button {
 }
 
 .chat-entry.local .entry-bubble:hover::before {
-  background-color: #afff81;
+  background-color: #d4f8c0;
 }
 
 /* "remote" messages are shown on the right side, in blue */
@@ -83,7 +83,7 @@ button {
 }
 
 .chat-entry.remote .entry-bubble:hover {
-  background-color: #ffa197;
+  background-color: #fce5e2;
 }
 
 .chat-entry.remote .entry-time {
@@ -96,5 +96,5 @@ button {
 }
 
 .chat-entry.remote .entry-bubble:hover::before {
-  background-color: #ffa197;
+  background-color: #fce5e2;
 }

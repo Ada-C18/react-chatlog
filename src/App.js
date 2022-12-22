@@ -7,30 +7,30 @@ import chatMessages from './data/messages.json';
 
 const local = chatMessages[0].sender;
 const remote = chatMessages[1].sender;
-console.log(local, remote);
-// position: local
-// position: remote
+// check getting names of each sender in list of messages
+// console.log(local, remote);
+
 // sender needs a position attached to is to assign a color later
-const chatMessagesLocalRemote = chatMessages.map(entry => {
+const chatMessagesLocalRemote = chatMessages.map((entry) => {
   if (entry.sender === local) {
-    return {...entry, position: 'local'};
+    return { ...entry, position: 'local' };
   } else {
-    return {...entry, position: 'remote'}
+    return { ...entry, position: 'remote' };
   }
-})
+});
 
 // check position in list of entries
-  // console.log(chatMessagesLocalRemote);
+// console.log(chatMessagesLocalRemote);
 
 const App = () => {
-  const [entries, setEntry] = useState(chatMessagesLocalRemote);
+  const [entries, setEntries] = useState(chatMessagesLocalRemote);
 
   const likeEntry = (id) => {
-    setEntry((entries) => {
+    setEntries((entries) => {
       return entries.map((entry) => {
         if (entry.id === id) {
           console.log('id:', id, entry.liked);
-          return { ...entry, liked: !entry.liked};
+          return { ...entry, liked: !entry.liked };
         } else {
           return entry;
         }
@@ -38,7 +38,7 @@ const App = () => {
     });
   };
 
-  console.log(entries);
+  // console.log(entries);
 
   // count number of red hearts
   const calcTotalLikes = (entries) => {
@@ -49,16 +49,15 @@ const App = () => {
 
   const totalHeartsTally = calcTotalLikes(entries);
 
-  // color choice state for estragon
-  const [color, setColor] = useState('black');
-  const pickColor = () => {
-    console.log('color picked')
-    setColor(color);
-    console.log(color)
-    return color;
-  }
-  // pass to respective senders, both into chatlog
-  // pass callBack function to color choice  "onColorPick={}"
+  // color choice
+  // pass to respective senders, both into chatlog and to ChatEntry
+  // pass callBack function prop to color choice, chatlog and to ChatEntry  "onColorPick={}"
+
+  const pickColor = (sender, color) => {
+    console.log('color picked', sender, color);
+
+  };
+
 
   return (
     <div id="App">
@@ -73,7 +72,8 @@ const App = () => {
             </div>
             {/* use template string to use color className */}
             <div id="vlad-colors">
-              <ColorChoice onColorPick={pickColor}/>
+              
+              <ColorChoice sender={local} onColorPick={pickColor}/> {/* onColorPick={pickColor}*/}
             </div>
           </span>
           <h1 className="header-text">{totalHeartsTally} ❤️s</h1>
@@ -82,7 +82,7 @@ const App = () => {
               Estragon's color:
             </div>
             <div id="e-colors">
-              <ColorChoice onColorPick={pickColor}/>
+              <ColorChoice sender={remote} onColorPick={pickColor}/> {/* onColorPick={pickColor}*/}
             </div>
           </span>
         </section>
@@ -98,7 +98,7 @@ const App = () => {
         <ChatLog
           entries={entries}
           onLikeEntry={likeEntry}
-          onColorPick={pickColor}
+          // onColorPick={pickColor}
         />
       </main>
     </div>

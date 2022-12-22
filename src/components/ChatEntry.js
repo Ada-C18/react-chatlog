@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
   const likeClass = props.liked ? '❤️' : '🤍';
-  // logic to assign 'local' or 'remote' to each sender:
-  // if (props.sender === 'Vladimir') {
+  // updated logic to assign 'local' or 'remote' to each sender:
+  // if (props.position === 'local') {  
   //   className = 'local';
   //   } else {
   //     className = 'remote';
@@ -14,10 +14,8 @@ const ChatEntry = (props) => {
   // using ternary operator for above logic: **if/else on one line**
   // e.g. <div className={`main-class ${this.state.isSelected ? 'selected’:’not-selected’ }`}></div> 
 
-  // const returnedvalue = props.sender === 'Vladimir' ? 'local' : 'remote'; **do NOT hard code via sender, less dynamic!
   const returnedvalue = props.position === 'local' ? 'local' : 'remote';
 
-  
   return (
     <div className={`chat-entry ${returnedvalue}`}>
       <h2 className="entry-name">{props.sender}</h2>

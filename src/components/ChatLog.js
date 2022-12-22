@@ -23,6 +23,7 @@ const ChatLog = (props) => {
 return <div className="chat-log">{entries}</div>
 }
 
+// alternate syntax
 // const ChatLog = (props) => {
 //   const getChatLogJSX =(props) => {
 //     return props.entries.map((entry) => {
