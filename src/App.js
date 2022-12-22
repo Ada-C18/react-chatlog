@@ -17,12 +17,13 @@ const App = () => {
   };
 
   const calcTotalLikes = (chatData) => {
-    let everyHeart = ''
+    let everyHeart = '❤️'
+    let numberOfHearts = 0
     return chatData.reduce((likeTotal, chat) => {
       if (chat.liked) {
-        everyHeart += '❤️'
+        numberOfHearts += 1
       }
-      return everyHeart;
+      return `${numberOfHearts}${everyHeart}`;
     });
   };
 
@@ -31,12 +32,11 @@ const App = () => {
   return (
     <div id="App">
       <header className="App-header">
-        <h1>ChatLog Wave 02</h1>
+        <h1>Between Bots</h1>
         <h2 className="likes-counter" >Likes: {displayTotalLikes}</h2>
       </header>
       <main>
         <div>
-          <p>ChatLog Here:</p>
           <ChatLog
             chats={chatData}
             onLiked={toggleLikeButton}
