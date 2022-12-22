@@ -10,6 +10,7 @@ const ChatLog = (props) => {
     for (const entry of entries) {
         chatMessages.push(
             <ChatEntry
+            key = {entry.id}
             id = {entry.id}
             sender = {entry.sender}
             body = {entry.body}
@@ -29,6 +30,7 @@ const ChatLog = (props) => {
 
 ChatLog.propTypes = {
     entries: PropTypes.array.isRequired,
+    onLike: PropTypes.func.isRequired,
     participants: PropTypes.array.isRequired
 };
 

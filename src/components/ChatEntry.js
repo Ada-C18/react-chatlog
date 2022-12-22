@@ -28,7 +28,6 @@ const ChatEntry = (props) => {
         liked: !props.liked,      
       };
     props.onLike(updatedChat);
-    console.log('button clicked!');
     };
   
   const heartColor = props.liked ? '❤️' : '🤍';
