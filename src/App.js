@@ -24,7 +24,7 @@ const App = () => {
     countLikes(entryToUpdate.liked);
   };
 
-  // Helper function that counts hearts (it's being called above)
+  // Helper function that counts hearts (it's being called above in updateEntry)
   const countLikes = (entry) => {
     if (!entry.liked) {
       setLikesCount(likesCount + 1);

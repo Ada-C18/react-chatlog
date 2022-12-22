@@ -6,7 +6,7 @@ import ChatEntry from './ChatEntry';
 const ChatLog = ({ entries, updateEntry }) => {
   const chatlogMessages = entries.map((entry) => {
     return (
-      <div key={entry.id}>
+      <div key={entry.id.toString()}>
         <ChatEntry
           sender={entry.sender}
           body={entry.body}
@@ -30,7 +30,7 @@ ChatLog.propTypes = {
       id: PropTypes.number,
       isLiked: PropTypes.bool,
     })
-  ),
-  updateEntry: PropTypes.func,
+  ).isRequired,
+  updateEntry: PropTypes.func.isRequired,
 };
 export default ChatLog;
