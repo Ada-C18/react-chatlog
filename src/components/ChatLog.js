@@ -8,24 +8,21 @@ import ChatEntry from './ChatEntry';
 const ChatLog = ({entries, likesCountCallBack}) => {
     const chatComponents = entries.map((chat) => {  
     return (
-    <ChatEntry 
-    key = {chat.id}
-    id = {chat.id}
-    sender={chat.sender} 
-    body = {chat.body} 
-    timeStamp = {chat.timeStamp}
-    liked = {chat.liked}
-    likesCountCallBack = {likesCountCallBack}
-    />
-    );
+        <div className= "">
+            <ChatEntry 
+            key = {chat.id}
+            id = {chat.id}
+            sender={chat.sender} 
+            body = {chat.body} 
+            timeStamp = {chat.timeStamp}
+            liked = {chat.liked}
+            likesCountCallBack = {likesCountCallBack}
+            />
+        </div>
+    );   
 });
 
-
-    return (
-        <div>
-            {chatComponents}
-        </div>
-    );
+    return chatComponents;   
 };
 
 ChatLog.propTypes = {

@@ -34,8 +34,6 @@ const App = () => {
       </header>
       <main>
       <ChatLog entries = {chatMessages} likesCountCallBack =  {heartLikeCount}/>
-  
-      
       </main>
     </div>
   );
