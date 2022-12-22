@@ -18,8 +18,6 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLiked}) => {
   // const [buttonText, setButtonText] = useState('🤍')
   const buttonText = liked ? '❤️' : '🤍'
   const toggleLiked = (id, likedStatus) => {
-    console.log(`${likedStatus}`);
-    
     updateLiked(id, likedStatus);
   };
   if (Number(id)%2){
