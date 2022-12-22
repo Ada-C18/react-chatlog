@@ -11,13 +11,21 @@ const ChatEntry = (props) => {
   const localOrRemote = props.id % 2 === 1 ? 'local' : 'remote';
 
   const [like, setLike] = useState(props.liked);
-  const clickHeart = (e) => {
+  let [count, setCount] = useState(0);
+  const clickHeart = (id) => {
     console.log(`it is cliked`);
-    console.log(e);
+    console.log(id);
     // props.updateLikes(id);
     setLike(!like);
   };
   const HeartColorChange = like ? '❤️' : '🤍';
+  const addLike = (inc) => {
+    console.log(`add function work`);
+    if (inc && !like) {
+      count++;
+    }
+    setCount(count);
+  };
 
   return (
     <div className={`chat-entry ${localOrRemote}`}>
@@ -27,7 +35,14 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp timeStamp={timeStamp}></TimeStamp>
         </p>
-        <button className="like" onClick={clickHeart}>
+        <button
+          className="like"
+          onClick={() => {
+            clickHeart(props.id);
+            addLike(true);
+          }}
+        >
+          <span>{count}</span>
           {HeartColorChange}
         </button>
       </section>
