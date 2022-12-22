@@ -1,23 +1,48 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import ChatLog from './components/ChatLog';
-// import TimeStamp from './components/TimeStamp';
 import chatMessages from './data/messages.json';
 
 const App = () => {
-  // const name = 'Chat between Vladimir and Estragon'
+  const [chatData, setChatData]= useState(chatMessages)
+
+  const updateLikes = (id) => {
+    console.log('updatelikes is being called');
+    const newChatEntries = [];
+
+    for (const chat of chatData) {
+      if (chat.id !== id) {
+        newChatEntries.push(chat);
+      } else {
+        const newChat = {
+          ...chat,
+          liked: !chat.liked,
+        };
+      
+      newChatEntries.push(newChat);
+
+      }
+
+    setChatData(newChatEntries);
+      
+    }
+  };
+  const countLikes = () => {
+    return chatData.reduce((accumulator, count) => {
+      return count.liked ? accumulator + 1 : accumulator;
+    }, 0);
+  };
 
 
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Instant Messenger</h1>
+        <h2>{countLikes()} ❤️s</h2>
       </header>
       <main>
-        {/* <ChatEntry sender={chatMessages[0].sender} body={chatMessages[0].body} timeStamp={chatMessages[0].timeStamp} ></ChatEntry> */}
-        <ChatLog entries={chatMessages}></ChatLog>
-        
-       { /*Wave 02: Render ChatLog component */}
+        <ChatLog entries={chatData} updateLikes={updateLikes}></ChatLog>
       </main>
     </div>
   );
