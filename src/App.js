@@ -28,8 +28,6 @@ const App = () => {
   const countLikes = (entry) => {
     if (!entry.liked) {
       setLikesCount(likesCount + 1);
-    } else {
-      setLikesCount(likesCount - 1);
     }
   };
 

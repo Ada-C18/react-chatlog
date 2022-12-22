@@ -6,7 +6,7 @@ import ChatEntry from './ChatEntry';
 const ChatLog = ({ entries, updateEntry }) => {
   const chatlogMessages = entries.map((entry) => {
     return (
-      <div key={entry.id.toString()}>
+      <div key={entry.id}>
         <ChatEntry
           sender={entry.sender}
           body={entry.body}
