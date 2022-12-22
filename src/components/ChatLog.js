@@ -11,6 +11,7 @@ const ChatLog = (props) => {
             {...entry}
             liked={entry.liked}
             likeHandler={props.onClick}
+            // without this line 15, all tests will pass.
             isLocal={entry.sender === props.uniqueSenders[0] ? true : false}
           />
         );
