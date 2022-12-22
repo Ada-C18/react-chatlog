@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import './ChatEntry.css';
 // import PropTypes from 'prop-types';
 
-const ChatLog = ({ chatMessages }) => {
+const ChatLog = ({ initialMessage }) => {
   const Vladimir = [];
   const Estragon = [];
-  for (const message of chatMessages) {
+  for (const message of initialMessage) {
     if (message.sender === 'Vladimir') {
       Vladimir.push(
         <ChatEntry
@@ -17,6 +17,7 @@ const ChatLog = ({ chatMessages }) => {
           sender={message.sender}
           liked={message.liked}
           timeStamp={message.timeStamp}
+          // updateLikes={updateLikes}
         />
       );
     } else {
@@ -28,6 +29,7 @@ const ChatLog = ({ chatMessages }) => {
           sender={message.sender}
           liked={message.liked}
           timeStamp={message.timeStamp}
+          // updateLikes={updateLikes}
         />
       );
     }
@@ -58,5 +60,6 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  // updateLikes: PropTypes.func.isRequired,
 };
 export default ChatLog;
