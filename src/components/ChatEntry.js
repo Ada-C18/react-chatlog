@@ -2,18 +2,17 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
-// import messages.json from './data.messages.json';
 
-const ChatEntry = (props) => {
+const ChatEntry = ({id, sender, body, timeStamp, liked, onUpdateChat}) => {
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p>{body}</p>
         <p className="entry-time">
-          <TimeStamp time={props.timeStamp} />
+          <TimeStamp time={timeStamp} />
         </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => onUpdateChat(id)}>{liked ? '❤️': '🤍'}</button>
       </section>
     </div>
   );
@@ -24,6 +23,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool,
+  updateLike: PropTypes.func,
 };
-
 export default ChatEntry;
