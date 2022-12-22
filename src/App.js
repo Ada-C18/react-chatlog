@@ -2,17 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
-import TimeStamp from './components/TimeStamp';
 import ChatLog from './components/ChatLog';
-
-
 
 
 
 const App = (id) => {
  const [chatData, setChatData] = useState(chatMessages);
- 
  
  const onlikeChat = (id) => {
   
@@ -23,15 +18,14 @@ const App = (id) => {
     } else {
       return chat
     }
-    
-  }))
- }
+  }));
+ };
+
  const calcTotalLikes = (chatData) => {
   return chatData.reduce((total, chat) => {
     return total + chat.liked;
   }, 0)
 };
- 
  
 const totalLikes = calcTotalLikes(chatData)
   
@@ -51,6 +45,5 @@ const totalLikes = calcTotalLikes(chatData)
     </div>
   );
   };
-    
 
 export default App;
