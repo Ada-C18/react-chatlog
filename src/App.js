@@ -6,10 +6,10 @@ import ChatLog from './components/ChatLog';
 
 const App = () => {
 
-  const [chatMessage, setChatMessage] = useState(chatMessages);
+  const [chatMessageList, setChatMessageList] = useState(chatMessages);
 
   const likedChatMessage = (id) => {
-    setChatMessage(chatMessage => chatMessage.map(message => {
+    setChatMessageList(chatMessageList => chatMessageList.map(message => {
       if(message.id === id) {
         return {...message, liked: !message.liked};
       } else {
@@ -18,20 +18,9 @@ const App = () => {
     }));
   };
 
-  // const likedChatMessage = (id, like) => {
-  //   setChatMessage(chatMessage => chatMessage.map(message => {
-  //     if(message.id === id) {
-  //       const newMessage = {...message}
-  //       newMessage.liked = like;
-  //       return newMessage
-  //     } else {
-  //       return message;
-  //     }
-  //   }));
-  // };
 
-  const likedCounter = (chatMessage) => {
-    return chatMessage.reduce((total, message) => {
+  const likedCounter = (chatMessageList) => {
+    return chatMessageList.reduce((total, message) => {
       if (message.liked) {
         return total + 1;
       } else {
@@ -40,7 +29,7 @@ const App = () => {
     }, 0);
   };
 
-  const totalLiked = likedCounter(chatMessage)
+  const totalLiked = likedCounter(chatMessageList)
 
   return (
     <div id='App'>
@@ -54,7 +43,7 @@ const App = () => {
         </h2>
     
         <ChatLog
-          entries = { chatMessage }
+          entries = { chatMessageList }
           onLikedChatMessage = { likedChatMessage }
         />
       </main>
