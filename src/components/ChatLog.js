@@ -13,6 +13,7 @@ const ChatLog = (props) => {
           body={entry.body}
           timeStamp={entry.timeStamp}
           liked={entry.liked}
+          onToggleLiked={props.onToggleLiked}
         />
       ))}
     </ul>
@@ -20,7 +21,6 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  //Fill with correct proptypes
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -30,6 +30,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  onToggleLiked: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

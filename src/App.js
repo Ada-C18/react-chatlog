@@ -1,26 +1,36 @@
 import React from 'react';
 import './App.css';
-// import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 import { useState } from 'react';
 
 const App = () => {
-  const [messageData, setMessageData] = useState(chatMessages);
+  const [chatData, setChatData] = useState(chatMessages);
+
+  const toggleLikeButton = (id) => {
+    setChatData((chatData) =>
+      chatData.map((chat) => {
+        if (chat.id === id) {
+          return { ...chat, liked: !chat.liked };
+        } else {
+          return chat;
+        }
+      })
+    );
+  };
+
+  // const calcTotalLikes = ( chatData ) => {
+  //   return
+  // }
+
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
+        {/* <h2></h2> */}
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        {/* <ChatEntry
-          sender="Vladimir"
-          body="why are you arguing with me"
-          timeStamp="2018-05-29T22:49:06+00:00"
-        /> */}
-        <ChatLog entries={messageData} />
+        <ChatLog entries={chatData} onToggleLiked={toggleLikeButton} />
       </main>
     </div>
   );
