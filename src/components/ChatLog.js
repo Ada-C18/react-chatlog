@@ -1,19 +1,38 @@
 import React from 'react';
 import './ChatLog.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
+import ChatEntry from './ChatEntry';
 
-const ChatLog = (entries) => {
-  return <h2>Student List</h2>;
-  // <ul>
-  //   <li>{sender=entries}</li>
-  //   <li>sender:en</li>
-  //   <li>body:Hey</li>
-  //   <li>timeStamp:2018-05-29T22:49:06+00:00</li>
-  // </ul>
-  // );
+const ChatLog = (props) => {
+  console.log(props);
+  const chatLogComponents = [];
+  const chatLogList = props.chatLogList;
+
+  for (const chat of chatLogList) {
+    chatLogComponents.push(
+      <ChatEntry
+        key={chat.id}
+        sender={chat.sender}
+        body={chat.body}
+        timeStamp={TimeStamp}
+      />
+    );
+  }
+
+  return <div>{chatLogComponents}</div>;
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.array,
+  chatLogList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+    })
+  ),
 };
+
 export default ChatLog;
