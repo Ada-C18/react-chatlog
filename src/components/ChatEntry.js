@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
-  // const convertedTimeStamp = TimeStamp(props.timeStamp);
-  
+  // const convertedTimeStamp = TimeStamp(props.chat.timeStamp);
+
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
@@ -19,11 +19,12 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  // id: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  // liked: PropTypes.bool,
+  liked: PropTypes.bool,
+  // onLiked: PropTypes.func.isRequired,
 };
 
 
