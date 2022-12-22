@@ -20,10 +20,8 @@ const App = () => {
         likeSum += 1;
       };
     };
-    console.log(`The likeSum is: ${likeSum}`);
     setNumLikes(likeSum);
-  }
-
+  };
 
   const newChatList = [];
   
@@ -39,7 +37,6 @@ const App = () => {
         newChatList.push(newChat);
       };
     };
-    console.log(newChatList);
     setEntries(newChatList);
     likeCounter(newChatList);
   };
