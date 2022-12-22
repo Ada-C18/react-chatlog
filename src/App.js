@@ -66,7 +66,8 @@ const App = () => {
         <ChatLog
           entries={chatData}
           onToggleLiked={toggleLiked}
-          colors={userColors}
+          localColor={userColors.local}
+          remoteColor={userColors.remote}
         />
       </main>
     </div>
