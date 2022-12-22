@@ -6,7 +6,6 @@ import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 // import ChatEntry from './components/ChatEntry';
 
-
 const App = () => {
   const [chatMessagesData, setChatMessagesData] = useState(chatMessages);
 
@@ -47,3 +46,4 @@ const App = () => {
 };
 
 export default App;
+
