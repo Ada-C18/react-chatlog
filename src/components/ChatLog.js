@@ -7,6 +7,7 @@ const ChatLog = (props) => {
     <div>
       {props.entries.map((text) => (
         <ChatEntry
+          key={text.id}
           id={text.id}
           sender={text.sender}
           body={text.body}
@@ -25,7 +26,7 @@ ChatLog.propTypes = {
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
-      timeStamp: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string,
       liked: PropTypes.bool.isRequired,
     })
   ),

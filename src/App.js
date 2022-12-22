@@ -27,8 +27,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
-        <h1>Chat Bot</h1>
+        <h1>Chat Log</h1>
         <h2>{countLikedMessages()} ❤️s</h2>
       </header>
       <main>
