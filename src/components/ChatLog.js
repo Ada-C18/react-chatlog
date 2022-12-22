@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ChatLog.css';
 import ChatEntry from './ChatEntry';
 
@@ -17,6 +18,23 @@ const ChatLog = (props) => {
   ));
 
   return <section className="chat-log">{chatComponents}</section>;
+};
+
+ChatLog.propTypes = {
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      sender: PropTypes.string,
+      body: PropTypes.string,
+      timeStamp: PropTypes.string,
+      liked: PropTypes.bool,
+    })
+  ),
+  onToggleLiked: PropTypes.func,
+  colors: PropTypes.shape({
+    local: PropTypes.string,
+    remote: PropTypes.string,
+  }),
 };
 
 export default ChatLog;

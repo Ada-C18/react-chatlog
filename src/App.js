@@ -31,13 +31,6 @@ const App = () => {
 
   const totalLikes = calTotalLikes(chatData);
 
-  // create object with local or remote keys and names as values - sender names
-  // const userNames = () => {
-  //   chatData.reduce((messages, user) => {
-  //     return {...messages, [user.sender]: }
-  //   })
-  // }
-
   const selectLocalColor = (color) => {
     setUserColors((userColors) => {
       return { ...userColors, local: color };
@@ -60,19 +53,21 @@ const App = () => {
         <section>
           <ColorChoice
             setColorCallback={selectLocalColor}
-            color={userColors.local}
           />
           <h2 id="heartWidget" className="widget">
             {totalLikes} ❤️s
           </h2>
           <ColorChoice
             setColorCallback={selectRemoteColor}
-            color={userColors.remote}
           />
         </section>
       </header>
       <main>
-        <ChatLog entries={chatData} onToggleLiked={toggleLiked} colors={userColors} />
+        <ChatLog
+          entries={chatData}
+          onToggleLiked={toggleLiked}
+          colors={userColors}
+        />
       </main>
     </div>
   );

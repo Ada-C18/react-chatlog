@@ -4,8 +4,6 @@ import './ColorChoice.css';
 const ColorChoice = (props) => {
   return (
     <span>
-      {/* <p>{props.sender}</p> */}
-      <p>Name goes here</p>
       <button onClick={() => props.setColorCallback('red')}>🔴</button>
       <button onClick={() => props.setColorCallback('orange')}>🟠</button>
       <button onClick={() => props.setColorCallback('yellow')}>🟡</button>
@@ -18,7 +16,6 @@ const ColorChoice = (props) => {
 
 ColorChoice.propTypes = {
   setColorCallback: PropTypes.func.isRequired,
-  // color: PropTypes.string.isRequired,
 };
 
 export default ColorChoice;

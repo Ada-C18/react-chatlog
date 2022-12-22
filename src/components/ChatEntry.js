@@ -1,6 +1,6 @@
 import React from 'react';
-import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
@@ -16,6 +16,7 @@ const ChatEntry = (props) => {
 
   const textColor = () => {
     const messageType = typeOfMessage();
+
     if (messageType === 'local') {
       return props.userColors.local;
     } else {
@@ -40,11 +41,16 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  id: PropTypes.number.isRequired,
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired,
+  id: PropTypes.number,
+  sender: PropTypes.string,
+  body: PropTypes.string,
+  timeStamp: PropTypes.string,
   liked: PropTypes.bool,
+  toggleLiked: PropTypes.func,
+  userColors: PropTypes.shape({
+    local: PropTypes.string,
+    remote: PropTypes.string,
+  }),
 };
 
 export default ChatEntry;
