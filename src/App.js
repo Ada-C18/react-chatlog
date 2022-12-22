@@ -12,6 +12,16 @@ const App = () => {
 
   const [entries, setEntries] = useState(entriesCopy);
 
+  const [heartCount, setHeartCount] = useState(0);
+
+  const heartClickCounter = (likeStatus) => {
+    if (likeStatus) {
+      setHeartCount(heartCount + 1);
+    } else {
+      setHeartCount(heartCount - 1);
+    }
+  };
+
   const updateEntries = (updatedEntry) => {
     // takes in an updated task
     const updatedEntries = entries.map((entry) => {
@@ -23,12 +33,15 @@ const App = () => {
     });
     setEntries(updatedEntries);
     console.log(updatedEntries);
+
+    heartClickCounter(updatedEntry.liked);
   };
 
   return (
     <div id="App">
       <header>
         <h1>Aly's Chatbot</h1>
+        <section>{heartCount} ❤️s</section>
       </header>
       <main>
         <ChatLog entries={entries} updateEntries={updateEntries} />
