@@ -21,7 +21,7 @@ const ChatLog = (props) => {
       </div>
     );
   }
-  return <>{entryComps}</>;
+  return { entryComps };
 };
 
 ChatEntry.propTypes = {
