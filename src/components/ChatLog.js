@@ -11,7 +11,8 @@ const ChatLog = ({entries}) => {
                     sender={message.sender}
                     body={message.body}
                     timeStamp={message.timeStamp}
-                    liked={message.liked}>
+                    liked={message.liked}
+                    key={message.id}>
                     </ChatEntry>
             ))}
         </ul>
