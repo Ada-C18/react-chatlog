@@ -7,11 +7,13 @@ const ChatLog = (props) => {
   const getEntries = (props) =>
     props.entries.map((entry) => (
       <ChatEntry
+        key={entry.id}
         id={entry.id}
         sender={entry.sender}
         body={entry.body}
         timeStamp={entry.timeStamp}
         liked={entry.liked}
+        onHeartClick={props.onPressHeart}
       />
     ));
   return <ul className="chat-log no-bullet">{getEntries(props)}</ul>;
@@ -27,6 +29,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool,
     })
   ).isRequired,
+  onPressHeart: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
@@ -11,18 +11,37 @@ import ChatLog from './components/ChatLog';
 //   liked: false,
 // }
 
-const entries = chatMessages;
-
 const App = () => {
+  const [chatData, setChatData] = useState(chatMessages);
+
+  const toggleLiked = (id) => {
+    setChatData((chatData) =>
+      chatData.map((entry) => {
+        if (entry.id === id) {
+          return { ...entry, liked: !entry.liked };
+        } else {
+          return entry;
+        }
+      })
+    );
+  };
+
+  const calcTotalHearts = (chatData) => {
+    return chatData.reduce((total, entry) => {
+      return entry.liked ? (total += 1) : total;
+    }, 0);
+  };
+
+  const activeHeartTally = calcTotalHearts(chatData);
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>I, Absurdist Chatbot</h1>
+        <p>Spreading the love: {activeHeartTally} ❤️s</p>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        <ChatLog entries={entries} />
+        <ChatLog entries={chatData} onPressHeart={toggleLiked} />
       </main>
     </div>
   );
