@@ -16,10 +16,8 @@ const ChatEntry = (props) => {
     relativeTimeStamp = `${Math.round(timeDifference / 31536000000)} years ago`;
   }
 
-  
-
   return (
-    <div className={`${props.isLocal ? 'local' : 'remote'} chat-entry`} >    
+    <div className={`${props.isLocal ? 'local' : 'remote'} chat-entry`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>

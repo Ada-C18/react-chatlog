@@ -8,19 +8,19 @@ import ChatLog from './components/ChatLog';
 const uniqueUsers = [];
 const getUniqueUsers = () => {
   for (let singleChatHistory of chatMessages) {
-    //console.log(chatHistory.sender) 
+    //console.log(chatHistory.sender)
     if (!uniqueUsers.includes(singleChatHistory.sender)) {
-        uniqueUsers.push(singleChatHistory.sender)  
-      }   
-    };   
-}
-console.log(uniqueUsers);
+      uniqueUsers.push(singleChatHistory.sender);
+    }
+  }
+};
+//console.log(uniqueUsers);
 
 const App = () => {
   // Initialize the likedCounts state variable
   const [likedCounts, setLikedCounts] = useState(0); // state var. likedCounts = 0
   //console.log(likedCounts);
-  
+
   // Updates the likedCounts based on liked
   const likeHandler = (liked) => {
     if (liked) {
@@ -29,16 +29,23 @@ const App = () => {
       setLikedCounts(likedCounts - 1);
     }
   };
- 
+
   return (
     <div id="App">
       <header>
-        <h1> Chat between {getUniqueUsers()} {uniqueUsers[0]} and {uniqueUsers[1]}  </h1>
+        <h1>
+          {' '}
+          Chat between {getUniqueUsers()} {uniqueUsers[0]} and {uniqueUsers[1]}{' '}
+        </h1>
         <h2> {likedCounts} ❤️s </h2>
       </header>
       <main>
         {/* pass lH as prop */}
-        <ChatLog entries={chatMessages} uniqueSenders={uniqueUsers} onClick={likeHandler} />      
+        <ChatLog
+          entries={chatMessages}
+          uniqueSenders={uniqueUsers}
+          onClick={likeHandler}
+        />
       </main>
     </div>
   );

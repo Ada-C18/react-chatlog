@@ -11,14 +11,13 @@ const ChatLog = (props) => {
             {...entry}
             liked={entry.liked}
             likeHandler={props.onClick}
-            isLocal={entry.sender === props.uniqueSenders[0] ? true : false}           
+            isLocal={entry.sender === props.uniqueSenders[0] ? true : false}
           />
         );
       })}
     </div>
   );
 };
-
 
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(
