@@ -13,8 +13,6 @@ const ChatEntry = (props) => {
   
 
 
-  
- 
 const [liked ,setLike] = useState(false)
 
   
@@ -29,12 +27,7 @@ const changeHearts = () => {
 const Hearts =() => {
   updateLikeCount(!liked)
   changeHearts()
-  console.log(liked)
- 
-
 }
-
-
 
 
   return (
@@ -50,19 +43,12 @@ const Hearts =() => {
 };
 
 
-
-
-
-
 ChatEntry.propTypes = {
   sender:PropTypes.string.isRequired,
   body:PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,
   updateLikeCount: PropTypes.func.isRequired,
-  // id:PropTypes.number.isRequired
-
-
-
+ 
 
 };
 

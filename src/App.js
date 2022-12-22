@@ -29,14 +29,10 @@ const App = () => {
 
 
   }
-    
-
-    
+  
   
   const [likesCount, setLikesCount] = useState(0)
   
-  
-
 
   render() ;
   return (
@@ -45,11 +41,8 @@ const App = () => {
         <h1>{likesCount} ❤️s </h1>
       </header>
       <main>
-
-        
         <ChatLog entries = {chatLog}
          updateLikeCount = {updateLikeCount}/>
-        
       </main>
     </div>
   );

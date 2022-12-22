@@ -11,7 +11,6 @@ const ChatLog = ({entries, updateLikeCount}) => {
 
 
 
-
 const LOGS = entries.map((entry) => {
         return(
             <ChatEntry
@@ -34,12 +33,10 @@ const LOGS = entries.map((entry) => {
     }; 
 
     ChatLog.propTypes = {
-        entrys: PropTypes.arrayOf(PropTypes.object).isRequired,
-        updatedLikeCount:PropTypes.func.isRequired,
+        entries: PropTypes.arrayOf(PropTypes.object).isRequired,
+        updateLikeCount:PropTypes.func.isRequired,
     }
-
-  
-  
+ 
 
 
 export default ChatLog;
