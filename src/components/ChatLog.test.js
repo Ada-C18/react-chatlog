@@ -61,3 +61,5 @@ describe("Wave 02: ChatLog", () => {
     expect(element).not.toBeNull();
   });
 });
+
+export default ChatLog;
