@@ -12,7 +12,9 @@ const ChatLog = (entries) => {
           sender={chat.sender}
           body={chat.body}
           timeStamp={chat.timeStamp}
-          // liked={chat.liked}
+          liked={chat.liked}
+          key={chat.id}
+          onLiked={entries.onLiked}
         />
       );
     });
@@ -27,9 +29,9 @@ ChatLog.propTypes = {
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool,
-    })
-  ).isRequired,
+      liked: PropTypes.bool.isRequired,
+    })),
+  onLiked: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

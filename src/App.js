@@ -6,18 +6,21 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages);
 
-  // const toggleLikeButton = (id) => {
-  //   const likeCount = chats.timeStamp(chat => {
-  //     if (chat.id === id) {
-  //       return {...chat.liked + 1};
-  //     } else {
-  //       return chat;
-  //     }
-  //   });
+  const toggleLikeButton = (id) => {
+    setChatData(chatData => chatData.map(chat => {
+      if (chat.id === id) {
+        return {...chat, liked: !chat.liked}
+      } else {
+        return chat;
+      }
+    }))
+    console.log("Hey I'm here!!")
+  };
 
-  //   setChatData(likeCount);
-
-  // };
+  // calculate function here
+  const displayTotalLikes = (chatData) => {
+    let skip = 0;
+  }
 
   return (
     <div id="App">
@@ -29,7 +32,7 @@ const App = () => {
           <p>ChatLog Here:</p>
           <ChatLog
             chats={chatData}
-            // onLiked={toggleLikeButton}
+            onLiked={toggleLikeButton}
           />
         </div>
       </main>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types'; 
-import TimeStamp from './TimeStamp.js';
+// import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
   // const convertedTimeStamp = TimeStamp(props.chat.timeStamp);
@@ -12,7 +12,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={() => props.onLiked(props.id)}>🤍</button>
       </section>
     </div>
   );
@@ -23,8 +23,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool,
-  // onLiked: PropTypes.func.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 
