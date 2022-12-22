@@ -13,7 +13,8 @@ const ChatLog = (props) => {
       timeStamp={entry.timeStamp}
       liked={entry.liked}
       toggleLiked={props.onToggleLiked}
-      userColors={props.colors}
+      localColor={props.colors.local}
+      remoteColor={props.colors.remote}
     />
   ));
 

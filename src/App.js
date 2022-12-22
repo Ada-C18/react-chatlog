@@ -7,8 +7,8 @@ import ColorChoice from './components/ColorChoice';
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages);
   const [userColors, setUserColors] = useState({
-    local: '',
-    remote: '',
+    local: 'black',
+    remote: 'black',
   });
 
   const toggleLiked = (id) => {

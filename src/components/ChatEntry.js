@@ -18,9 +18,9 @@ const ChatEntry = (props) => {
     const messageType = typeOfMessage();
 
     if (messageType === 'local') {
-      return props.userColors.local;
+      return props.localColor;
     } else {
-      return props.userColors.remote;
+      return props.remoteColor;
     }
   };
 
@@ -47,10 +47,8 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string,
   liked: PropTypes.bool,
   toggleLiked: PropTypes.func,
-  userColors: PropTypes.shape({
-    local: PropTypes.string,
-    remote: PropTypes.string,
-  }),
+  localColor: PropTypes.string,
+  remoteColor: PropTypes.string,
 };
 
 export default ChatEntry;
