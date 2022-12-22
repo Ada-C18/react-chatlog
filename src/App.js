@@ -40,7 +40,6 @@ const App = () => {
     }
     return likeCount;
   }
-  // add function which count the true in liked
 
   const hearts = countHeart(chatList);
 
@@ -48,9 +47,11 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Room</h1>
-        <section className="widget" id="heartWidget">
-          {hearts} ❤️s
-        </section>
+        <div>
+          <section className="widget" id="heartWidget">
+            {hearts} ❤️s
+          </section>
+        </div>
       </header>
       <main>
         <ChatLog entries={chatList} changeLike={changeLike} />
@@ -60,6 +61,3 @@ const App = () => {
 };
 
 export default App;
-
-/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */

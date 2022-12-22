@@ -22,14 +22,7 @@ const ChatLog = (props) => {
       />
     );
   }
-  //const chatComponents = chatData.map((chat) => {
   return <div>{chatlist}</div>;
-  //    <li key={chat.id}>
-  //      <ChatEntry />
-  //    </li>
-  //  );
-  //});
-  //return <ul>{chatComponents}</ul>;
 };
 
 ChatLog.propTypes = {

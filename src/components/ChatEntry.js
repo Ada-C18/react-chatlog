@@ -14,7 +14,6 @@ const ChatEntry = (props) => {
   const yearsAgo = yearconvert(timeStamp);
   const timeStampStr = `${yearsAgo} years ago`;
 
-  //const flipliked = changeLike(liked);
   function flipLike(arg) {
     changeLike(chatId, !arg);
   }
