@@ -7,9 +7,8 @@ describe('Wave 03: clicking like button and rendering App', () => {
     // Arrange
     const { container } = render(<App />)
     let buttons = container.querySelectorAll('button.like')
-
     // Act
-    fireEvent.click(buttons[0])
+    fireEvent.click(buttons[2])
     fireEvent.click(buttons[1])
     fireEvent.click(buttons[10])
 
@@ -22,7 +21,7 @@ describe('Wave 03: clicking like button and rendering App', () => {
     // Arrange
     const { container } = render(<App />)
     const buttons = container.querySelectorAll('button.like')
-    const firstButton = buttons[0]
+    const firstButton = buttons[1]
     const lastButton = buttons[buttons.length - 1]
 
     // Act-Assert
@@ -32,7 +31,7 @@ describe('Wave 03: clicking like button and rendering App', () => {
     expect(firstButton.innerHTML).toEqual('❤️')
 
     // check that all other buttons haven't changed
-    for (let i = 1; i < buttons.length; i++) {
+    for (let i = 2; i < buttons.length; i++) {
       expect(buttons[i].innerHTML).toEqual('🤍')
     }
 
