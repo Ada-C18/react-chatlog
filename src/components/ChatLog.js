@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
+import './ChatLog.css';
 
 const ChatLog = (props) => {
   return (
-    <>
+    <div className="chat-log">
       <ul>
         {props.entries.map((chat) => (
           <ChatEntry
@@ -14,19 +15,8 @@ const ChatLog = (props) => {
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 };
-
-// ChatLog.propTypes = {
-//   chatData: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       sender: PropTypes.string.isRequired,
-//       id: PropTypes.number.isRequired,
-//       body: PropTypes.string.isRequired,
-//       timeStamp: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
 
 export default ChatLog;
