@@ -25,7 +25,7 @@ const ChatLog = (props) => {
 // return <div>{entries}</div>;
 
 ChatLog.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  entries: PropTypes.arrayOf(PropTypes.object),
   updateMessage: PropTypes.func.isRequired,
 };
 
