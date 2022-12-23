@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, body, sender, timeStamp, liked, updateMessage }) => {
-  console.log('ChatEntry');
+  // console.log('ChatEntry');
   const onLikeButtonClick = () => {
-    console.log('onLikeButtonClick');
-    console.log(liked);
+    // console.log('onLikeButtonClick');
+    // console.log(liked);
 
     const updatedMessage = {
       id: id,

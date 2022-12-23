@@ -9,14 +9,14 @@ const App = () => {
   const [ChatData, setChatData] = useState(chatMessages);
   const [likeCount, setLikeCount] = useState(0);
   const updateLike = (id, like) => {
-    console.log(id, ChatData);
-    console.log(like);
+    // console.log(id, ChatData);
+    // console.log(like);
     // console.log(id.liked);
 
     const newMessage = ChatData.find((entry) => entry.id === id);
-    console.log('newMessage');
-    console.log(newMessage);
-    console.log(like);
+    // console.log('newMessage');
+    // console.log(newMessage);
+    // console.log(like);
     newMessage.liked = like;
     setChatData([...ChatData]);
     if (like) {
