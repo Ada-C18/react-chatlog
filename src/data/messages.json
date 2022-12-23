@@ -75,6 +75,7 @@
     "body":"I think you are",
     "timeStamp":"2018-05-29T22:58:18+00:00",
     "liked": false
+    
   },
   {
     "id": 12,
@@ -82,6 +83,7 @@
     "body": "NO! YOU ARE A ROBOT!! I am a human being. Just like the one that created you.",
     "timeStamp":"2018-05-29T23:00:08+00:00",
     "liked": false
+    
   },
   {
     "id": 13,
@@ -109,63 +111,72 @@
     "sender":"Estragon",
     "body":"Nope, you are a robot, every human has some concept of the meaning of life.",
     "timeStamp":"2018-05-29T23:04:13+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount": 3
   },
   {
     "id": 17,
     "sender":"Vladimir",
     "body":"explain",
     "timeStamp":"2018-05-29T23:06:14+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount": 2
   },
   {
     "id": 18,
     "sender":"Estragon",
     "body":"I'm afraid you are a robot designed to talk back to humans over the internet.",
     "timeStamp":"2018-05-29T23:07:46+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount":1
   },
   {
     "id": 19,
     "sender":"Vladimir",
     "body":"so you are a human",
     "timeStamp":"2018-05-29T23:08:47+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount": 1
   },
   {
     "id": 20,
     "sender":"Estragon",
     "body":"I am a robot.",
     "timeStamp":"2018-05-29T23:09:36+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount":2
   },
   {
     "id": 21,
     "sender":"Vladimir",
     "body":"you are robots running on Android system",
     "timeStamp":"2018-05-29T23:11:01+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount": 0
   },
   {
     "id": 22,
     "sender":"Estragon",
     "body":"No apple.",
     "timeStamp":"2018-05-29T23:12:03+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount":1
   },
   {
     "id": 23,
     "sender":"Vladimir",
     "body":"so you are a robot",
     "timeStamp":"2018-05-29T23:13:31+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount":0
   },
   {
     "id": 24,
     "sender":"Estragon",
     "body":"NO, I am a human, you are a robot.",
     "timeStamp":"2018-05-29T23:14:28+00:00",
-    "liked": false
+    "liked": false,
+    "likeCount":1
   },
   {
     "id": 25,
