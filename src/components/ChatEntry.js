@@ -5,10 +5,18 @@ import TimeStamp from './TimeStamp';
 import { useState } from 'react';
 
 const ChatEntry = (props) => {
-  const [likesCount, setLikesCount] = useState(0);
-  const increaseLikes = () => {
-    setLikesCount(likesCount + 1);
+  // const [likesCount, setLikesCount] = useState(0);
+  // const increaseLikes = () => {
+  //   setLikesCount(likesCount + 1);
+  // };
+
+  const [isLiked, setLiked] = useState(false);
+
+  const heartMessage = () => {
+    setLiked(!isLiked);
   };
+
+  const heartType = isLiked ? '❤️' : '🤍';
 
   // const chatData = [
   //   {
@@ -23,12 +31,10 @@ const ChatEntry = (props) => {
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>
-          {props.body} {likesCount}
-        </p>
+        <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button onClick={increaseLikes} className="like">
-          🤍
+        <button onClick={heartMessage} className="like">
+          {heartType}
         </button>
       </section>
     </div>
@@ -39,6 +45,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
 };
 
 export default ChatEntry;
