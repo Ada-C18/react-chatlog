@@ -2,8 +2,14 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
+import { useState } from 'react';
 
 const ChatEntry = (props) => {
+  const [likesCount, setLikesCount] = useState(0);
+  const increaseLikes = () => {
+    setLikesCount(likesCount + 1);
+  };
+
   // const chatData = [
   //   {
   //     id: 1,
@@ -17,9 +23,13 @@ const ChatEntry = (props) => {
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p>
+          {props.body} {likesCount}
+        </p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button className="like">🤍</button>
+        <button onClick={increaseLikes} className="like">
+          🤍
+        </button>
       </section>
     </div>
   );
