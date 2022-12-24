@@ -5,16 +5,16 @@ import TimeStamp from './TimeStamp';
 import { useState } from 'react';
 
 const ChatEntry = (props) => {
-  const onClickHeartButton = () => {
-    const updatedChat = {
-      id: props.id,
-      sender: props.sender,
-      body: props.body,
-      isLiked: !props.isLiked,
-      timeStamp: props.timeStamp,
-    };
-    props.onUpdate(updatedChat);
-  };
+  // const onClickHeartButton = () => {
+  //   const updatedChat = {
+  //     id: props.id,
+  //     sender: props.sender,
+  //     body: props.body,
+  //     isLiked: !props.isLiked,
+  //     timeStamp: props.timeStamp,
+  //   };
+  //   props.onUpdateChat(updatedChat);
+  // };
   // const [likesCount, setLikesCount] = useState(0);
   // const increaseLikes = () => {
   //   setLikesCount(likesCount + 1);
@@ -26,7 +26,7 @@ const ChatEntry = (props) => {
   //   setLiked(!isLiked);
   // };
 
-  const heartType = props.isLiked ? '❤️' : '🤍';
+  const heartType = props.liked ? '❤️' : '🤍';
 
   // const chatData = [
   //   {
@@ -43,7 +43,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button onClick={onClickHeartButton} className="like">
+        <button onClick={() => props.onUpdateChat(props.id)} className="like">
           {heartType}
         </button>
       </section>
@@ -56,8 +56,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  isLiked: PropTypes.bool,
-  onUpdate: PropTypes.func.isRequired,
+  liked: PropTypes.bool,
+  onUpdateChat: PropTypes.func,
 };
 
 export default ChatEntry;

@@ -8,17 +8,17 @@ import { useState } from 'react';
 const App = () => {
   const [chatData, setChatData] = useState(chatMessages);
 
-  const updateChatData = (updatedChat) => {
-    const chats = chatData.map((chat) => {
-      if (chat.id === updatedChat.id) {
-        return updatedChat;
-      } else {
-        return chat;
-      }
-    });
-    setChatData(chats);
+  const updateChatData = (id) => {
+    setChatData((chatData) =>
+      chatData.map((chat) => {
+        if (chat.id === id) {
+          return { ...chat, liked: !chat.liked };
+        } else {
+          return chat;
+        }
+      })
+    );
   };
-  // const [isLiked, setLiked] = useState(false);
 
   // const heartMessage = () => {
   //   setLiked(!isLiked);
@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div id="App">
-      <header>Title</header>
+      <header>Number of Likes:</header>
       <main>
         <ChatLog entries={chatData} onUpdateChat={updateChatData}></ChatLog>
         {/* Wave 01: Render one ChatEntry component
