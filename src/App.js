@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div id="App">
-      <header>Number of Likes:{allHearts}</header>
+      <header>{allHearts} ❤️s</header>
       <main>
         <ChatLog entries={chatData} onUpdateChat={updateChatData}></ChatLog>
         {/* Wave 01: Render one ChatEntry component
