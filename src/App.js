@@ -32,8 +32,28 @@ const App = () => {
   return (
     <div id="App">
       <header className="App-header">
-        <h1>Between Bots</h1>
-        <h2 className="likes-counter" >Likes: {displayTotalLikes}</h2>
+        <h1>Ghibli Jabber</h1>
+        <section>
+          <h2 className="likes-counter" >Likes: {displayTotalLikes}</h2>
+          <h2 className="movie-selector">Movie:
+            <select>
+              <option>Default Studio Ghibli</option>
+              <option>Howl's Moving Castle</option>
+              <option>My Neighbor Totoro</option>
+              <option>Secret World of Arietty</option>
+            </select>
+          </h2>
+          <h2 className="textbox-selector">
+            Textbox (or heart?) color:
+            <select>
+              <option>Red</option>
+              <option>Orange</option>
+              <option>Yellow</option>
+              <option>Green</option>
+              <option>Blue</option>
+            </select>
+          </h2>
+        </section>
       </header>
       <main>
         <div>
