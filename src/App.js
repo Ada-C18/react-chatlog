@@ -20,6 +20,22 @@ const App = () => {
     );
   };
 
+  const findTotalHearts = (chatData) => {
+    let total = 0;
+    for (const element of chatData) {
+      if (element.liked === true) {
+        total += 1;
+      }
+    }
+    return total;
+  };
+
+  const allHearts = findTotalHearts(chatData);
+
+  // let totalHearts = 0;
+  // chatData.forEach(chat => {
+  // if {chat["liked"] === 'true"'}
+
   // const heartMessage = () => {
   //   setLiked(!isLiked);
   // };
@@ -28,7 +44,7 @@ const App = () => {
 
   return (
     <div id="App">
-      <header>Number of Likes:</header>
+      <header>Number of Likes:{allHearts}</header>
       <main>
         <ChatLog entries={chatData} onUpdateChat={updateChatData}></ChatLog>
         {/* Wave 01: Render one ChatEntry component
