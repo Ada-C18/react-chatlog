@@ -1,14 +1,17 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
-      <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
+      <h2 className="entry-name">{props.sender}</h2>
+      <section className="entry-bubble">{props.body}
+        <p></p>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp}/>
+        </p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -16,7 +19,12 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  //id:PropTypes.number.isRequired,
+  sender:PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
+  timeStamp:PropTypes.string.isRequired,
+  
 };
+//`ChatEntry` with props `sender`, `body`,  and `timeStamp`.
 
 export default ChatEntry;
