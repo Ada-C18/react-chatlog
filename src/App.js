@@ -19,7 +19,8 @@ const App = () => {
           body={chatMessages[0].body}
           timeStamp={chatMessages[0].timeStamp}
         />
-
+        <ChatLog entries={chatMessages}
+        />
         {/* Chatlog
         Wave 02: Render ChatLog component */}
       </main>
