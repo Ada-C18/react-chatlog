@@ -4,7 +4,7 @@ import ChatEntry from './ChatEntry'
 function ChatLog(props) {
     const data = props.entries;  
     return (
-    <body>
+    <>
     {data.map((entries)=>{
 
     return (
@@ -19,7 +19,7 @@ function ChatLog(props) {
     isLiked={entries.liked}/>
     )})
 };
-    </body>
+    </>
 )};
 
 export default ChatLog
