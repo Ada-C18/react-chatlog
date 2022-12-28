@@ -20,3 +20,15 @@ ChatEntry.propTypes = {
 };
 
 export default ChatEntry;
+
+// const ChatEntry = (props) => {
+//   const timeStamp = newDate.return(props.timeStamp)
+//     <div>
+//       <h2 className="sender">{props.sender}</h2>
+//       <p className="body">{props.body}</p>
+//       <p className="timeStamp">TIME STAMP</p>
+//       {/* `sender`, `body`,  and `timeStamp` */}
+//     </div>
+//     <button onclick="myFunction()">Click me</button>
+//   );
+// };
