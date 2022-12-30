@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 const ChatEntry = (props) => {
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">{props.name}</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
-        <p className="entry-time">{props.time}</p>
+        <p className="entry-time">{props.timeStamp}</p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -16,10 +16,11 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
-  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  time: PropTypes.tim
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool,
 };
 
 export default ChatEntry;
