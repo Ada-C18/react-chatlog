@@ -17,7 +17,7 @@ const ChatLog = (props) => {
     );
 });
 
-  return (<div className="chat-log">{chatEntries}</div>);
+  return <div class='chat-log'>{chatEntries}</div>;
 
 };
 
