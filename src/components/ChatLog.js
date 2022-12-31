@@ -11,12 +11,14 @@ const ChatLog = (props) => {
             sender={entry.sender}
             body={entry.body}
             timeStamp={entry.timeStamp}
+            liked={entry.liked}
+            toggleLiked={props.toggleLiked}
         />  
     );
 });
 
-  return <div className="chat-log">{chatEntries}</div>;
-  
+  return (<div className="chat-log">{chatEntries}</div>);
+
 };
 
 ChatLog.propTypes = {
@@ -26,8 +28,10 @@ ChatLog.propTypes = {
     sender: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     timeStamp: PropTypes.string.isRequired,
-    })
-  )
+    liked: PropTypes.bool.isRequired,
+    })),
+
+  onToggleLiked: PropTypes.func.isRequired
 };
 
 export default ChatLog;

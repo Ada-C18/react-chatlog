@@ -10,7 +10,9 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}/></p>
-        <button className="like">🤍</button>
+        <button className="like" 
+        onClick={() => props.toggledLiked(props.id)}>{props.liked ? '❤️': '🤍'}
+        </button>
       </section>
     </div>
   );
@@ -21,7 +23,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool,
+  liked: PropTypes.bool.isRequired,
+  onUpdateLikes: PropTypes.func.isRequired
 };
 
 export default ChatEntry;
