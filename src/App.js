@@ -7,7 +7,7 @@ import { useState } from 'react';
 const App = () => {
   const [chat, setChat] = useState(chatMessages);
 
-  const toggleLiked = (id) => {
+  const updateChat = (id) => {
     setChat(chat.map(entry => {
       if (entry.id === id) {
         return {...entry, liked: !entry.liked};
@@ -18,15 +18,22 @@ const App = () => {
     }));
   };
 
+  const getTotalLiked = () => {
+    return chat.reduce((total, entry) => {
+      return total + entry.liked;
+    }, 0)
+  };
+
   return (
     <div id="App">
       <header>
         <h1>Chatlog</h1>
+        <h2>Total liked: {getTotalLiked()} ❤️s</h2>
       </header>
       <main>
       <ChatLog 
       entries={chat}
-      onToggleLiked={toggleLiked}/>
+      onUpdateChat={updateChat}/>
       </main>
     </div>
   );
