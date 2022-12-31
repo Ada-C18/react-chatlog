@@ -43,7 +43,7 @@ describe('Wave 02: ChatLog', () => {
         numChats: 3,
       },
       {
-        name: 'Estragon"',
+        name: 'Estragon',
         numChats: 2,
       },
     ].forEach((person) => {
