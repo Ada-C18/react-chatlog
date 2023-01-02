@@ -13,7 +13,7 @@ const ChatLog = (props) => {
             timeStamp={entry.timeStamp}
             liked={entry.liked}
             onUpdateChat={props.onUpdateChat}
-        />  
+        /> 
     );
 });
 

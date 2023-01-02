@@ -12,8 +12,8 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}/>
         </p>
-        <button className="like" 
-          onClick={() => props.onUpdateChat(props.id)}>{props.liked ? '❤️': '🤍'}
+        <button className="like" onClick={() => props.onUpdateChat(props.id)}>
+          {props.liked ? '❤️': '🤍'}
         </button>
       </section>
     </div>

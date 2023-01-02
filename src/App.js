@@ -31,9 +31,7 @@ const App = () => {
         <h2>Total liked: {getTotalLiked()} ❤️s</h2>
       </header>
       <main>
-      <ChatLog 
-      entries={chat}
-      onUpdateChat={updateChat}/>
+      <ChatLog entries={chat} onUpdateChat={updateChat}/>
       </main>
     </div>
   );
