@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import chatMessages from './data/messages.json';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
+import chatMessages from './data/messages.json';
 
 
 const App = () => {
-  const chatMessages = JSON.parse(`[{
+  const [chatMessages, setChatMessages] = useState(JSON.parse(`[{
     "id": 1,
     "sender":"Vladimir",
     "body":"why are you arguing with me",
@@ -194,20 +193,40 @@ const App = () => {
     "body":"then you are lying",
     "timeStamp":"2018-05-29T23:17:34+00:00",
     "liked": false
-  }]`)
+  }]`));
+
+  const updateChatMessages = updatedChatEntry => {
+    const chatEntries = chatMessages.map(chatEntry => {
+      if (chatEntry.id === updatedChatEntry.id) {
+        return updatedChatEntry;
+      } else {
+        return chatEntry;
+      }
+    });
+    setChatMessages(chatEntries);
+  };
+
+  const calcNumLikes = entries => {
+    let numLikes = 0;
+    for (let entry of entries) {
+      if (entry.liked === true) {
+        numLikes += 1;
+      }
+    }
+    return numLikes;
+  };
   
   return (
     <div id="App">
       <header>
         <h1>Chat Between Vladimir and Estragon</h1>
+        <h2>{calcNumLikes(chatMessages)} ❤️s</h2>
       </header>
       <main>
-        <ChatEntry
-          id="1"
-          sender="Vladimir"
-          body="why are you arguing with me"
-          timeStamp="2018-05-29T22:49:06+00:00"></ChatEntry>
-        <ChatLog entries={chatMessages}></ChatLog>
+        <ChatLog
+          entries={chatMessages}
+          onUpdateChatEntry={updateChatMessages}>
+        </ChatLog>
       </main>
     </div>
   );
