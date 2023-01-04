@@ -21,13 +21,16 @@
 }
 
 #App h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
   display: inline-block;
 }
 
 #App header section {
-  background-color: #e0ffff;
+  background-color: rgb(73, 18, 18);
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1em;
 }
 
 #App .widget {
