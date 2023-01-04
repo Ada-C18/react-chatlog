@@ -44,7 +44,7 @@ const App = () => {
               entries={chatMessagesData}
               updateChatsLikes={updateLiked}
               userNames={names}
-              timeStampComponent={TimeStamp}
+              // timeStampComponent={TimeStamp}
             ></ChatLog>
           }
         </main>
