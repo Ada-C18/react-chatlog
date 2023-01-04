@@ -1,22 +1,54 @@
 import React from 'react';
-import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import './ChatEntry.css';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
+  const heartColor = props.liked ? '❤️' : '🤍';
+
+  const typeOfMessage = () => {
+    if (props.sender === 'Vladimir') {
+      return 'local';
+    } else {
+      return 'remote';
+    }
+  };
+
+  const textColor = () => {
+    const messageType = typeOfMessage();
+
+    if (messageType === 'local') {
+      return props.localColor;
+    } else {
+      return props.remoteColor;
+    }
+  };
+
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div className={`chat-entry ${typeOfMessage()}`}>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p className={textColor()}>{props.body}</p>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp} />
+        </p>
+        <button className="like" onClick={() => props.toggleLiked(props.id)}>
+          {heartColor}
+        </button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  id: PropTypes.number,
+  sender: PropTypes.string,
+  body: PropTypes.string,
+  timeStamp: PropTypes.string,
+  liked: PropTypes.bool,
+  toggleLiked: PropTypes.func,
+  localColor: PropTypes.string,
+  remoteColor: PropTypes.string,
 };
 
 export default ChatEntry;
