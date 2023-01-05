@@ -4,18 +4,19 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
-  const sender = props.sender;
   console.log(props.timeStamp);
+  const sender = props.sender;
   const senderBody = props.body;
+  const timeStamp = props.timeStamp;
 
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{senderBody}</p>
-        <p className="entry-time">
-          <p className="entry-time">{TimeStamp(props.timeStamp)}</p>
-        </p>
+        <div className="entry-time">
+          <TimeStamp time={timeStamp} />
+        </div>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -25,7 +26,7 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.func.isRequired,
+  timeStamp: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;

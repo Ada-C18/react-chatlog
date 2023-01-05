@@ -1,11 +1,9 @@
 import React from 'react';
 import './ChatLog.css';
 import PropTypes from 'prop-types';
-import TimeStamp from './TimeStamp';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
-  console.log(props);
   const chatLogComponents = [];
   const chatLogList = props.chatLogList;
 
@@ -15,7 +13,7 @@ const ChatLog = (props) => {
         key={chat.id}
         sender={chat.sender}
         body={chat.body}
-        timeStamp={TimeStamp}
+        timeStamp={chat.timeStamp}
       />
     );
   }
