@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
-    const getEntries = props.entries.map((entry)=> {
+    const getEntries = 
+    props.entries.map((entry)=> {
         return (
             <ChatEntry
                 sender={entry.sender}
@@ -13,10 +14,11 @@ const ChatLog = (props) => {
                 liked={entry.liked}
                 timeStamp={entry.timeStamp}
                 key={entry.id}
+                onLiked={props.onLiked}
             />
             );
         });
-        return <ul>{getEntries}</ul>;
+        return <div>{getEntries}</div>;
     };
 
     ChatLog.propTypes = {
@@ -26,7 +28,8 @@ const ChatLog = (props) => {
             body: PropTypes.string.isRequired,
             liked: PropTypes.bool.isRequired,
             timeStamp: PropTypes.string.isRequired
-        }))
+        })),
+        onLiked: PropTypes.func.isRequired,
     };
     
 export default ChatLog;
