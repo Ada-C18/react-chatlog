@@ -2,12 +2,17 @@ import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
+import { useState } from 'react';
 
 const ChatEntry = (props) => {
-  console.log(props.timeStamp);
   const sender = props.sender;
   const senderBody = props.body;
   const timeStamp = props.timeStamp;
+  const [isLiked, setIsLiked] = useState(false);
+
+  const changeColorHeart = () => {
+    setIsLiked(!isLiked);
+  };
 
   return (
     <div className="chat-entry local">
@@ -17,7 +22,10 @@ const ChatEntry = (props) => {
         <div className="entry-time">
           <TimeStamp time={timeStamp} />
         </div>
-        <button className="like">🤍</button>
+
+        <button className="like" onClick={changeColorHeart}>
+          {isLiked ? <div>❤️</div> : <div>🤍</div>}
+        </button>
       </section>
     </div>
   );
