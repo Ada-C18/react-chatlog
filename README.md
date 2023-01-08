@@ -33,7 +33,16 @@ Follow your curiosity to learn more about front-end testing:
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ---
-## Conclusion
+## Concluding thoughts by Pavi 
+
+This is the first project in React that I got to work on. I enjoyed the challenge of exploring Front-End programming, and implementing my own design decisions. I deviated from the guidelines slightly to create something that reflected my personality and cretivity.
+
+Some key differences were the color scheme, title and the "like" button appearence (I used eggs and chicks instead of white and red hearts). 
 
 ![Pavi's React Chat Log](images/pavis-chat-log.jpg)
 
+The last difference resulted in some built-in tests failing, so I had to change those to match my style choices. This gave me the opportunity to explore a new testing environment, and I was able to catch a bug that caused my classmates tests to fail as well. 
+
+This project helped me realize that I thoroughly enjoy front-end development, especially because it allows for greater creativity and experimentation. 
+
+To run this project on your local server, clone this repository and enter "yarn start" in the terminal once you are in the repo.
