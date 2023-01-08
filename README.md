@@ -35,5 +35,5 @@ Follow your curiosity to learn more about front-end testing:
 ---
 ## Conclusion
 
-![Pavi's React Chat Log](.images/pavis-chat-log.jpg)
+![Pavi's React Chat Log](images/pavis-chat-log.jpg)
 
