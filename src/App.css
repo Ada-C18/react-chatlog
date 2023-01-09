@@ -1,9 +1,9 @@
 #App {
-  background-color: #87cefa;
+  background-color: pink;
 }
 
 #App header {
-  background-color: #222;
+  background-color: rgb(223, 99, 120);
   color: #fff;
   padding-bottom: 0.5rem;
   position: fixed;
@@ -24,6 +24,8 @@
   font-size: 1.5em;
   text-align: center;
   display: inline-block;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #App header section {
@@ -35,40 +37,49 @@
   line-height: 0.5em;
   border-radius: 10px;
   color: black;
-  font-size:0.8em;
+  font-size: 0.8em;
   padding-left: 1em;
   padding-right: 1em;
 }
 
 #App #heartWidget {
   font-size: 1.5em;
-  margin: 1em
+  margin: 1em;
 }
 
 #App span {
-  display: inline-block
+  display: inline-block;
+}
+
+.Heart-Counter {
+  font-size: 1rem;
+  background-color: pink;
+  padding: 10px;
+  color: rgb(203, 27, 27);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .red {
-  color: #b22222
+  color: #b22222;
 }
 
 .orange {
-  color: #e6ac00
+  color: #e6ac00;
 }
 
 .yellow {
-  color: #e6e600
+  color: #e6e600;
 }
 
 .green {
-  color: green
+  color: green;
 }
 
 .blue {
-  color: blue
+  color: blue;
 }
 
 .purple {
-  color: purple
+  color: purple;
 }
