@@ -10,6 +10,7 @@ const App = () => {
   });
 
   const [chatsList, setChatsList] = useState(chatMessagesInitialCopy);
+  const [totalLikes, setTotalLikes] = useState(0);
 
   const updateLike = (id) => {
     // console.log(`updateLike called on chat id: ${id}`);
@@ -23,19 +24,24 @@ const App = () => {
           liked: !chat.liked,
         };
         newArr.push(newChat);
+        if (newChat.liked === true) {
+          setTotalLikes(totalLikes + 1);
+        } else {
+          setTotalLikes(totalLikes - 1);
+        }
       }
     }
     setChatsList(newArr);
   };
 
   const countLikes = () => {
-    let count = 0;
-    for (const chat of chatsList) {
-      if (chat.liked === true) {
-        count += 1;
-      }
-    }
-    return count;
+    // let count = 0;
+    // for (const chat of chatsList) {
+    //   if (chat.liked === true) {
+    //     count += 1;
+    //   }
+    // }
+    return totalLikes;
   };
 
   return (

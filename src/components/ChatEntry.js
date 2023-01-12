@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
@@ -12,13 +12,13 @@ const ChatEntry = (props) => {
 
   // Source: https://stackoverflow.com/questions/34521797/how-to-add-multiple-classes-to-a-reactjs-component
   //Wave 3
-  const [like, setLike] = useState(false);
+  // const [like, setLike] = useState(false);
 
   const toggleLike = () => {
-    setLike(!like);
+    // setLike(!like);
     props.updateLike(props.id);
   };
-  const likeColor = like === true ? '❤️' : '🤍';
+  const likeColor = props.liked === true ? '❤️' : '🤍';
 
   return (
     <div className={classes}>
