@@ -1,5 +1,6 @@
 import React from 'react';
 import { DateTime } from 'luxon';
+import PropTypes from 'prop-types';
 
 const TimeStamp = (props) => {
   const time = DateTime.fromISO(props.time);
@@ -10,3 +11,11 @@ const TimeStamp = (props) => {
 };
 
 export default TimeStamp;
+
+TimeStamp.propTypes = {
+  timeStampmessage: PropTypes.arrayOf(
+    PropTypes.shape({
+      messageContent: PropTypes.number,
+    })
+  ),
+};

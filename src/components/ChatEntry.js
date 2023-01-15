@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 
 const ChatEntry = (props) => {
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
-      <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+    <main>
+      <section>
+        <h2>SENDER</h2>
+        <p>MESSAGE TEXT</p>
+        <p>TIME STAMP</p>
       </section>
-    </div>
+    </main>
   );
 };
 
@@ -20,6 +19,14 @@ ChatEntry.propTypes = {
 };
 
 export default ChatEntry;
+
+ChatEntry.propTypes = {
+  message: PropTypes.arrayOf(
+    PropTypes.shape({
+      messageContent: PropTypes.number.isRequired,
+    })
+  ),
+};
 
 // const ChatEntry = (props) => {
 //   const timeStamp = newDate.return(props.timeStamp)
