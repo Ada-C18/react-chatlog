@@ -7,7 +7,7 @@ import timeStamp from './TimeStamp.js';
 const ChatLog = (props) => {
   const jsonMessages = props.entries.map((messages) => {
     return (
-      <ChatEntry>
+      <ChatEntry className="chat-log">
         id = {messages.id}
         sender={messages.sender}
         timeStamp={messages.timeStamp}
