@@ -1,23 +1,24 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
-import TimeStamp from './TimeStamp.js';
+import timeStamp from './TimeStamp.js';
+import { messages } from './src/data';
 
 const filledHeart = '❤️';
 const emptyHeart = '🤍';
 
 const ChatEntry = (props) => {
   const heartOrNot = props.liked ? filledHeart : emptyHeart;
+  // const [pieceOfState, setPieceOfState] = useState('Initial value for pieceOfState.');
 
   return (
     <main>
-      <section>
-        <h2>SENDER</h2>
-        <p>MESSAGE TEXT</p>
-        <p>TIME STAMP</p>
-        <button className="likemessage"></button>
-        onClick={(event) => props.handleLiked(props.id)}>
-      </section>
+      <div>
+        <p className="entry-name"> {props.sender}</p>
+        <p className="entry-bubble">{props.body}</p>
+        <p className="chat-entry entry-time">{props.timeStamp}</p>
+        <button className="button">{props.liked} </button>
+      </div>
     </main>
   );
 };
