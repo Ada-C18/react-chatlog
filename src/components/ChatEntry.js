@@ -13,7 +13,7 @@ const ChatEntry = (props) => {
 
   return (
     <main>
-      <div>
+      <div className="chat-entry local">
         <p className="entry-name"> {props.sender}</p>
         <p className="entry-bubble">{props.body}</p>
         <p className="chat-entry entry-time">{props.timeStamp}</p>
@@ -23,8 +23,6 @@ const ChatEntry = (props) => {
   );
 };
 
-export default ChatEntry;
-
 ChatEntry.propTypes = {
   message: PropTypes.arrayOf(
     PropTypes.shape({
@@ -33,20 +31,8 @@ ChatEntry.propTypes = {
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool.isRequired,
-      handleLiked: PropTypes.func.isRequired,
-      messageContent: PropTypes.number.isRequired,
     })
   ),
 };
 
-// const ChatEntry = (props) => {
-//   const timeStamp = newDate.return(props.timeStamp)
-//     <div>
-//       <h2 className="sender">{props.sender}</h2>
-//       <p className="body">{props.body}</p>
-//       <p className="timeStamp">TIME STAMP</p>
-//       {/* `sender`, `body`,  and `timeStamp` */}
-//     </div>
-//     <button onclick="myFunction()">Click me</button>
-//   );
-// };
+export default ChatEntry;

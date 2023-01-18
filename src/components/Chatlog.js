@@ -7,12 +7,14 @@ import timeStamp from './TimeStamp.js';
 const ChatLog = (props) => {
   const jsonMessages = props.entries.map((messages) => {
     return (
-      <ChatEntry className="chat-log">
-        id = {messages.id}
+      <ChatEntry
+        id={messages.id}
         sender={messages.sender}
+        body={messages.body}
         timeStamp={messages.timeStamp}
         liked={messages.liked}
-      </ChatEntry>
+        key={messages.id}
+      ></ChatEntry>
     );
   });
   return <div className="chat-log">{jsonMessages}</div>;
@@ -26,8 +28,8 @@ ChatLog.propTypes = {
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
       liked: PropTypes.bool.isRequired,
-      handleLiked: PropTypes.func.isRequired,
-      messageContent: PropTypes.number.isRequired,
     })
   ),
 };
+
+export default ChatLog;
