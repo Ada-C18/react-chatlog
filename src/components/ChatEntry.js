@@ -17,7 +17,9 @@ const ChatEntry = (props) => {
         <p className="entry-name"> {props.sender}</p>
         <p className="entry-bubble">{props.body}</p>
         <p className="chat-entry entry-time">{props.timeStamp}</p>
-        <button className="button">{props.liked} </button>
+        <button onClick={()=> className="like">
+          {heartOrNot} </button>
+        }
       </div>
     </main>
   );

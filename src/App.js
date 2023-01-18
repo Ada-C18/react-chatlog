@@ -21,7 +21,7 @@ const App = () => {
     setchatJson(updatedChat);
   };
 
-  const Hearts = (id) => {
+  const Hearts = () => {
     return chatJson.reduce((total, message) => {
       return message.liked ? total + 1 : total;
     }, 0);
