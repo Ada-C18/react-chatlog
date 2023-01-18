@@ -9,32 +9,25 @@ const emptyHeart = '🤍';
 
 const ChatEntry = (props) => {
   const heartOrNot = props.liked ? filledHeart : emptyHeart;
-  // const [pieceOfState, setPieceOfState] = useState('Initial value for pieceOfState.');
 
   return (
     <main>
-      <div className="chat-entry local">
+      <div className={props.sender === 'Estragon' ? 'remote' : 'local'}>
         <p className="entry-name"> {props.sender}</p>
         <p className="entry-bubble">{props.body}</p>
         <p className="chat-entry entry-time">{props.timeStamp}</p>
-        <button onClick={()=> className="like">
-          {heartOrNot} </button>
-        }
+        <button className="like" onClick={heartOrNot}></button>
       </div>
     </main>
   );
 };
 
 ChatEntry.propTypes = {
-  message: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      sender: PropTypes.string.isRequired,
-      body: PropTypes.string.isRequired,
-      timeStamp: PropTypes.string.isRequired,
-      liked: PropTypes.bool.isRequired,
-    })
-  ),
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;

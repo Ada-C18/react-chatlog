@@ -13,11 +13,24 @@ const ChatLog = (props) => {
         body={messages.body}
         timeStamp={messages.timeStamp}
         liked={messages.liked}
-        key={messages.id}
+        key={messages.key}
       ></ChatEntry>
     );
   });
   return <div className="chat-log">{jsonMessages}</div>;
+};
+
+ChatEntry.propTypes = {
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      liked: PropTypes.bool.isRequired,
+      key: PropTypes.number.isRequired,
+    })
+  ),
 };
 
 export default ChatLog;

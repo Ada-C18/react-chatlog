@@ -30,11 +30,11 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat Bots</h1>
+        <h1>Human & Robot</h1>
         <h2 className="like">LikeCount: {Hearts()} ❤️</h2>
       </header>
       <main>
-        <ChatLog entries={chatJson} onUpdateChat={updatechatJson}></ChatLog>
+        <ChatLog entries={chatJson} setchatJson={updatechatJson}></ChatLog>
       </main>
     </div>
   );
