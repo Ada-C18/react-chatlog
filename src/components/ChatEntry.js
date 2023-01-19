@@ -15,11 +15,12 @@ const ChatEntry = (props) => {
   const heartOrNot = props.liked ? filledHeart : emptyHeart;
 
   return (
-    <div className={props.sender === 'Estragon' ? 'remote' : 'local'}>
+    <div className="chat-entry">
+      {props.sender === 'Estragon' ? 'remote' : 'local'}
       <h2 className="entry-name"> {props.sender}</h2>
       <section className="chat-entry entry-bubble">
         .<p className="chat-entry ">{props.body}</p>.
-        <p className="chat-entry entry-time">{props.timeStamp}</p>
+        <p className="entry-time">{props.timeStamp}</p>
         <button className="like" onClick={heartOrNot}></button>
       </section>
     </div>
