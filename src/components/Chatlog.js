@@ -2,13 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
-// import ChatLog from './ChatLog';
-
-// import React from 'react';
-// import './Chatlog.css';
-// import PropTypes from 'prop-types';
-// import ChatEntry from './ChatEntry';
-// import timeStamp from './TimeStamp.js';
 
 const ChatLog = (props) => {
   const jsonMessages = props.entries.map((messages) => {
