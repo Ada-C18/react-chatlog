@@ -1,8 +1,12 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
-import timeStamp from './TimeStamp.js';
-import { messages } from './src/data';
+
+// import React from 'react';
+// import './ChatEntry.css';
+// import PropTypes from 'prop-types';
+// import timeStamp from './TimeStamp.js';
+// import { messages } from '../data/messages.json';
 
 const filledHeart = '❤️';
 const emptyHeart = '🤍';
