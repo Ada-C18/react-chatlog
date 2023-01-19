@@ -15,19 +15,18 @@ const emptyHeart = '🤍';
 const ChatEntry = (props) => {
   const heartOrNot = props.liked ? filledHeart : emptyHeart;
   const className = props.sender === 'Estragon' ? 'remote' : 'local';
-  const [hearted, setHearts] = useState(props.liked);
+  // const [hearted, setHearts] = useState(props.liked);
 
-  const handleClick = () => {
-    setHearts(!hearted);
+  const handleClick = (id) => {
+    props.handleLike(id);
   };
-
   return (
     <div className={`chat-entry ${className}`}>
       <h2 className="entry-name"> {props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button className="like" onClick={handleClick}>
+        <button className="like" onClick={() => handleClick(props.id)}>
           {heartOrNot}
         </button>
       </section>

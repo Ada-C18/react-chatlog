@@ -13,6 +13,7 @@ const ChatLog = (props) => {
         timeStamp={messages.timeStamp}
         liked={messages.liked}
         key={messages.key}
+        handleLike={props.setchatJson}
       ></ChatEntry>
     );
   });
