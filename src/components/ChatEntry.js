@@ -27,8 +27,9 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button className="like" onClick={handleClick}></button>
-        {heartOrNot}
+        <button className="like" onClick={handleClick}>
+          {heartOrNot}
+        </button>
       </section>
     </div>
   );
