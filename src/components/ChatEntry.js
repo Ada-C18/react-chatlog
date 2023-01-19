@@ -1,6 +1,7 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 // import React from 'react';
 // import './ChatEntry.css';
@@ -13,15 +14,21 @@ const emptyHeart = '🤍';
 
 const ChatEntry = (props) => {
   const heartOrNot = props.liked ? filledHeart : emptyHeart;
+  const className = props.sender === 'Estragon' ? 'remote' : 'local';
+  const [hearted, setHearts] = useState(props.liked);
+
+  const handleClick = () => {
+    setHearts(!hearted);
+  };
 
   return (
-    <div className="chat-entry">
-      {props.sender === 'Estragon' ? 'remote' : 'local'}
+    <div className={`chat-entry ${className}`}>
       <h2 className="entry-name"> {props.sender}</h2>
-      <section className="chat-entry entry-bubble">
-        .<p className="chat-entry ">{props.body}</p>.
+      <section className="entry-bubble">
+        <p>{props.body}</p>
         <p className="entry-time">{props.timeStamp}</p>
-        <button className="like" onClick={heartOrNot}></button>
+        <button className="like" onClick={handleClick}></button>
+        {heartOrNot}
       </section>
     </div>
   );
@@ -36,3 +43,19 @@ ChatEntry.propTypes = {
 };
 
 export default ChatEntry;
+
+// const ChatEntry = (props) => {
+//   const heartOrNot = props.liked ? filledHeart : emptyHeart;
+
+//   return (
+//     <div className="chat-entry">
+//       {props.sender === 'Estragon' ? 'remote' : 'local'}
+//       <h2 className="entry-name"> {props.sender}</h2>
+//       <section className="chat-entry entry-bubble">
+//         .<p className="chat-entry ">{props.body}</p>.
+//         <p className="entry-time">{props.timeStamp}</p>
+//         <button className="like" onClick={heartOrNot}></button>
+//       </section>
+//     </div>
+//   );
+// };
