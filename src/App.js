@@ -4,11 +4,6 @@ import { useState } from 'react';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/Chatlog';
 
-// import ChatEntry from './components/ChatEntry.js';
-// import TimeStamp from './components/TimeStamp.js';
-// import { useState } from 'react';
-// import messages from './data/messages.json';
-
 const App = () => {
   const [chatJson, setchatJson] = useState(chatMessages);
 
