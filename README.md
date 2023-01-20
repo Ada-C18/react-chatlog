@@ -33,4 +33,3 @@ Follow your curiosity to learn more about front-end testing:
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 
-
