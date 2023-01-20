@@ -49,6 +49,10 @@
   display: inline-block
 }
 
+li {
+    list-style-type: none;
+}
+
 .red {
   color: #b22222
 }

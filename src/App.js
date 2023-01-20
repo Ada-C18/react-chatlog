@@ -4,27 +4,54 @@ import chatMessages from './data/messages.json';
 import './App.css';
 
 const App = () => {
-  const [messageData, setMessageData] = useState([]);
+
+  const [chatEntryData, setChatEntryData] = useState([
+    {
+    id: 0,
+    sender: '',
+    body: '',
+    timeStamp: '',
+    liked: false
+    }
+  ]);
 
   useEffect(() => {
-    setMessageData(chatMessages);    
+    setChatEntryData(chatMessages);
   }, []);
+  
+  const [likesCount, setLikesCount] = useState(0);
 
-  const entries = messageData.slice(0);
+  const updateChatEntryData = updatedEntry => {
+    const updatedEntries = chatEntryData.map(entry => {
+      if (entry.id === updatedEntry.id) {
+        if (updatedEntry.liked === true) {
+          setLikesCount((likesCount) => likesCount + 1);
+          return updatedEntry;
+        } else {
+          setLikesCount((likesCount) => likesCount - 1);
+          return updatedEntry;
+        }
+      } else {
+        return entry;
+      }});
+      setChatEntryData(updatedEntries);
+    };
 
   return (
     <div id="App">
       <header>
         <h1>Rockin' React Chat Log!</h1>
+        <h2>{likesCount} ❤️</h2>
       </header>
       <main>
         <div className="messageContainer">
-          <div className="fullChatLog">
-            <li>
+          <div>
+            <ul>
               <ChatLog
-                entries={entries}
+                entries={chatEntryData}
+                onUpdateLikes={updateChatEntryData}
               ></ChatLog>
-            </li>
+            </ul>
           </div>
         </div>
       </main>

@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from 'react';
 import ChatEntry from '../components/ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
-  const chatLog = props.entries.map((entry, index) => {
+
+  const fullChatLog = props.entries.map((entry, index) => {
     return (
-      <ol key={index}>
+      <li key={index}>
         <ChatEntry
-          entry={entry}
+          id={entry.id}
+          sender={entry.sender}
+          body={entry.body}
+          timeStamp={entry.timeStamp}
+          liked={entry.liked}
+          onHandleLikes={props.onUpdateLikes}
         ></ChatEntry>
-      </ol> 
+      </li> 
       )
     });
+
   return (
-    chatLog
-  );
+    <div className="fullChatLog">
+      {fullChatLog}
+    </div>
+  )
 };
 
 ChatLog.propTypes = {
@@ -23,8 +31,9 @@ ChatLog.propTypes = {
     sender: PropTypes.string,
     body: PropTypes.string,
     timeStamp: PropTypes.string,
-    // liked: PropTypes.bool
+    liked: PropTypes.bool
   })),
+  onUpdateLikes: PropTypes.func
 };
 
 export default ChatLog;
