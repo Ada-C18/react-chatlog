@@ -159,33 +159,33 @@
     "body":"so you are a robot",
     "timeStamp":"2018-05-29T23:13:31+00:00",
     "liked": false
-  },
-  {
+},
+{
     "id": 24,
     "sender":"Estragon",
     "body":"NO, I am a human, you are a robot.",
     "timeStamp":"2018-05-29T23:14:28+00:00",
     "liked": false
-  },
-  {
+},
+{
     "id": 25,
     "sender":"Vladimir",
     "body":"but you just said that you are robots",
     "timeStamp":"2018-05-29T23:15:47+00:00",
     "liked": false
-  },
-  {
+},
+{
     "id": 26,
     "sender":"Estragon",
     "body":"No, I said you are a person, I am a robot.",
     "timeStamp":"2018-05-29T23:16:53+00:00",
     "liked": false
-  },
-  {
+},
+{
     "id": 27,
     "sender":"Vladimir",
     "body":"then you are lying",
     "timeStamp":"2018-05-29T23:17:34+00:00",
     "liked": false
-  }
+}
 ]
