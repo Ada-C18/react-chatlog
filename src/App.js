@@ -12,6 +12,8 @@ const App = () => {
     setMessageData(messageData =>
     messageData.map(message => {
       if (message.id === id) {
+        const button = document.querySelectorAll('button.like')[id-1]
+        button.innerHTML = message.liked ? '🤍' : '❤️'
         return {...message, liked: !message.liked}
       } else {
         return message;
