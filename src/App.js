@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { useState } from 'react';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
@@ -10,22 +9,31 @@ const App = () => {
   const [messageData,setMessageData] = useState(chatMessages)
   
   const likeMessage = (id) => {
-    setMessageData = messageData => messageData.map(message => {
-      if(message.id === id) {
-        return {...message, liked: message.liked === true}
+    setMessageData(messageData =>
+    messageData.map(message => {
+      if (message.id === id) {
+        return {...message, liked: !message.liked}
       } else {
         return message;
-      };
-    });
-  };
+      }
+    }))
+}
+  const countLikes = (messageData) => {
+    return messageData.reduce((total,message) =>{
+      return total + (message.liked ? 1 : 0);
+    }, 0
+    )
+  }
+  const likesCount = `${countLikes(messageData)} ❤️s`
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat Log</h1>
+        <h2>{likesCount}</h2>
       </header>
       <main>
         <ChatLog 
-        entries={chatMessages} 
+        entries={messageData} 
         onLikeMessage={likeMessage}></ChatLog>
       </main>
     </div>
