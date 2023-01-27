@@ -16,7 +16,7 @@ const time_difference = (posted) => {
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
   const [isliked, setLiked] = useState(liked);
-  const likedOrNot = isliked ? '&#xe022' : '🤍';
+  const likedOrNot = isliked ? '❤️' : '🤍';
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>
@@ -24,7 +24,7 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
         <p>{body}</p>
         <p className="entry-time">{time_difference(timeStamp)}</p>
         <button className="like" onClick={() => setLiked(!isliked)}>
-          ${likedOrNot}
+          {likedOrNot}
         </button>
       </section>
     </div>
