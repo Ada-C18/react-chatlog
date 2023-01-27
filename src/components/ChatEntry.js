@@ -14,7 +14,7 @@ const time_difference = (posted) => {
     : `${difference.getDate() - 1} days ago`;
 };
 
-const ChatEntry = ({ id, sender, body, timeStamp }) => {
+const ChatEntry = ({ id, sender, body, timeStamp, liked }) => {
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>
