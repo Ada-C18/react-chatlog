@@ -5,6 +5,7 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const [isClicked, setIsClicked] = useState('🤍');
+  const [liked, setLiked]= useState(props.liked); 
   const toggleClicked =() => {
     if (isClicked === '🤍'){
       setIsClicked('❤️');
@@ -13,7 +14,14 @@ const ChatEntry = (props) => {
       setIsClicked('🤍');
       props.updateLikes(false)
     }
-      
+  }
+  const isLiked = (liked) => {
+    if (props.liked){
+      setLiked(true)
+    }else{
+      setLiked(false)
+    }
+  
   }
 
   return (
@@ -22,7 +30,9 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"> <TimeStamp time={props.timeStamp}/> </p>
-        <button className="like" onClick={toggleClicked} >{isClicked}</button>
+        {/* <button className="like" onClick={toggleClicked} >{isClicked}</button> */}
+        <button className="like" onClick={ ()=>{toggleClicked();isLiked()}} >{isClicked}</button>
+    
       </section>
     </div>
   );
