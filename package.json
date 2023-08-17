@@ -1,7 +1,7 @@
 {
   "name": "react-chatlog",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "./node_modules/.bin/babel src -d lib",
     "test": "jest"
   },
   "version": "0.1.0",
