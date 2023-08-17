@@ -1,9 +1,5 @@
 {
   "name": "react-chatlog",
-  "scripts": {
-    "build": "./node_modules/.bin/babel src -d lib",
-    "test": "jest"
-  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +10,12 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "luxon": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
