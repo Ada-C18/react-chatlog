@@ -1,19 +1,43 @@
-import React from 'react';
 import './App.css';
 import chatMessages from './data/messages.json';
+import ChatLog from './components/ChatLog';
+import React, { useState } from 'react';
 
 const App = () => {
-  return (
-    <div id="App">
-      <header>
-        <h1>Application title</h1>
-      </header>
-      <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-      </main>
-    </div>
-  );
+  const [entries, setEntries] = useState(chatMessages);
+  const likeEntry = (id) => {
+    setEntries((entries) => {
+      return entries.map((entry) => {
+        if (entry.id === id) {
+          return {
+            ...entry,
+            liked: !entry.liked,
+          };
+        } else {
+          return entry;
+        }
+      });
+    });
+  };
+  const calcTotalLikes = (entries) => {
+    return entries.reduce((total, entry) => {
+      return total + entry.liked;
+    }, 0);
+  };
+  const totalLikes = calcTotalLikes(entries);
+  
+return (
+<div id="App">
+  <header>
+    <h1>Chat Log</h1>
+    <h2> {totalLikes} ❤️s </h2>
+  </header>
+  <main>
+    <ChatLog entries={entries} onLikeEntry={likeEntry}/>
+  </main>
+</div>
+);
 };
 
 export default App;
+
